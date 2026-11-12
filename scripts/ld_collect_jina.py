@@ -211,22 +211,58 @@ VIDEO_KW = ["剧", "电影", "动漫", "综艺", "纪录片", "4K", "HDR", "中�
             "画质", "高码", "臻享", "合集", "全合集"]
 BOOK_KW = ["电子书", "PDF", "书籍", "epub", "mobi", "azw3", "文档合集", "资料包"]
 
+# 纯编程教学类（野哥 11-13 01:46：纯教编程的不要，儿童编程也不要——
+# 等孩子能看的时候语言早换了。但 AI 应用类不算编程，要留）
+PROGRAMMING_KW = ["Java", "Python", "JavaScript", "TypeScript", "React", "Vue", "Angular",
+                  "Node.js", "Nodejs", "Golang", " Go ", "Rust", "C++", "C语言", "PHP",
+                  "前端", "后端", "全栈", "算法", "数据结构", "数据库", "MySQL", "Redis",
+                  "微服务", "架构师", "源代码", "源码解析", "设计模式", "编程",
+                  "爬虫", "自动化测试", "运维工程师", "Linux运维", "Docker", "Kubernetes",
+                  "K8s", "Spring", "Django", "Flask", "Vue3", "React18", "Next.js",
+                  "NestJS", "Web前端", "小程序开发", "安卓开发", "iOS开发", "鸿蒙开发",
+                  "少儿编程", "Scratch", "Python编程", "信息学奥赛", "NOIP", "CSP"]
+# 这些词出现时不算纯编程（AI 应用、工具使用类）
+NOT_PURE_PROG = ["AI视频", "AI绘画", "AI写作", "AI剪辑", "数字人", "提示词", "Prompt",
+                 "AI创作", "AI短剧", "AI漫剧", "AI配音", "AI换脸", "AI写真", "AI绘图"]
+
+# 硬编程信号：出现语言/框架名，且带教学词 → 一定是编程课
+LANG_NAMES = ["Python", "Java", "JavaScript", "TypeScript", "Golang", "Rust", "C++",
+              "PHP", "React", "Vue", "Angular", "Node.js", "Nodejs", "Spring",
+              "Django", "Flask", "Next.js", "NestJS", "Kubernetes", "K8s", "Docker"]
+TEACH_WORDS = ["课", "教程", "训练营", "实战", "系统班", "精通", "入门", "进阶",
+               "从0到1", "从零", "开发", "全栈", "工程师", "学习"]
+
+def is_pure_programming(title):
+    """判断是否是纯编程教学。
+    规则：① 有语言名 + 教学词 → 编程；② 命中编程关键词且不含 AI 应用词 → 编程。"""
+    has_lang = any(k in title for k in LANG_NAMES)
+    has_teach = any(k in title for k in TEACH_WORDS)
+    if has_lang and has_teach:
+        return True
+    if any(k in title for k in NOT_PURE_PROG):
+        return False
+    return any(k in title for k in PROGRAMMING_KW)
+
+
 def classify(title):
-    """返回 (分类, 优先级)。优先级数字越小越靠前。"""
+    """返回 (分类, 优先级)。优先级数字越小越靠前。
+    纯编程类排最后（野哥说不要），但仍然收，由他复核。"""
     t = title
+    if is_pure_programming(t):
+        return "纯编程(可忽略)", 9
     if any(k in t for k in COURSE_KW):
         return "课程/教程", 1
     if any(k in t for k in SOFT_KW):
         return "软件/工具", 2
     if any(k in t for k in VIDEO_KW):
-        return "影视/动漫", 3
+        return "影视/动漫", 5
     if any(k in t for k in BOOK_KW):
-        return "书籍/资料", 4
+        return "书籍/资料", 3
     return "其他资源", 5
 
 
 # 分类显示顺序
-COURIER_ORDER = ["课程/教程", "软件/工具", "影视/动漫", "书籍/资料", "其他资源"]
+COURIER_ORDER = ["课程/教程", "软件/工具", "书籍/资料", "其他资源", "影视/动漫", "纯编程(可忽略)"]
 
 
 def load_seen():
