@@ -2,17 +2,15 @@ name: linux.do 云资源收集
 
 on:
   schedule:
+    # 每 6 小时一轮（UTC；北京时间 = UTC+8）
+    # 02:17 / 08:17 / 14:17 / 20:17 UTC = 北京 10:17 / 16:17 / 22:17 / 04:17
     - cron: '17 2,8,14,20 * * *'
   workflow_dispatch:
     inputs:
-      mode:
-        description: 'normal 或 backfill'
+      max_topics:
+        description: '最多处理多少帖（默认 30）'
         required: false
-        default: 'normal'
-      backfill_from:
-        description: 'backfill 起点（北京时间）'
-        required: false
-        default: '2026-11-07 04:53'
+        default: '30'
 
 permissions:
   contents: read
@@ -20,7 +18,7 @@ permissions:
 jobs:
   collect:
     runs-on: ubuntu-latest
-    timeout-minutes: 110   # 退避重试最多 5+10+15+20=50 分钟，加上正常抓取
+    timeout-minutes: 30
     steps:
       - name: 取代码
         uses: actions/checkout@v4
@@ -33,24 +31,24 @@ jobs:
           restore-keys: |
             ld-seen-
 
-      - name: 跑采集
+      - name: 跑采集（经 Jina 中转）
         env:
           LD_OUT_DIR: out
           LD_STATE_DIR: state
-          LD_BACKFILL_FROM: ${{ github.event.inputs.backfill_from || '2026-11-07 04:53' }}
+          LD_MAX_TOPICS: ${{ github.event.inputs.max_topics || '30' }}
+          LD_TOPIC_DELAY: '3'
         run: |
-          MODE="${{ github.event.inputs.mode || 'normal' }}"
-          echo "模式: $MODE"
-          python3 scripts/ld_collect_gh.py "$MODE"
+          echo "最多处理: $LD_MAX_TOPICS 帖"
+          python3 scripts/ld_collect_jina.py
 
       - name: 显示结果摘要
         run: |
           echo "=== 产物 ==="
           ls -lh out/
-          echo "=== 报告前 30 行 ==="
-          head -30 out/ld_report.md || true
+          echo "=== 报告 ==="
+          head -40 out/ld_report.md || true
 
-      - name: 上传结果（7 天过期）
+      - name: 上传结果（artifact，7 天后自动过期）
         uses: actions/upload-artifact@v4
         with:
           name: ld-result-${{ github.run_number }}
@@ -58,7 +56,7 @@ jobs:
           retention-days: 7
           if-no-files-found: warn
 
-      - name: 保存去重库
+      - name: 保存去重库（供下轮恢复）
         uses: actions/cache/save@v4
         if: always()
         with:
