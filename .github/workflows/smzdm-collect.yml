@@ -1,0 +1,64 @@
+name: 值得买好价采集
+
+on:
+  schedule:
+    # 白天每 30 分钟一次（UTC 0-15 点 = 北京 8-23 点），夜里每 2 小时
+    # GitHub 免费 runner 排队有延迟，实测能接受
+    - cron: '0,30 0-15 * * *'
+    - cron: '0 16,18,20,22 * * *'
+  workflow_dispatch:
+    inputs:
+      max_page:
+        description: '每个源抓几页（默认 3）'
+        required: false
+        default: '3'
+
+permissions:
+  contents: read
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: 取代码
+        uses: actions/checkout@v4
+
+      - name: 恢复去重库缓存
+        uses: actions/cache@v4
+        with:
+          path: state
+          key: szd-seen-${{ github.run_id }}
+          restore-keys: |
+            szd-seen-
+
+      - name: 跑采集
+        env:
+          SZD_OUT_DIR: out
+          SZD_STATE_DIR: state
+          SZD_MAX_PAGE: ${{ github.event.inputs.max_page || '3' }}
+        run: |
+          echo "每源页数: $SZD_MAX_PAGE"
+          python3 scripts/smzdm_collect_gh.py
+
+      - name: 显示结果摘要
+        run: |
+          echo "=== 产物 ==="
+          ls -lh out/
+          echo "=== 报告 ==="
+          head -40 out/smzdm_report.md || true
+
+      - name: 上传结果（7 天过期）
+        uses: actions/upload-artifact@v4
+        with:
+          name: smzdm-result-${{ github.run_number }}
+          path: out/
+          retention-days: 7
+          if-no-files-found: warn
+
+      - name: 保存去重库
+        uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: state
+          key: szd-seen-${{ github.run_id }}
