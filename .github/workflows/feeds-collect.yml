@@ -1,0 +1,45 @@
+name: 多源福利 feed
+
+on:
+  schedule:
+    # 每 2 小时一轮（UTC；北京 = UTC+8）
+    - cron: '7 0,2,4,6,8,10,12,14,16,18,20,22 * * *'
+  workflow_dispatch:
+    inputs:
+      max_items:
+        description: '每个源最多取几条（默认 20）'
+        required: false
+        default: '20'
+
+permissions:
+  contents: read
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: 取代码
+        uses: actions/checkout@v4
+
+      - name: 跑采集
+        env:
+          FD_OUT_DIR: out
+          FD_MAX_ITEMS: ${{ github.event.inputs.max_items || '20' }}
+          FD_DELAY: '2'
+        run: |
+          echo "每源上限: $FD_MAX_ITEMS"
+          python3 scripts/feeds_collect_gh.py
+
+      - name: 显示结果摘要
+        run: |
+          ls -lh out/
+          head -50 out/feeds_report.md || true
+
+      - name: 上传结果（7 天过期）
+        uses: actions/upload-artifact@v4
+        with:
+          name: feeds-result-${{ github.run_number }}
+          path: out/
+          retention-days: 7
+          if-no-files-found: warn
