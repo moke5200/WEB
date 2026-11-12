@@ -86,6 +86,23 @@ def http_get(url, timeout=60, retries=2):
     return last
 
 
+def fetch_pages(path, timeout=60):
+    """按约定的优先级取页面：直连优先，被 Cloudflare 拦（403/429/503）才走 Jina。
+    path 形如 'https://linux.do/c/resource/cloud-asset/94.rss'。
+    返回 (status, text, via)，via 是 'direct' 或 'jina'。"""
+    st, body = http_get(path, timeout=timeout)
+    ok = st == 200 and len(body) > 500
+    if ok and "linux.do/t/topic/" in body:
+        return st, body, "direct"
+    if ok and ("post by" in body or "URL Source:" in body):
+        return st, body, "direct"
+    # 直连不通 → 走 Jina
+    jst, jbody = http_get(JINA + path, timeout=max(timeout, 90))
+    if jst == 200:
+        return jst, jbody, "jina"
+    return jst, jbody, "jina-failed"
+
+
 def to_bj(rfc822):
     """RFC822 时间 → 北京时间字符串。例：Thu, 12 Nov 2026 14:43:11 +0000 → 2026-11-12 22:43"""
     t = " ".join(rfc822.split())
@@ -190,8 +207,8 @@ def main():
     print(f"[init] 已收网盘ID {len(seen)}", flush=True)
 
     # 1) 列表
-    print(f"[1/3] 取列表（经 Jina）", flush=True)
-    status, md = http_get(JINA + RSS, timeout=90)
+    print(f"[1/3] 取列表", flush=True)
+    status, md, via = fetch_pages(RSS, timeout=90)
     if status != 200 or "linux.do/t/topic/" not in md:
         print(f"  列表获取失败 http={status} 长度={len(md)}", flush=True)
         print(f"  片段: {' '.join(md.split())[:150]}", flush=True)
@@ -215,8 +232,8 @@ def main():
         if consec >= CONSEC_FAIL_LIMIT:
             print(f"  连续失败 {consec} 次，提前收尾", flush=True)
             break
-        st, tmd = http_get(JINA + it["url"], timeout=90)
-        if st != 200 or "post by" not in tmd:
+        st, tmd, _via = fetch_pages(it["url"], timeout=90)
+        if st != 200 or ("post by" not in tmd and "URL Source:" not in tmd):
             consec += 1
             skipped.append({"title": it["title"], "why": f"单帖抓取失败 http={st}"})
             print(f"  [{i}/{len(rows)}] 失败 {it['title'][:26]} http={st}", flush=True)
