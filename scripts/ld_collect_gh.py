@@ -26,9 +26,18 @@ os.makedirs(OUT_DIR, exist_ok=True)
 os.makedirs(STATE_DIR, exist_ok=True)
 
 def curl(url, timeout=30):
-    r = subprocess.run(["curl", "-sS", "-L", "--max-time", str(timeout), "-A", UA, url],
+    """返回 (exit_code, body, http_code)。http_code 用于诊断是被挡还是别的错。"""
+    r = subprocess.run(["curl", "-sS", "-L", "--max-time", str(timeout), "-A", UA,
+                        "-w", "\n__HTTP_CODE__%{http_code}", url],
                        capture_output=True)
-    return r.returncode, r.stdout
+    out = r.stdout
+    code = ""
+    marker = b"\n__HTTP_CODE__"
+    idx = out.rfind(marker)
+    if idx >= 0:
+        code = out[idx + len(marker):].decode("ascii", "replace").strip()
+        out = out[:idx]
+    return r.returncode, out, code
 
 def to_bj(utc_str):
     try:
@@ -57,7 +66,7 @@ def clean_body(cooked):
 
 def fetch_topic(tid, retries=2):
     for attempt in range(retries + 1):
-        code, raw = curl(f"https://linux.do/t/topic/{tid}.json")
+        rc, raw, hc = curl(f"https://linux.do/t/topic/{tid}.json")
         if raw.strip().startswith(b"{"):
             try: return json.loads(raw.decode("utf-8", "replace"))
             except Exception: pass
@@ -120,10 +129,11 @@ def main():
     lst, seen_ids = [], set()
     for pg in pages:
         u = f"{RSS}?page={pg}"
-        code, raw = curl(u)
+        rc, raw, hc = curl(u)
         xml = raw.decode("utf-8", "replace")
         if "<item>" not in xml:
-            print(f"  page {pg}: 空/限流，跳过", flush=True)
+            snippet = " ".join(xml.split())[:120]
+            print(f"  page {pg}: 空/取材失败 http={hc} bytes={len(raw)} 片段={snippet}", flush=True)
             time.sleep(12); continue
         rows = parse_rss(xml)
         if mode == "backfill":
