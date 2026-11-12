@@ -39,6 +39,28 @@ def curl(url, timeout=30):
         out = out[:idx]
     return r.returncode, out, code
 
+# 遇到 429 时的退避间隔（分钟），野哥 11-12 21:10 指定
+RETRY_DELAYS_MIN = [5, 10, 15, 20]
+
+def now_str():
+    return datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8))).strftime("%H:%M:%S")
+
+def fetch_with_backoff(url, timeout=30, label=""):
+    """抓一个 URL。遇 429 按 RETRY_DELAYS_MIN 依次等待重试；其他情况立即返回。
+    返回 (returncode, body, http_code)。"""
+    rc, body, hc = curl(url, timeout)
+    if hc != "429":
+        return rc, body, hc
+    for i, wait_min in enumerate(RETRY_DELAYS_MIN):
+        print(f"  [{now_str()}] {label} 429 限流，等 {wait_min} 分钟后重试 ({i+1}/{len(RETRY_DELAYS_MIN)})", flush=True)
+        time.sleep(wait_min * 60)
+        rc, body, hc = curl(url, timeout)
+        print(f"  [{now_str()}] {label} 重试结果 http={hc} bytes={len(body)}", flush=True)
+        if hc != "429":
+            return rc, body, hc
+    print(f"  [{now_str()}] {label} 429 已达最大重试次数，放弃本轮", flush=True)
+    return rc, body, hc
+
 def to_bj(utc_str):
     try:
         d = datetime.datetime.strptime(utc_str[:19], "%Y-%m-%dT%H:%M:%S")
@@ -66,7 +88,7 @@ def clean_body(cooked):
 
 def fetch_topic(tid, retries=2):
     for attempt in range(retries + 1):
-        rc, raw, hc = curl(f"https://linux.do/t/topic/{tid}.json")
+        rc, raw, hc = fetch_with_backoff(f"https://linux.do/t/topic/{tid}.json", label=f"topic {tid}")
         if raw.strip().startswith(b"{"):
             try: return json.loads(raw.decode("utf-8", "replace"))
             except Exception: pass
@@ -129,7 +151,7 @@ def main():
     lst, seen_ids = [], set()
     for pg in pages:
         u = f"{RSS}?page={pg}"
-        rc, raw, hc = curl(u)
+        rc, raw, hc = fetch_with_backoff(u, label=f"page {pg}")
         xml = raw.decode("utf-8", "replace")
         if "<item>" not in xml:
             snippet = " ".join(xml.split())[:120]
