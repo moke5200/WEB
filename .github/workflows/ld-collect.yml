@@ -20,7 +20,7 @@ permissions:
 jobs:
   collect:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 110   # 退避重试最多 5+10+15+20=50 分钟，加上正常抓取
     steps:
       - name: 取代码
         uses: actions/checkout@v4
