@@ -53,7 +53,7 @@ OUT_JSON = os.path.join(OUT_DIR, "ld_deals.json")
 OUT_MD = os.path.join(OUT_DIR, "ld_report.md")
 SEEN_FILE = os.path.join(STATE_DIR, ".ld_seen.json")
 TOPIC_DELAY = float(os.environ.get("LD_TOPIC_DELAY", "4"))   # Jina 免费档 20 RPM，4 秒留余量   # 每帖间隔秒
-MAX_TOPICS = int(os.environ.get("LD_MAX_TOPICS", "30"))
+MAX_TOPICS = int(os.environ.get("LD_MAX_TOPICS", "50"))   # 野哥要全量，放宽到 50
 CONSEC_FAIL_LIMIT = 4
 
 os.makedirs(OUT_DIR, exist_ok=True)
