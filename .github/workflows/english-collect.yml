@@ -1,0 +1,37 @@
+﻿name: 英文技术源（每日）
+
+on:
+  schedule:
+    # 每天一次：UTC 22:00 = 北京 06:00
+    - cron: '0 22 * * *'
+  workflow_dispatch:
+    inputs:
+      max_items:
+        description: '每源最多取几条（默认 15）'
+        required: false
+        default: '15'
+
+permissions:
+  contents: read
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: 采集英文源
+        env:
+          EN_OUT_DIR: out
+          EN_MAX_ITEMS: ${{ github.event.inputs.max_items || '15' }}
+          EN_DELAY: '2'
+        run: python3 scripts/english_collect_gh.py
+      - name: 显示摘要
+        run: |
+          ls -lh out/
+          head -40 out/english_report.md || true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: english-${{ github.run_number }}
+          path: out/
+          retention-days: 7
