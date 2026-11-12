@@ -37,13 +37,30 @@ SOURCES = [
 ]
 
 # 与「提高效率」无关的标题特征（野哥 11-13：要好用的东西，不是资讯/游记）
+# 野哥 11-13 02:10：先都搞下来，他慢慢告诉我哪些没兴趣，再逐步提高筛选准确性。
+# 所以这里默认不过滤，只保留结构。等他反馈后再往里加关键词。
 OFFTOPIC = {
-    "sspai": ["城市漫步", "游记", "派早报", "社区速递", "圆满落幕", "报名人数",
-              "购物清单", "年度征文", "聊聊", "观后感", "影评", "食记"],
+    # "sspai": ["城市漫步", "游记", ...],   ← 暂时全放开
 }
 
 def is_offtopic(sid, title):
     return any(k in title for k in OFFTOPIC.get(sid, []))
+
+# 内容性质标记（不做过滤，只标注，方便野哥快速扫读）
+TAG_RULES = [
+    ("工具/软件", ["工具", "软件", "App", "插件", "客户端", "脚本", "开源", "下载"]),
+    ("教程/方法", ["教程", "指南", "怎么", "如何", "技巧", "方法", "实践", "折腾"]),
+    ("羊毛/优惠", ["免费", "限免", "优惠", "折扣", "羊毛", "领", "送", "额度", "公益"]),
+    ("资讯/新闻", ["早报", "日报", "周报", "发布", "宣布", "上线", "更新", "泄露"]),
+]
+
+def tag_of(title, desc=""):
+    t = title + " " + desc
+    for name, kws in TAG_RULES:
+        if any(k in t for k in kws):
+            return name
+    return "其他"
+
 
 os.makedirs(OUT_DIR, exist_ok=True)
 
@@ -165,7 +182,8 @@ def main():
             lines.append("")
         if items:
             for it in items:
-                lines.append(f"### {it['title']}")
+                tag = tag_of(it["title"], it.get("desc", ""))
+                lines.append(f"### [{tag}] {it['title']}")
                 if it.get("time"):
                     lines.append(f"- 时间：{it['time']}")
                 if it.get("desc"):
