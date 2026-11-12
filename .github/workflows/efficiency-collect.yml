@@ -1,0 +1,38 @@
+﻿name: 效率向信息
+
+on:
+  schedule:
+    # 每 3 小时一轮（UTC；北京 = UTC+8）
+    # 这几个源更新慢，不必太频繁
+    - cron: '23 0,3,6,9,12,15,18,21 * * *'
+  workflow_dispatch:
+    inputs:
+      max_items:
+        description: '每源最多取几条（默认 15）'
+        required: false
+        default: '15'
+
+permissions:
+  contents: read
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: 采集
+        env:
+          EF_OUT_DIR: out
+          EF_MAX_ITEMS: ${{ github.event.inputs.max_items || '15' }}
+          EF_DELAY: '2'
+        run: python3 scripts/efficiency_collect_gh.py
+      - name: 显示摘要
+        run: |
+          ls -lh out/
+          head -60 out/efficiency_report.md || true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: efficiency-${{ github.run_number }}
+          path: out/
+          retention-days: 7
