@@ -10,7 +10,7 @@ on:
       max_topics:
         description: '最多处理多少帖（默认 30）'
         required: false
-        default: '30'
+        default: '50'
 
 permissions:
   contents: read
@@ -35,7 +35,7 @@ jobs:
         env:
           LD_OUT_DIR: out
           LD_STATE_DIR: state
-          LD_MAX_TOPICS: ${{ github.event.inputs.max_topics || '30' }}
+          LD_MAX_TOPICS: ${{ github.event.inputs.max_topics || '50' }}
           LD_TOPIC_DELAY: '3'
         run: |
           echo "最多处理: $LD_MAX_TOPICS 帖"
