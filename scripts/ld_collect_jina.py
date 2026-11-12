@@ -193,6 +193,42 @@ def extract_tags(md):
     return tags
 
 
+# ============ 课程优先分类（野哥 11-13 02:10：要资源、课程优先）============
+# 目的：全量保留资源，但按「课程 > 教程 > 软件 > 影视 > 其他」排序，
+#       让他打开文件就先看到课程。
+COURSE_KW = ["课", "教程", "训练营", "实战", "系统班", "全集", "全套", "精讲",
+             "入门", "进阶", "从0到1", "从零", "速成", "系统课", "专栏", "讲座",
+             "特训", "集训", "大师课", "必修", "研修", "游学", "分享会",
+             # 补充（11-13 实测漏网）
+             "开发", "精通", "学习", "讲解", "指南", "方法论", "体系", "陪跑",
+             "第.期", "第.季", "V3.0", "Vol", "班", "营", "全套", "完整版"]
+SOFT_KW = ["软件", "工具", "插件", "脚本", "破解", "绿色版", "便携版", "安装包",
+           "播放器", "客户端", "编辑器", "管理器", "下载器", "转换器", "助手",
+           "V2", "v2", "官方版", "汉化版", "免安装"]
+VIDEO_KW = ["剧", "电影", "动漫", "综艺", "纪录片", "4K", "HDR", "中字", "中文字幕",
+            "更新至", "更至", "完结", "S0", "S1", "EP", "季", "全集", "蓝光",
+            "1080P", "2160P", "中英", "双语", "影视", "短剧", "漫剧", "国配",
+            "画质", "高码", "臻享", "合集", "全合集"]
+BOOK_KW = ["电子书", "PDF", "书籍", "epub", "mobi", "azw3", "文档合集", "资料包"]
+
+def classify(title):
+    """返回 (分类, 优先级)。优先级数字越小越靠前。"""
+    t = title
+    if any(k in t for k in COURSE_KW):
+        return "课程/教程", 1
+    if any(k in t for k in SOFT_KW):
+        return "软件/工具", 2
+    if any(k in t for k in VIDEO_KW):
+        return "影视/动漫", 3
+    if any(k in t for k in BOOK_KW):
+        return "书籍/资料", 4
+    return "其他资源", 5
+
+
+# 分类显示顺序
+COURIER_ORDER = ["课程/教程", "软件/工具", "影视/动漫", "书籍/资料", "其他资源"]
+
+
 def load_seen():
     if os.path.exists(SEEN_FILE):
         try:
@@ -257,9 +293,11 @@ def main():
                 skipped.append({"title": it["title"], "why": "资源链接已收(同资源)"})
             else:
                 seen.add(key)
+                cat_name, prio = classify(it["title"])
                 keep.append({"title": it["title"], "topic_url": it["url"],
                              "author": author, "created": to_bj(it["pub"]),
-                             "net_url": url, "net_type": ntype, "tags": tags})
+                             "net_url": url, "net_type": ntype, "tags": tags,
+                             "cat": cat_name, "prio": prio})
                 print(f"  [{i}/{len(rows)}] 收 {it['title'][:28]} | {ntype}", flush=True)
         time.sleep(TOPIC_DELAY)
 
@@ -272,9 +310,24 @@ def main():
               open(OUT_JSON, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     json.dump(sorted(seen), open(SEEN_FILE, "w", encoding="utf-8"), ensure_ascii=False)
 
-    lines = [f"# linux.do 云资源 · {ts}", ""]
+    # 按 分类优先级 → 发帖时间倒序 排列
+    ordered = sorted(keep, key=lambda x: (x["prio"], x["created"]), reverse=False)
+    ordered.sort(key=lambda x: x["prio"])
+
+    # 统计各分类数量
+    from collections import Counter
+    cnt = Counter(r["cat"] for r in keep)
+    summary = "、".join(f"{k} {v}" for k, v in sorted(cnt.items(), key=lambda x: COURIER_ORDER.index(x[0]) if x[0] in COURIER_ORDER else 99))
+
+    lines = [f"# linux.do 云资源 · {ts}", "",
+             f"本轮收 {len(keep)} 条｜{summary}", ""]
+
     if keep:
-        for r in sorted(keep, key=lambda x: x["created"]):
+        cur = None
+        for r in ordered:
+            if r["cat"] != cur:
+                cur = r["cat"]
+                lines += ["", f"========== {cur}（{cnt[cur]} 条）==========", ""]
             lines += [f"【标题】{r['title']}", f"链接：{r['topic_url']}",
                       f"资源链接：{r['net_url']}",
                       f"标签：{','.join(r['tags']) if r['tags'] else r['net_type']}",
