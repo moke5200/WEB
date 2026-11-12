@@ -7,6 +7,27 @@
   参考 luobinger/PerkRadar 的做法，改用 r.jina.ai 代理抓取：
   请求打到 Jina，由 Jina 取 linux.do 并转成 Markdown，绕开 IP 风控。
 
+抓取方式约定（野哥 11-12 23:16 拍板）
+=====================================
+优先级：能直连就直连，被挡才走 Jina。
+
+为什么这么定：
+  · 直连最快、最省事，且不把第三方纳入链路
+  · Jina 是外部代理，它的可用性不由我们控制（PerkRadar 文档同样标注此风险）
+  · 只有 Cloudflare 拦截时（实测 linux.do 直连持续 429），才改用 Jina 中转
+
+Jina 额度核算（官方 2026-11-12 查证）：
+  · 免费档：20 RPM（每分钟 20 次请求），平均延迟 7.9 秒
+  · 我们的用量：每 6 小时一轮，1 次列表 + 最多 30 次单帖 = 31 次
+  · 每天 4 轮 = 124 次；20 RPM 允许 28,800 次/天 → 占用约 0.4%
+  · 脚本内每帖间隔设 4 秒（而非 3 秒），确保不贴 20 RPM 上限
+  · 结论：不需要付费 Key，额度长期够用
+
+当前各源走法：
+  · linux.do   → Jina 中转（直连 429）
+  · smzdm      → 直连（正常）
+  · NodeSeek / 异次元 / Epic → 直连（正常，不占 Jina 额度）
+
 Jina 返回格式（实测）：
   列表页：### [标题](https://linux.do/t/topic/<id>)  换行  链接重复行  换行  RFC822 日期
   单帖页：Title / URL Source / Published Time，正文在 `post by <作者>` 之后，
@@ -31,7 +52,7 @@ STATE_DIR = os.environ.get("LD_STATE_DIR", "state")
 OUT_JSON = os.path.join(OUT_DIR, "ld_deals.json")
 OUT_MD = os.path.join(OUT_DIR, "ld_report.md")
 SEEN_FILE = os.path.join(STATE_DIR, ".ld_seen.json")
-TOPIC_DELAY = float(os.environ.get("LD_TOPIC_DELAY", "3"))   # 每帖间隔秒
+TOPIC_DELAY = float(os.environ.get("LD_TOPIC_DELAY", "4"))   # Jina 免费档 20 RPM，4 秒留余量   # 每帖间隔秒
 MAX_TOPICS = int(os.environ.get("LD_MAX_TOPICS", "30"))
 CONSEC_FAIL_LIMIT = 4
 
