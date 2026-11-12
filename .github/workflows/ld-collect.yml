@@ -1,0 +1,66 @@
+name: linux.do 云资源收集
+
+on:
+  schedule:
+    - cron: '17 2,8,14,20 * * *'
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'normal 或 backfill'
+        required: false
+        default: 'normal'
+      backfill_from:
+        description: 'backfill 起点（北京时间）'
+        required: false
+        default: '2026-11-07 04:53'
+
+permissions:
+  contents: read
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: 取代码
+        uses: actions/checkout@v4
+
+      - name: 恢复去重库缓存
+        uses: actions/cache@v4
+        with:
+          path: state
+          key: ld-seen-${{ github.run_id }}
+          restore-keys: |
+            ld-seen-
+
+      - name: 跑采集
+        env:
+          LD_OUT_DIR: out
+          LD_STATE_DIR: state
+          LD_BACKFILL_FROM: ${{ github.event.inputs.backfill_from || '2026-11-07 04:53' }}
+        run: |
+          MODE="${{ github.event.inputs.mode || 'normal' }}"
+          echo "模式: $MODE"
+          python3 scripts/ld_collect_gh.py "$MODE"
+
+      - name: 显示结果摘要
+        run: |
+          echo "=== 产物 ==="
+          ls -lh out/
+          echo "=== 报告前 30 行 ==="
+          head -30 out/ld_report.md || true
+
+      - name: 上传结果（7 天过期）
+        uses: actions/upload-artifact@v4
+        with:
+          name: ld-result-${{ github.run_number }}
+          path: out/
+          retention-days: 7
+          if-no-files-found: warn
+
+      - name: 保存去重库
+        uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: state
+          key: ld-seen-${{ github.run_id }}
