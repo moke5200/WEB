@@ -70,11 +70,55 @@ def item_key(item):
     return (item.get("url") or item.get("topic_url") or item.get("title") or "").strip()
 
 
+# 历史去重种子（仓库里的 data/dedup_seed.json）。
+# 野哥 11-14 02:18：「C 可以」——让 GitHub 采集自动查本地整理好的历史台账。
+# 本地台账推到仓库后，这里加载它作为「初始已见」，旧线报就不会再冒出来。
+DEDUP_SEED = os.environ.get("WM_DEDUP_SEED", "data/dedup_seed.json")
+
+
+def load_history_seed():
+    """返回历史条目的键集合（标题归一化 / URL / topic id）。"""
+    keys = set()
+    if not os.path.exists(DEDUP_SEED):
+        return keys, 0
+    try:
+        d = json.load(open(DEDUP_SEED, encoding="utf-8"))
+        for t in d.get("titles", []):
+            keys.add("t:" + t)
+        for u in d.get("urls", []):
+            keys.add(u.strip())
+        for i in d.get("topic_ids", []):
+            keys.add("topic:" + str(i))
+    except Exception as e:
+        print(f"[wm] 历史种子加载失败: {e}", flush=True)
+    return keys, len(keys)
+
+
+def norm_title(t):
+    return re.sub(r"\s+", "", re.sub(r"[\-—·|｜!！?？,，。:：\[\]【】()（）]", "", t)).lower()
+
+
+def item_keys(item):
+    """一条内容对应多个可能的键，任一命中历史即算重复。"""
+    out = set()
+    u = (item.get("url") or item.get("topic_url") or "").strip()
+    if u:
+        out.add(u)
+        m = re.search(r"/topic/(\d+)", u)
+        if m:
+            out.add("topic:" + m.group(1))
+    t = item.get("title", "").strip()
+    if t:
+        out.add("t:" + norm_title(t))
+    return out
+
+
 def load_seen(source_id):
     os.makedirs(STATE_DIR, exist_ok=True)
     path = os.path.join(STATE_DIR, f"{source_id}_seen.json")
     if not os.path.exists(path):
-        return set(), True  # (seen, is_first_run)
+        seed_keys, _ = load_history_seed()
+        return seed_keys, True  # 首轮基线 = 全部历史条目
     try:
         return set(json.load(open(path, encoding="utf-8"))), False
     except Exception:
@@ -104,24 +148,30 @@ def filter_new(source_id, items, time_field="time"):
     age_days = AGE_BY_SOURCE.get(source_id, MAX_AGE_DAYS_DEFAULT)
     cutoff = now_bj() - datetime.timedelta(days=age_days)
 
-    fresh, too_old = [], 0
+    fresh, too_old, hist_hit = [], 0, 0
     for it in items:
         t = parse_time(it.get(time_field, ""))
         if t and t < cutoff:
             too_old += 1
             continue
+        keys = item_keys(it)
         k = item_key(it)
-        if k and k not in seen:
+        # 任一键命中历史种子/已见库 → 重复
+        if keys & seen:
+            hist_hit += 1
+        else:
             fresh.append(it)
         if k:
             seen.add(k)
+        seen |= keys
 
     save_seen(source_id, seen, {"baseline": first, "too_old_dropped": too_old,
-                                "max_age_days": age_days})
+                                "history_hit": hist_hit, "max_age_days": age_days})
 
     if first:
         if BASELINE_SILENT:
             return [], f"首轮建基线：{len(seen)} 条记为已见，本轮不产出（避免旧文当新货）"
         return items, f"首轮建基线：{len(seen)} 条"
 
-    return fresh, f"新增 {len(fresh)} 条 / 本轮 {len(items)} 条 / 超龄丢弃 {too_old} 条 / 已见库 {len(seen)}"
+    return fresh, (f"新增 {len(fresh)} 条 / 本轮 {len(items)} 条 / 命中历史 {hist_hit} 条 / "
+                   f"超龄丢弃 {too_old} 条 / 已见库 {len(seen)}")
