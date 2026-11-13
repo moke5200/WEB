@@ -53,7 +53,10 @@ OUT_JSON = os.path.join(OUT_DIR, "ld_deals.json")
 OUT_MD = os.path.join(OUT_DIR, "ld_report.md")
 SEEN_FILE = os.path.join(STATE_DIR, ".ld_seen.json")
 TOPIC_DELAY = float(os.environ.get("LD_TOPIC_DELAY", "4"))   # Jina 免费档 20 RPM，4 秒留余量   # 每帖间隔秒
-MAX_TOPICS = int(os.environ.get("LD_MAX_TOPICS", "50"))   # 野哥要全量，放宽到 50
+MAX_TOPICS = int(os.environ.get("LD_MAX_TOPICS", "50"))
+# Muse 11-13 指出：RSS 一次只给 25 条，MAX_TOPICS=50 是虚的。
+# 实测 ?page=1/2/3 走 Jina 各返回不同 25 条 → 改成翻页补全。
+LIST_PAGES = int(os.environ.get("LD_LIST_PAGES", "2"))
 CONSEC_FAIL_LIMIT = 4
 
 os.makedirs(OUT_DIR, exist_ok=True)
@@ -184,10 +187,16 @@ def extract_nets(seg):
 
 
 def extract_tags(md):
-    """标签从 Related topics 那一段的 tag 链接里取（单帖页本身没标签）。"""
+    """只取【正文区】的标签。
+
+    Muse 11-13 纠正：tag 链接在正文区（Related topics 之前）就有，
+    扫全文不会漏收，但会把「相关帖」的标签混进来造成误收。
+    所以这里在 Related topics 处截断，只扫它之前的部分。
+    """
+    head = md.split("### Related topics", 1)[0]
     tags = []
     for m in re.finditer(r"\[(百度网盘|夸克网盘|迅雷网盘|影视|动漫|人工智能|软件|教程|电子书)\]"
-                         r"\(https://linux\.do/tag/", md):
+                         r"\(https://linux\.do/tag/", head):
         if m.group(1) not in tags:
             tags.append(m.group(1))
     return tags
@@ -278,18 +287,25 @@ def main():
     seen = load_seen()
     print(f"[init] 已收网盘ID {len(seen)}", flush=True)
 
-    # 1) 列表
-    print(f"[1/3] 取列表", flush=True)
-    status, md, via = fetch_pages(RSS, timeout=90)
-    if status != 200 or "linux.do/t/topic/" not in md:
-        print(f"  列表获取失败 http={status} 长度={len(md)}", flush=True)
-        print(f"  片段: {' '.join(md.split())[:150]}", flush=True)
-        _write_empty(status, md)
-        return
-    rows = parse_feed(md)
-    print(f"  列表 {len(rows)} 条", flush=True)
+    # 1) 列表（翻页：每页 25 条，实测 page=1/2/3 内容不同）
+    print(f"[1/3] 取列表（{LIST_PAGES} 页）", flush=True)
+    rows, seen_ids = [], set()
+    for pg in range(1, LIST_PAGES + 1):
+        purl = RSS if pg == 1 else f"{RSS}?page={pg}"
+        status, md, via = fetch_pages(purl, timeout=90)
+        if status != 200 or "linux.do/t/topic/" not in md:
+            print(f"  page {pg}: 失败 http={status} 长度={len(md)}", flush=True)
+            continue
+        got = parse_feed(md)
+        added = 0
+        for r in got:
+            if r["id"] not in seen_ids:
+                seen_ids.add(r["id"]); rows.append(r); added += 1
+        print(f"  page {pg}: 取到 {len(got)} 条，新增 {added} 条，累计 {len(rows)} 条", flush=True)
+        time.sleep(TOPIC_DELAY)
+    print(f"  列表合计 {len(rows)} 条", flush=True)
     if not rows:
-        _write_empty(status, md)
+        _write_empty(status, "")
         return
 
     rows = rows[:MAX_TOPICS]
