@@ -7,7 +7,7 @@
   2. 下载并解压到本地目录
   3. 按类型追加到长期存档（linux.do 卷 / 效率向日报）
 """
-import urllib.request, urllib.error, os, sys, json, zipfile, io, datetime, re
+import urllib.request, urllib.error, os, sys, json, zipfile, io, datetime, re, time
 
 LOCAL_DIR = r"F:\Program Files\DS Harness Space\测试薅羊毛 26-11-07"
 DATA_DIR = os.path.join(LOCAL_DIR, "_data")
@@ -28,24 +28,49 @@ class NoRedirect(urllib.request.HTTPRedirectHandler):
 OPENER = urllib.request.build_opener(NoRedirect)
 
 
-def api(path, raw=False):
+def api(path, raw=False, retries=3):
+    """GitHub API 调用：15s 超时，失败按 2/4/8s 退避重试。"""
     tok = token()
     req = urllib.request.Request(
         f"https://api.github.com/repos/{REPO}{path}",
         headers={"Authorization": "Bearer " + tok, "User-Agent": "fetch", "Accept": "application/vnd.github+json"})
-    r = urllib.request.urlopen(req, timeout=40)
-    return r.read() if raw else json.load(r)
+    last = None
+    for i in range(retries):
+        try:
+            r = urllib.request.urlopen(req, timeout=15)
+            return r.read() if raw else json.load(r)
+        except Exception as e:
+            last = e
+            if i < retries - 1:
+                print(f"  [api] 失败 {type(e).__name__}，{2**(i+1)}s 后重试 ({i+1}/{retries})", flush=True)
+                time.sleep(2 ** (i + 1))
+    raise last
 
 
-def download_artifact(url):
+def download_artifact(url, retries=3):
+    """下载 artifact：重定向 20s、内容 30s 超时，失败按 2/4/8s 退避重试。
+    整个 302→Azure Blob 链路作为一个整体重试，避免半截状态。"""
     tok = token()
-    try:
-        r = OPENER.open(urllib.request.Request(url, headers={"Authorization": "Bearer " + tok, "User-Agent": "fetch"}), timeout=40)
-        h = dict(r.headers)
-    except urllib.error.HTTPError as e:
-        h = dict(e.headers)
-    loc = h.get("Location") or h.get("location")
-    return urllib.request.urlopen(urllib.request.Request(loc, headers={"User-Agent": "fetch"}), timeout=90).read()
+    last = None
+    for i in range(retries):
+        try:
+            try:
+                r = OPENER.open(urllib.request.Request(
+                    url, headers={"Authorization": "Bearer " + tok, "User-Agent": "fetch"}), timeout=20)
+                h = dict(r.headers)
+            except urllib.error.HTTPError as e:
+                h = dict(e.headers)
+            loc = h.get("Location") or h.get("location")
+            if not loc:
+                raise RuntimeError("没有 Location 重定向头")
+            return urllib.request.urlopen(
+                urllib.request.Request(loc, headers={"User-Agent": "fetch"}), timeout=30).read()
+        except Exception as e:
+            last = e
+            if i < retries - 1:
+                print(f"  [dl] 失败 {type(e).__name__}，{2**(i+1)}s 后重试 ({i+1}/{retries})", flush=True)
+                time.sleep(2 ** (i + 1))
+    raise last
 
 
 def update_seed_from_local():
@@ -127,6 +152,7 @@ def main():
     os.makedirs(ART_DIR, exist_ok=True)
     print(f"[2/3] 下载 {len(latest)} 份最新 artifact", flush=True)
     fetched = {}
+    ok_n = fail_n = 0
     for kind, a in sorted(latest.items()):
         try:
             data = download_artifact(a["archive_download_url"])
@@ -141,9 +167,12 @@ def main():
                 open(p, "wb").write(content)
                 files[n] = len(content)
             fetched[kind] = {"dir": sub, "files": files, "created": a["created_at"]}
+            ok_n += 1
             print(f"  {kind}: {len(files)} 个文件", flush=True)
         except Exception as e:
-            print(f"  {kind}: 失败 {type(e).__name__} {e}", flush=True)
+            fail_n += 1
+            print(f"  {kind}: 重试后仍失败 {type(e).__name__} {e}", flush=True)
+    print(f"  下载完成：成功 {ok_n} / 失败 {fail_n}", flush=True)
 
     update_seed_from_local()
 
