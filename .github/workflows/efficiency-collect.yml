@@ -21,6 +21,15 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
+
+      - name: 恢复水位线缓存
+        uses: actions/cache@v4
+        with:
+          path: state
+          key: wm-${{ github.workflow }}-${{ github.run_id }}
+          restore-keys: |
+            wm-${{ github.workflow }}-
+
       - name: 采集
         env:
           EF_OUT_DIR: out
@@ -36,3 +45,10 @@ jobs:
           name: efficiency-${{ github.run_number }}
           path: out/
           retention-days: 7
+
+      - name: 保存水位线缓存
+        uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: state
+          key: wm-${{ github.workflow }}-${{ github.run_id }}
