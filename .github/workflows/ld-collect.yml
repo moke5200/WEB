@@ -36,7 +36,8 @@ jobs:
           LD_OUT_DIR: out
           LD_STATE_DIR: state
           LD_MAX_TOPICS: ${{ github.event.inputs.max_topics || '50' }}
-          LD_TOPIC_DELAY: '3'
+          LD_TOPIC_DELAY: '4'
+          LD_LIST_PAGES: '2'
         run: |
           echo "最多处理: $LD_MAX_TOPICS 帖"
           python3 scripts/ld_collect_jina.py
