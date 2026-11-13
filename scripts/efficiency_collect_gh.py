@@ -14,6 +14,7 @@
 输出 out/efficiency_report.md（按源分组）+ out/efficiency_all.json（全量）
 """
 import re, os, sys, json, html, time, datetime, urllib.request, urllib.error
+import watermark as wm   # 水位线：只给新条目（野哥 11-13 21:20）
 
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
 
@@ -173,8 +174,11 @@ def main():
         items = [x for x in items if not is_offtopic(s["id"], x["title"])]
         filtered = before - len(items)
         items = items[:MAX_ITEMS]
-        result[s["id"]] = {"status": status, "items": items, "note": s["note"]}
-        print(f"  {s['name']}: {len(items)} 条", flush=True)
+        # 水位线：首轮建基线不产出；之后只给新条目，且超龄（默认 3 天）的直接不看
+        items, wm_msg = wm.filter_new(s["id"], items, time_field="time")
+        result[s["id"]] = {"status": status, "items": items, "note": s["note"],
+                           "watermark": wm_msg}
+        print(f"  {s['name']}: {wm_msg}", flush=True)
 
         lines.append(f"## {s['name']}（{len(items)} 条）")
         if s.get("note"):
