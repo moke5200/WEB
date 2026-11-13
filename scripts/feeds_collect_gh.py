@@ -11,6 +11,7 @@
 输出 out/feeds_report.md（按源分组）+ out/feeds_all.json（全量，供台账）。
 """
 import re, os, sys, json, html, time, datetime, urllib.request, urllib.error
+import watermark as wm   # 水位线：只给新条目（野哥 11-13 21:20）
 
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
 
@@ -206,9 +207,11 @@ def main():
         items = [x for x in items if not is_noise(x["title"])]
         filtered = before - len(items)
         items = items[:MAX_ITEMS]
-        result[s["id"]] = {"status": status, "items": items}
+        # 水位线：首轮建基线不产出；之后只给新条目 + 超龄旧文丢弃
+        items, wm_msg = wm.filter_new(s["id"], items, time_field="time")
+        result[s["id"]] = {"status": status, "items": items, "watermark": wm_msg}
         extra = f"（滤掉 {filtered} 条广告）" if filtered else ""
-        print(f"  {s['name']}: {len(items)} 条{extra}", flush=True)
+        print(f"  {s['name']}: {wm_msg}{extra}", flush=True)
 
         lines.append(f"## {s['name']}（{len(items)} 条）")
         if items:
