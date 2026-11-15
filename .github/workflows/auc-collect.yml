@@ -1,0 +1,47 @@
+name: Agent Use Cases
+
+on:
+  schedule:
+    # 每天 2 次（UTC 13:00 / 22:00 = 北京 21:00 / 06:00）
+    # 该站每天扫全网、每日更新，2 次足够
+    - cron: '0 13,22 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: 恢复水位线缓存
+        uses: actions/cache@v4
+        with:
+          path: state
+          key: wm-auc-${{ github.run_id }}
+          restore-keys: |
+            wm-auc-
+      - name: 采集
+        env:
+          AUC_OUT_DIR: out
+          AUC_MAX_ITEMS: '40'
+          WM_STATE_DIR: state
+          WM_DEDUP_SEED: data/dedup_seed.json
+        run: python3 scripts/auc_collect_gh.py
+      - name: 显示摘要
+        run: |
+          ls -lh out/
+          head -40 out/auc_report.md || true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: auc-${{ github.run_number }}
+          path: out/
+          retention-days: 7
+      - name: 保存水位线缓存
+        uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: state
+          key: wm-auc-${{ github.run_id }}
