@@ -66,16 +66,35 @@ def parse_rss(body):
     return items
 
 
+# 野哥 11-15 16:37：「按我的需求给我就行，那种只能在客户端里面用的，我可能用不到」
+# 所以只保留能接 API / 通用额度的卡片，「限产品内使用 / 仅客户端 / 客户端内额度」的排除。
+CLIENT_ONLY_MARKERS = ["限产品内使用", "客户端内", "仅电脑端", "客户端或微信小程序",
+                       "客户端签到", "客户端领取"]
+
+
 def parse_free_tokens(body):
-    """从 free-tokens 页抽「今天还能领 / 卡片标题」。页面是 SSR HTML，
-    结构可能变，抽不到就给个摘要数字，不硬报成功。"""
-    out = []
-    # 标题/卡片名
-    for m in re.finditer(r"<h[23][^>]*>(.*?)</h[23]>", body, re.S):
-        t = clean(m.group(1))
-        if t and len(t) < 80 and not any(k in t for k in ["登录", "关于", "导航"]):
-            out.append(t)
-    # 关键数字（页面写成「今天还能领 ¥ 2433」，数字前有空格）
+    """抽 61 张卡片，按「能不能当 API 用」分两组。
+    卡片结构（实测）：<button class="group min-w-0 ..."> 内含
+      · span.text-[15px].font-semibold = 标题
+      · span[title] = 说明
+      · span.whitespace-nowrap = 限制标签
+    """
+    blocks = re.findall(r'<button[^>]*class="[^"]*group min-w-0[^"]*"[^>]*>(.*?)</button>', body, re.S)
+    usable, skipped = [], []
+    for blk in blocks:
+        tm = re.search(r'text-\[15px\] font-semibold[^>]*>(.*?)</span>', blk, re.S)
+        title = clean(tm.group(1)) if tm else ""
+        if not title:
+            continue
+        tags = [clean(t) for t in re.findall(r'whitespace-nowrap[^>]*>(.*?)</span>', blk)]
+        tags = [t for t in tags if t]
+        joined = " ".join(tags)
+        rec = {"title": title, "tags": tags}
+        if any(k in joined for k in CLIENT_ONLY_MARKERS) and "API" not in joined:
+            skipped.append(rec)
+        else:
+            usable.append(rec)
+
     flat = clean(body)
     m = re.search(r"今天还能领\s*[¥￥]?\s*([\d,\.]+)", flat)
     today = m.group(1) if m else ""
@@ -83,8 +102,10 @@ def parse_free_tokens(body):
     month = m2.group(1) if m2 else ""
     m3 = re.search(r"下次刷新\s*还有\s*([\d:]+)", flat)
     refresh = m3.group(1) if m3 else ""
-    return {"cards": out[:30], "today_remaining": today,
-            "month_claimed": month, "next_refresh": refresh, "raw_bytes": len(body)}
+    return {"usable": usable, "client_only": skipped,
+            "usable_count": len(usable), "client_only_count": len(skipped),
+            "today_remaining": today, "month_claimed": month,
+            "next_refresh": refresh, "raw_bytes": len(body)}
 
 
 def main():
@@ -101,7 +122,7 @@ def main():
     print("[2/2] 抓 aihot /free-tokens", flush=True)
     st2, fbody = fetch(FREE)
     free = parse_free_tokens(fbody) if st2 == 200 else {"error": st2}
-    print(f"  free-tokens http={st2} 卡片 {len(free.get('cards',[]))} 今日剩余 {free.get('today_remaining','-')}", flush=True)
+    print(f"  free-tokens http={st2} 可用 {free.get('usable_count',0)} / 排除客户端内 {free.get('client_only_count',0)} / 今日剩 {free.get('today_remaining','-')}", flush=True)
 
     json.dump({"fetched_at": ts, "total": len(items), "items": items,
                "free_tokens": free},
@@ -110,9 +131,12 @@ def main():
     lines = [f"# aihot.news · {ts}", "",
              f"token 羊毛主源（野哥 11-09 定）。RSS 新增 {len(items)} 条。", ""]
     lines.append("## 免费额度页（/free-tokens）")
-    lines.append(f"- 今日还能领：{free.get('today_remaining') or '未解析到'}")
-    for c in free.get("cards", [])[:20]:
-        lines.append(f"- {c}")
+    lines.append(f"- 今日还能领：{free.get('today_remaining') or '未解析到'} ｜ 本月已领：{free.get('month_claimed') or '-'} ｜ 下次刷新：{free.get('next_refresh') or '-'}")
+    lines.append(f"- 按野哥需求筛选：**可当 API/通用额度 {free.get('usable_count',0)} 条**，排除「限产品内/客户端内」{free.get('client_only_count',0)} 条")
+    lines.append("")
+    lines.append("### 可用额度（按你的需求保留）")
+    for c in free.get("usable", []):
+        lines.append(f"- **{c['title']}** ｜ {' / '.join(c['tags'][:5])}")
     lines.append("")
     lines.append("## RSS 新增")
     if items:
