@@ -1,0 +1,45 @@
+name: BlueV 爆文雷达（游客档）
+
+on:
+  schedule:
+    # 一天一次（UTC 16:00 = 北京 00:00），按野哥 11-15「一天一次就可以」
+    - cron: '0 16 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: 恢复水位线缓存
+        uses: actions/cache@v4
+        with:
+          path: state
+          key: wm-bluev-${{ github.run_id }}
+          restore-keys: |
+            wm-bluev-
+      - name: 采集
+        env:
+          BV_OUT_DIR: out
+          WM_STATE_DIR: state
+          WM_DEDUP_SEED: data/dedup_seed.json
+        run: python3 scripts/bluev_viral_collect_gh.py
+      - name: 显示摘要
+        run: |
+          ls -lh out/
+          head -40 out/bluev_viral.md || true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: bluev-viral-${{ github.run_number }}
+          path: out/
+          retention-days: 7
+      - name: 保存水位线缓存
+        uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: state
+          key: wm-bluev-${{ github.run_id }}
