@@ -63,9 +63,44 @@ def fetch(url, timeout=25):
     return r.status, r.read().decode("utf-8", "replace")
 
 
+IMG_RE = re.compile(r'(https://y\.zdmimg\.com/[^"\'\\ )]+?\.(?:jpg|png|webp)(?:_[a-z]\d+\.jpg)?)')
+# 内嵌 JSON 里 pic 与 url 相邻（精选好价页的 Nuxt payload）
+DEV_PAIR = re.compile(
+    r'(https:\\u002F\\u002Fy\.zdmimg\.com\\u002F[^"]+?\.jpg(?:_[a-z]\d+\.jpg)?)"\s*,\s*'
+    r'"(https:\\u002F\\u002Fwww\.smzdm\.com\\u002Fp\\u002F\d+\\u002F)"')
+
+
+def build_img_map(html_text):
+    """从列表页 HTML 建「详情链接 -> 商品图」映射。
+
+    关键：图就在列表页里，不额外请求详情页。
+    踩过的坑：批量抓详情页会被 smzdm 限流（返回 1.6KB 的 JS 验证页）。
+    """
+    m = {}
+    for pic, url in DEV_PAIR.findall(html_text):
+        m.setdefault(url.replace("\\u002F", "/"), pic.replace("\\u002F", "/"))
+    for url, inner in re.findall(
+            r'<a[^>]+href="(https://www\.smzdm\.com/p/\d+/)"[^>]*>(.*?)</a>', html_text, re.S):
+        if url in m:
+            continue
+        im = IMG_RE.search(inner)
+        if im:
+            m[url] = im.group(1)
+    return m
+
+
+def norm_img(u):
+    """统一成 320px 缩略（CDN 各尺寸都有），列表页给的 _a200 太小。"""
+    if not u:
+        return ""
+    base = re.sub(r"_[a-z]\d+\.jpg$", "", u)
+    return base + "_a320.jpg"
+
+
 def parse(html_text):
     """从 gtmAddToCart 抽结构化数据 + 卡片内的详情链接。"""
     items, seen = [], set()
+    img_map = build_img_map(html_text)
     for m in re.finditer(r"gtmAddToCart\(\{(.*?)\}\)", html_text, re.S):
         d = dict(re.findall(r"'([^']+)'\s*:\s*'([^']*)'", m.group(1)))
         name = d.get("name", "").strip()
@@ -99,6 +134,7 @@ def parse(html_text):
             "cat": d.get("category", ""),
             "detail": detail,
             "go": go,
+            "img": norm_img(img_map.get(detail, "")),
         })
     return items
 
@@ -193,10 +229,10 @@ def main():
     import csv
     with open(OUT_CSV, "w", encoding="utf-8-sig", newline="") as f:
         w = csv.writer(f)
-        w.writerow(["采集时间", "名称", "价格", "商城", "分类", "来源", "推送", "理由", "详情"])
+        w.writerow(["采集时间", "名称", "价格", "商城", "分类", "来源", "推送", "理由", "详情", "图片"])
         for r in table_only:
             w.writerow([ts, r["name"], r["price"], r["mall"], r["cat"], r["source"],
-                        "Y" if r["level"] else "N", r["why"], r["detail"]])
+                        "Y" if r["level"] else "N", r["why"], r["detail"], r.get("img", "")])
 
     # 报告（只列推送候选）
     lines = [f"# 值得买好价 · {ts}", "", f"本轮抓取 {len(uniq)} 条，推送候选 {len(pushed)} 条。", ""]
