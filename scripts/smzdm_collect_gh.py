@@ -38,7 +38,9 @@ NON_GOODS = ["酒店", "套房", "民宿", "机票", "跟团", "门票", "演出
 
 # 野哥点名要的东西（价格窗口）
 WANTS = [
-    {"name": "无线键鼠", "min": 0, "max": 150, "kw": ["无线键鼠", "键鼠套装", "无线键盘"]},
+    {"name": "键鼠", "min": 0, "max": 150,
+     "kw": ["鼠标", "键盘", "键鼠"],
+     "ex": ["鼠标垫", "键盘膜", "键帽", "贴膜", "支架"]},
     {"name": "耳夹耳机", "min": 0, "max": 30, "kw": ["耳夹", "骨传导", "不入耳"]},
     {"name": "显示器27寸", "min": 0, "max": 300, "kw": ["27英寸", "27寸"]},
     {"name": "智能锁", "min": 0, "max": 200, "kw": ["智能锁", "指纹锁"]},
@@ -126,6 +128,8 @@ def judge(it):
 
     # 点名需求
     for w in WANTS:
+        if w.get("ex") and any(e in hits for e in w["ex"]):
+            continue
         if any(k in hits for k in w["kw"]) and w["min"] <= p <= w["max"]:
             return True, "点名需求:" + w["name"], 2
 
