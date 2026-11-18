@@ -214,14 +214,19 @@ def main():
     print(f"[1/3] 抓取 {len(all_items)} 条，去重后 {len(uniq)} 条", flush=True)
 
     # 判定
-    pushed, table_only = [], []
+    pushed, table_only, dropped = [], [], []
     for r in uniq:
         ok, why, lvl = judge(r)
         r["why"] = why
         r["level"] = lvl
+        # 整类排除的直接丢弃，不进 all（否则图墙还会显示儿童/母婴/书籍）
+        if why == "整类排除":
+            dropped.append(r)
+            continue
         if ok:
             pushed.append(r)
         table_only.append(r)
+    print(f"[1.5/3] 整类排除丢弃 {len(dropped)} 条（儿童/母婴/书籍/旅游/美妆/眼镜）", flush=True)
     pushed.sort(key=lambda x: (-x["level"], float(x["price"]) if x["price"].replace(".", "", 1).isdigit() else 9e9))
     print(f"[2/3] 推送候选 {len(pushed)} 条（全量 {len(table_only)} 条入表）", flush=True)
 
