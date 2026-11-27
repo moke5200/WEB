@@ -74,8 +74,16 @@ def prepend_to_001(path, items, note=""):
 
 
 def prepend_to_default_001(items, note=""):
-    """写入配置里的 OUT_001 路径。"""
-    return prepend_to_001(settings.OUT_001, items, note)
+    """写入 001.md。
+
+    本机（WRITE_LOCAL_DISK=1）写 Google Drive 真实路径；
+    云端（WRITE_LOCAL_DISK=0）写 OUT_DIR/001.md，由本机后续同步。
+    """
+    if settings.WRITE_LOCAL_DISK:
+        target = settings.OUT_001
+    else:
+        target = os.path.join(settings.OUT_DIR, "001.md")
+    return prepend_to_001(target, items, note)
 
 
 def to_daily_json(items):
