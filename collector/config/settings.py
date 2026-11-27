@@ -55,6 +55,10 @@ os.makedirs(OUT_DIR, exist_ok=True)
 os.makedirs(STATE_DIR, exist_ok=True)
 os.makedirs(DAILY_JSON_DIR, exist_ok=True)
 
+# 云端（Linux）没有 E 盘，本机路径只在 WRITE_LOCAL_DISK 时才用
+if IS_CI:
+    WRITE_LOCAL_DISK = False
+
 
 def source_dir(name):
     """一源一文件夹：Agent 收集 / <来源名> /"""
