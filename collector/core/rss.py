@@ -7,7 +7,9 @@ import re
 
 
 def strip_tags(s):
+    """先反转义（&lt;p&gt;→<p>），再去标签，最后再反转义一次（防双重转义残留）。"""
     s = re.sub(r"<!\[CDATA\[(.*?)\]\]>", r"\1", s or "", flags=re.S)
+    s = html.unescape(s)
     s = re.sub(r"<[^>]+>", " ", s)
     s = html.unescape(s)
     return re.sub(r"\s+", " ", s).strip()
