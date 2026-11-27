@@ -41,11 +41,11 @@ SOURCES = [
 
     dict(id="a04", file="a04_sspai.py", name="少数派",
          category="资讯", freq="3h", runs_on="cloud", needs_login=False,
-         cross_source_dedup=False, raw_lang="zh", output="json", enabled=False),
+         cross_source_dedup=False, raw_lang="zh", output="json", enabled=True),
 
-    dict(id="a05", file="a05_ruandou.py", name="反斗软件",
+    dict(id="a05", file="a05_apprcn.py", name="反斗软件",
          category="软件", freq="1d", runs_on="cloud", needs_login=False,
-         cross_source_dedup=True, raw_lang="zh", output="json", enabled=False,
+         cross_source_dedup=True, raw_lang="zh", output="json", enabled=True,
          note="与 a07/a08 跨源去重"),
 
     dict(id="a06", file="a06_github_trending.py", name="GitHub Trending",
@@ -54,15 +54,15 @@ SOURCES = [
 
     dict(id="a07", file="a07_xiaozhong.py", name="小众软件",
          category="软件", freq="1d", runs_on="cloud", needs_login=False,
-         cross_source_dedup=True, raw_lang="zh", output="json", enabled=False),
+         cross_source_dedup=True, raw_lang="zh", output="json", enabled=True),
 
     dict(id="a08", file="a08_iplaysoft.py", name="异次元",
          category="软件", freq="2h", runs_on="cloud", needs_login=False,
-         cross_source_dedup=True, raw_lang="zh", output="json", enabled=False),
+         cross_source_dedup=True, raw_lang="zh", output="json", enabled=True),
 
     dict(id="a09", file="a09_nodeseek.py", name="NodeSeek",
          category="羊毛", freq="2h", runs_on="cloud", needs_login=False,
-         cross_source_dedup=False, raw_lang="zh", output="json", enabled=False,
+         cross_source_dedup=False, raw_lang="zh", output="json", enabled=True,
          note="重点盯免费云电脑/VPS"),
 
     dict(id="a10", file="a10_v2ex.py", name="V2EX 推广",
@@ -71,7 +71,7 @@ SOURCES = [
 
     dict(id="a11", file="a11_aihot.py", name="aihot.news",
          category="AI 额度", freq="12h", runs_on="cloud", needs_login=False,
-         cross_source_dedup=False, raw_lang="zh", output="json", enabled=False),
+         cross_source_dedup=False, raw_lang="zh", output="json", enabled=True),
 
     dict(id="a12", file="a12_auc.py", name="AgentUseCases",
          category="Agent 案例", freq="12h", runs_on="cloud", needs_login=False,
