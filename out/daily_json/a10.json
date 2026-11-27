@@ -1,0 +1,202 @@
+{
+ "id": "a10",
+ "name": "V2EX 推广",
+ "fetched_at": "2026-11-28 06:38",
+ "items": [
+  {
+   "title": "Claude / ChatGPT Plus 批量货源：可过 Persona，带 API 自动化",
+   "url": "https://www.v2ex.com/t/1260484",
+   "summary": "V2EX promotions · 各位 V 友，晚上好。\r\n\r\n最近社区里不少兄弟在愁 AI 账号的事：买来的号用不了几天就挂了，或者卡在 Persona 验证那一步，怎么都过不去，折腾得挺心累。\r\n\r\n我这边有一批稳定的渠道，主要做",
+   "published": "2026-11-28 05:20",
+   "author": "",
+   "source": "a10",
+   "tags": [
+    "独立开发",
+    "promotions"
+   ],
+   "media": []
+  },
+  {
+   "title": "Scribble Royale：在纸上玩大逃杀，负责缩圈的是一块橡皮擦",
+   "url": "https://www.v2ex.com/t/1260478",
+   "summary": "V2EX promotions · 分享一个可以在浏览器里玩的多人小游戏 Scribble Royale，作者是 Perpel。整张地图画在一张纸上，粉色线是安全区的边缘。缩圈时，一块大橡皮会沿着边界把地图一点点擦掉，人留在线外也会掉血",
+   "published": "2026-11-28 01:48",
+   "author": "",
+   "source": "a10",
+   "tags": [
+    "独立开发",
+    "promotions"
+   ],
+   "media": []
+  },
+  {
+   "title": "智友社回馈 V 站新老客户，抽送第 15 波 5 个 智友社的 GPTPLUS 稳定特殊渠道日区独享月卡成品号 3（稳定度 98%）",
+   "url": "https://www.v2ex.com/t/1260477",
+   "summary": "V2EX promotions · 各位 V 友好，感谢大家一直以来对我们智友社的支持和关注。\r\n\r\n我们智友社的初衷是帮大家寻找市面上稳定的主流 AI 特价渠道，鉴于目前国外主流 AI 的正价订购价格昂贵，我们发现市面上有不少的价格实",
+   "published": "2026-11-28 01:19",
+   "author": "",
+   "source": "a10",
+   "tags": [
+    "独立开发",
+    "promotions"
+   ],
+   "media": []
+  },
+  {
+   "title": "上次把 DeepSeek 放在网页旁，这次把豆包和自己的 API 也接进来了",
+   "url": "https://www.v2ex.com/t/1260475",
+   "summary": "V2EX create · 两周前在「分享创造」发过 DSQuick。当时就是嫌看网页时总得切到 DeepSeek，复制一段，贴过去，再切回来。楼里聊到接 API，我回的是「就得走 api key 了」。这次把这条路做通了。[上",
+   "published": "2026-11-28 00:23",
+   "author": "",
+   "source": "a10",
+   "tags": [
+    "独立开发",
+    "create"
+   ],
+   "media": []
+  },
+  {
+   "title": "做了一个 MAGI-2 AI 视频生成器",
+   "url": "https://www.v2ex.com/t/1260473",
+   "summary": "V2EX create · 说是 MAGI-2 主打“一次性生成超长连贯叙事”和“原生音画同步”的开源模型，设计重心是长时程、多镜头的完整内容创作，原生音画同步生成，多模态参考多达 20 份参考素材（10 张图片、5 段视频、5",
+   "published": "2026-11-28 00:04",
+   "author": "",
+   "source": "a10",
+   "tags": [
+    "独立开发",
+    "create"
+   ],
+   "media": []
+  },
+  {
+   "title": "让 Claude Code 重构了一个 1500 多行的函数，测试全过了，但我还是不太放心",
+   "url": "https://www.v2ex.com/t/1260469",
+   "summary": "V2EX create · 最近在做一个 AIGC 项目，有个后台任务函数，调用服务、处理异常、保存结果、发送通知，各种逻辑堆在一起，共 1572 行。\r\n用 Claude Code 分四步重构，最终主函数缩减到 150 行，代",
+   "published": "2026-11-27 23:54",
+   "author": "",
+   "source": "a10",
+   "tags": [
+    "独立开发",
+    "create"
+   ],
+   "media": []
+  },
+  {
+   "title": "[推广] [发码] 做了个 AI 阅读器 ，我们想将 AI 和阅读器做深度结合，而不仅仅是简单问答",
+   "url": "https://www.v2ex.com/t/1260464",
+   "summary": "V2EX promotions · 下面是我们已经做的 AI 功能，采用 BYOK 形式。\n\n1. 阅读问答\n\n读到不理解的词句，可以选中文字向 AI 提问。围绕原书内容随读随问，解释疑惑，帮助你理解正在阅读的内容。\n\n2. 主动陪读\n",
+   "published": "2026-11-27 23:36",
+   "author": "",
+   "source": "a10",
+   "tags": [
+    "独立开发",
+    "promotions"
+   ],
+   "media": []
+  },
+  {
+   "title": "MAGI-2 在线体验：最长 30 秒带声音的 AI 视频生成，支持文生视频和图生视频",
+   "url": "https://www.v2ex.com/t/1260462",
+   "summary": "V2EX promotions · 最近 Sand AI 发布了 [MAGI-2](https://aimagi2.com/) 视频模型，主打**长镜头生成**能力，单次可以做到 **4 到 30 秒**，并且在一次生成里直接带上声音，",
+   "published": "2026-11-27 23:15",
+   "author": "",
+   "source": "a10",
+   "tags": [
+    "独立开发",
+    "promotions"
+   ],
+   "media": []
+  },
+  {
+   "title": "23 年裸辞开始钓鱼，现在做了一个没有广告的钓鱼社区小程序：收竿，公开钓点免登录可看，想找钓鱼的 V 友试试",
+   "url": "https://www.v2ex.com/t/1260461",
+   "summary": "V2EX create · 想做的事情很简单：让钓友有个地方记录出钓、交流附近的鱼情，顺便认识一些同城的人。\r\n\r\n## 现在能做什么\r\n\r\n- 晒鱼获、晒装备，和其他钓友交流。\r\n- 记录自己的出钓。\r\n- 在同城鱼情留言板聊",
+   "published": "2026-11-27 23:13",
+   "author": "",
+   "source": "a10",
+   "tags": [
+    "独立开发",
+    "create"
+   ],
+   "media": []
+  },
+  {
+   "title": "一个把你几 k GitHub star 利用起来的工具",
+   "url": "https://www.v2ex.com/t/1260460",
+   "summary": "V2EX create · 星栈 / StarStack\r\n\r\n「去年 star 的那个 Rust 解析器叫什么？」星栈从你自己的 GitHub 收藏里按语义查找，返回仓库链接、收藏日期，以及你留下的标签和备注。一个 Rust ",
+   "published": "2026-11-27 22:57",
+   "author": "",
+   "source": "a10",
+   "tags": [
+    "独立开发",
+    "create"
+   ],
+   "media": []
+  },
+  {
+   "title": "把《死神 vs 火影 2.6》搬进浏览器，支持在线联机，欢迎试玩",
+   "url": "https://www.v2ex.com/t/1260447",
+   "summary": "V2EX create · 小时候在网页上玩的《死神 vs 火影》，现在想和朋友来一局，还能方便地打开吗？\r\n\r\n前段时间 GPT 经常重置，token 用不完做了一个《死神 vs 火影 2.6》的重制版，还原原版的手感和招式，",
+   "published": "2026-11-27 21:31",
+   "author": "",
+   "source": "a10",
+   "tags": [
+    "独立开发",
+    "create"
+   ],
+   "media": []
+  },
+  {
+   "title": "Casdoor 这一个月：Keycloak、Auth0、Okta 能迁了，AI Agent 也能通过 MCP 来管",
+   "url": "https://www.v2ex.com/t/1260446",
+   "summary": "V2EX create · Casdoor 是我们社区在做的开源 IAM / SSO，Go + React，Apache 2.0，现在 1.49 万 star，今年 2 月进了 CNCF 云原生全景图。11 月中的帖子里讲过 M",
+   "published": "2026-11-27 21:28",
+   "author": "",
+   "source": "a10",
+   "tags": [
+    "独立开发",
+    "create"
+   ],
+   "media": []
+  },
+  {
+   "title": "轻量级、高性能、无侵入的 开源 Antigravity 中文 汉化工具来了！",
+   "url": "https://www.v2ex.com/t/1260442",
+   "summary": "V2EX promotions · 就是一个  \r\n轻量级、高性能、无侵入式的 Google Antigravity 2.0 桌面端（Windows / macOS） 简体中文汉化启动器。\r\n\r\n精简，没有花里胡哨的东西，并且非常克制的",
+   "published": "2026-11-27 21:04",
+   "author": "",
+   "source": "a10",
+   "tags": [
+    "独立开发",
+    "promotions"
+   ],
+   "media": []
+  },
+  {
+   "title": "[推广] 学生发来课件截图，我花了半小时才改好",
+   "url": "https://www.v2ex.com/t/1260437",
+   "summary": "V2EX promotions · 上周有个大二的学生发消息给我，说小组作业要做课堂展示，老师给的课件是直接截图发在群里的，一共十一张，有的是从 PPT 画面截的，有的是拿手机拍屏幕拍的，边上还带着桌角和反光。她想把这些图弄成一版自己能",
+   "published": "2026-11-27 20:14",
+   "author": "",
+   "source": "a10",
+   "tags": [
+    "独立开发",
+    "promotions"
+   ],
+   "media": []
+  },
+  {
+   "title": "写了个《賓果小瑪莉麻仔台 - 經典水果老虎機》",
+   "url": "https://www.v2ex.com/t/1260436",
+   "summary": "V2EX create · # 写了个《賓果小瑪莉麻仔台 - 經典水果老虎機》\r\n大伙捧个场\r\n[下载地址](https://play.google.com/store/apps/details?id=com.bingomali",
+   "published": "2026-11-27 20:13",
+   "author": "",
+   "source": "a10",
+   "tags": [
+    "独立开发",
+    "create"
+   ],
+   "media": []
+  }
+ ]
+}

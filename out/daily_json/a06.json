@@ -1,0 +1,215 @@
+{
+ "id": "a06",
+ "name": "GitHub Trending",
+ "fetched_at": "2026-11-28 06:38",
+ "items": [
+  {
+   "title": "elementalsouls/Claude-BugHunter",
+   "url": "https://github.com/elementalsouls/Claude-BugHunter",
+   "summary": "开源项目：A Claude Code skill bundle for bug hunting and external red-team work - 85 skills, 16 slash commands, 681 disclosed-report patterns curated across 24 core vulnerability classe",
+   "published": "",
+   "author": "",
+   "source": "a06",
+   "tags": [
+    "开源",
+    "未翻译"
+   ],
+   "media": []
+  },
+  {
+   "title": "obra/superpowers",
+   "url": "https://github.com/obra/superpowers",
+   "summary": "开源项目：An agentic skills framework & software development methodology that works. Superpowers Superpowers is a complete software development methodology for your coding agents, built",
+   "published": "",
+   "author": "",
+   "source": "a06",
+   "tags": [
+    "开源",
+    "未翻译"
+   ],
+   "media": []
+  },
+  {
+   "title": "HKUDS/CLI-Anything",
+   "url": "https://github.com/HKUDS/CLI-Anything",
+   "summary": "开源项目：\"CLI-Anything: Making ALL Software Agent-Native\" -- CLI-Hub: https://clianything.cc/ https://clianything.cc/ CLI-Anything: Making ALL Software Agent-Native Today's Software Se",
+   "published": "",
+   "author": "",
+   "source": "a06",
+   "tags": [
+    "开源",
+    "未翻译"
+   ],
+   "media": []
+  },
+  {
+   "title": "jingyaogong/minimind",
+   "url": "https://github.com/jingyaogong/minimind",
+   "summary": "开源项目：🧠 两小时从 0 训出你的 64M 大模型。Train your own 64M LLM from scratch in 2 hours. https://jingyaogong.github.io/minimind \"大道至简\" 中文 | English 此开源项目旨在完全从 0 开始，仅用 3 块钱成本与 2 小时训练时间，即可训练出规模约为 ",
+   "published": "",
+   "author": "",
+   "source": "a06",
+   "tags": [
+    "开源",
+    "未翻译"
+   ],
+   "media": []
+  },
+  {
+   "title": "cursor/plugins",
+   "url": "https://github.com/cursor/plugins",
+   "summary": "开源项目：Cursor plugin specification and official plugins Cursor plugins Official Cursor plugins for popular developer tools, frameworks, and SaaS products. Each plugin is a standalone",
+   "published": "",
+   "author": "",
+   "source": "a06",
+   "tags": [
+    "开源",
+    "未翻译"
+   ],
+   "media": []
+  },
+  {
+   "title": "firecrawl/firecrawl",
+   "url": "https://github.com/firecrawl/firecrawl",
+   "summary": "开源项目：Knowledge infrastructure to make your agents smarter. Search, scrape and access 550+ data providers through one API. https://firecrawl.dev 🔥 Firecrawl Knowledge infrastructure",
+   "published": "",
+   "author": "",
+   "source": "a06",
+   "tags": [
+    "开源",
+    "未翻译"
+   ],
+   "media": []
+  },
+  {
+   "title": "nginx/nginx",
+   "url": "https://github.com/nginx/nginx",
+   "summary": "开源项目：The official NGINX Open Source repository. https://nginx.org/ NGINX (pronounced \"engine x\" or \"en-jin-eks\") is the world's most popular Web Server, high performance Load Balan",
+   "published": "",
+   "author": "",
+   "source": "a06",
+   "tags": [
+    "开源",
+    "未翻译"
+   ],
+   "media": []
+  },
+  {
+   "title": "openvinotoolkit/openvino",
+   "url": "https://github.com/openvinotoolkit/openvino",
+   "summary": "开源项目：OpenVINO™ is an open source toolkit for optimizing and deploying AI inference https://docs.openvino.ai Open-source software toolkit for optimizing and deploying deep learning ",
+   "published": "",
+   "author": "",
+   "source": "a06",
+   "tags": [
+    "开源",
+    "未翻译"
+   ],
+   "media": []
+  },
+  {
+   "title": "cathrynlavery/diagram-design",
+   "url": "https://github.com/cathrynlavery/diagram-design",
+   "summary": "开源项目：Editorial diagram design for Claude Code, Codex, GitHub Copilot, Cursor, Factory Droid, Qoder, and Pi. 52 diagram types. Self-contained HTML + SVG. No shadows. No Mermaid slop",
+   "published": "",
+   "author": "",
+   "source": "a06",
+   "tags": [
+    "开源",
+    "未翻译"
+   ],
+   "media": []
+  },
+  {
+   "title": "mvanhorn/last30days-skill",
+   "url": "https://github.com/mvanhorn/last30days-skill",
+   "summary": "开源项目：AI agent skill that researches any topic across Reddit, X, YouTube, HN, Polymarket, and the web - then synthesizes a grounded summary /last30days English | Français | Deutsch ",
+   "published": "",
+   "author": "",
+   "source": "a06",
+   "tags": [
+    "开源",
+    "未翻译"
+   ],
+   "media": []
+  },
+  {
+   "title": "google-labs-code/stitch-skills",
+   "url": "https://github.com/google-labs-code/stitch-skills",
+   "summary": "开源项目：A library of Agent Skills designed to work with the Stitch MCP server. Each skill follows the Agent Skills open standard, for compatibility with coding agents such as Antigrav",
+   "published": "",
+   "author": "",
+   "source": "a06",
+   "tags": [
+    "开源",
+    "未翻译"
+   ],
+   "media": []
+  },
+  {
+   "title": "mjmirza/app-store-compliance",
+   "url": "https://github.com/mjmirza/app-store-compliance",
+   "summary": "开源项目：Avoid common App Store and Google Play rejections. Open playbook and pre-submission guard with 125 documented rejection patterns and fixes, privacy manifest and Data safety ch",
+   "published": "",
+   "author": "",
+   "source": "a06",
+   "tags": [
+    "开源",
+    "未翻译"
+   ],
+   "media": []
+  },
+  {
+   "title": "Tracer-Cloud/opensre",
+   "url": "https://github.com/Tracer-Cloud/opensre",
+   "summary": "开源项目：The open-source agent for CI/CD reliability. https://opensre.com OpenSRE: The open-source agent for CI/CD reliability Your CI tells you it broke, but not why or how to fix it.",
+   "published": "",
+   "author": "",
+   "source": "a06",
+   "tags": [
+    "开源",
+    "未翻译"
+   ],
+   "media": []
+  },
+  {
+   "title": "toeverything/AFFiNE",
+   "url": "https://github.com/toeverything/AFFiNE",
+   "summary": "开源项目：There can be more than Notion and Miro. AFFiNE(pronounced [ə‘fain]) is a next-gen knowledge base that brings planning, sorting and creating all together. Privacy first, open-s",
+   "published": "",
+   "author": "",
+   "source": "a06",
+   "tags": [
+    "开源",
+    "未翻译"
+   ],
+   "media": []
+  },
+  {
+   "title": "XiaoYouChR/Ghost-Downloader-3",
+   "url": "https://github.com/XiaoYouChR/Ghost-Downloader-3",
+   "summary": "开源项目：The only downloader you need. 下载器的集大成者。 https://gd.xychr.com/ 简体中文 | English Sponsor Swiftproxy – Premium Global Residential Proxy Network Swiftproxy provides 90M+ real reside",
+   "published": "",
+   "author": "",
+   "source": "a06",
+   "tags": [
+    "开源",
+    "未翻译"
+   ],
+   "media": []
+  },
+  {
+   "title": "zhouxiaoka/autoclip",
+   "url": "https://github.com/zhouxiaoka/autoclip",
+   "summary": "开源项目：AutoClip｜The open-source OpusClip alternative — local-first AI clipping & MCP server, zero subscriptions. 一个链接，一键出片。开源 AI 视频剪辑桌面工具，将播客、访谈、课程等长视频自动剪成短视频，生成字幕、封面和发布文案，适配抖音、小红书、T",
+   "published": "",
+   "author": "",
+   "source": "a06",
+   "tags": [
+    "开源",
+    "未翻译"
+   ],
+   "media": []
+  }
+ ]
+}
