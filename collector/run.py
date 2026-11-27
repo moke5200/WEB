@@ -46,8 +46,10 @@ def load_source_class(filename):
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
     from sources.base import Source
+    # 只认「在这个文件里定义的」子类，别误取从别处 import 进来的基类（如 RssSource）
     for v in vars(mod).values():
-        if isinstance(v, type) and issubclass(v, Source) and v is not Source:
+        if (isinstance(v, type) and issubclass(v, Source) and v is not Source
+                and v.__module__ == modname):
             return v
     raise RuntimeError("没在 %s 里找到 Source 子类" % filename)
 
