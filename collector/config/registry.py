@@ -98,11 +98,11 @@ SOURCES = [
 
     dict(id="a20", file="a20_bili_up.py", name="B站指定 UP 主投稿",
          category="视频", freq="1d", runs_on="cloud", needs_login=False,
-         cross_source_dedup=False, raw_lang="zh", output="json", enabled=False),
+         cross_source_dedup=False, raw_lang="zh", output="json", enabled=True),
 
     dict(id="a21", file="a21_zhihu_hot.py", name="知乎热榜",
          category="资讯", freq="6h", runs_on="cloud", needs_login=False,
-         cross_source_dedup=False, raw_lang="zh", output="json", enabled=False),
+         cross_source_dedup=False, raw_lang="zh", output="json", enabled=True),
 
     dict(id="a24", file="a24_ai_quota.py", name="AI 平台免费额度",
          category="AI 额度", freq="1d", runs_on="cloud", needs_login=False,
