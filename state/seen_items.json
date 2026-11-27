@@ -1,5 +1,201 @@
 {
  "items": {
+  "apprcn:https://www.apprcn.com/app-store-region-pilot.html": {
+   "first_seen": "2026-11-27",
+   "platform": "apprcn",
+   "post_id": "",
+   "source": "a05",
+   "url": "https://www.apprcn.com/app-store-region-pilot.html"
+  },
+  "apprcn:https://www.apprcn.com/app-store.html": {
+   "first_seen": "2026-11-27",
+   "platform": "apprcn",
+   "post_id": "",
+   "source": "a05",
+   "url": "https://www.apprcn.com/app-store.html"
+  },
+  "apprcn:https://www.apprcn.com/menu-drop.html": {
+   "first_seen": "2026-11-27",
+   "platform": "apprcn",
+   "post_id": "",
+   "source": "a05",
+   "url": "https://www.apprcn.com/menu-drop.html"
+  },
+  "iplaysoft:https://www.iplaysoft.com/1111.html": {
+   "first_seen": "2026-11-27",
+   "platform": "iplaysoft",
+   "post_id": "",
+   "source": "a08",
+   "url": "https://www.iplaysoft.com/1111.html"
+  },
+  "iplaysoft:https://www.iplaysoft.com/android-ad-cleaner.html": {
+   "first_seen": "2026-11-27",
+   "platform": "iplaysoft",
+   "post_id": "",
+   "source": "a08",
+   "url": "https://www.iplaysoft.com/android-ad-cleaner.html"
+  },
+  "iplaysoft:https://www.iplaysoft.com/bageshuo.html": {
+   "first_seen": "2026-11-27",
+   "platform": "iplaysoft",
+   "post_id": "",
+   "source": "a08",
+   "url": "https://www.iplaysoft.com/bageshuo.html"
+  },
+  "iplaysoft:https://www.iplaysoft.com/marktext.html": {
+   "first_seen": "2026-11-27",
+   "platform": "iplaysoft",
+   "post_id": "",
+   "source": "a08",
+   "url": "https://www.iplaysoft.com/marktext.html"
+  },
+  "iplaysoft:https://www.iplaysoft.com/mdm.html": {
+   "first_seen": "2026-11-27",
+   "platform": "iplaysoft",
+   "post_id": "",
+   "source": "a08",
+   "url": "https://www.iplaysoft.com/mdm.html"
+  },
+  "iplaysoft:https://www.iplaysoft.com/news/4313": {
+   "first_seen": "2026-11-27",
+   "platform": "iplaysoft",
+   "post_id": "",
+   "source": "a08",
+   "url": "https://www.iplaysoft.com/news/4313"
+  },
+  "iplaysoft:https://www.iplaysoft.com/news/6631": {
+   "first_seen": "2026-11-27",
+   "platform": "iplaysoft",
+   "post_id": "",
+   "source": "a08",
+   "url": "https://www.iplaysoft.com/news/6631"
+  },
+  "iplaysoft:https://www.iplaysoft.com/news/6636": {
+   "first_seen": "2026-11-27",
+   "platform": "iplaysoft",
+   "post_id": "",
+   "source": "a08",
+   "url": "https://www.iplaysoft.com/news/6636"
+  },
+  "iplaysoft:https://www.iplaysoft.com/news/6638": {
+   "first_seen": "2026-11-27",
+   "platform": "iplaysoft",
+   "post_id": "",
+   "source": "a08",
+   "url": "https://www.iplaysoft.com/news/6638"
+  },
+  "iplaysoft:https://www.iplaysoft.com/news/6648": {
+   "first_seen": "2026-11-27",
+   "platform": "iplaysoft",
+   "post_id": "",
+   "source": "a08",
+   "url": "https://www.iplaysoft.com/news/6648"
+  },
+  "iplaysoft:https://www.iplaysoft.com/news/6651": {
+   "first_seen": "2026-11-27",
+   "platform": "iplaysoft",
+   "post_id": "",
+   "source": "a08",
+   "url": "https://www.iplaysoft.com/news/6651"
+  },
+  "iplaysoft:https://www.iplaysoft.com/p/baiduwangpan-svip": {
+   "first_seen": "2026-11-27",
+   "platform": "iplaysoft",
+   "post_id": "",
+   "source": "a08",
+   "url": "https://www.iplaysoft.com/p/baiduwangpan-svip"
+  },
+  "iplaysoft:https://www.iplaysoft.com/p/bilibili-vip": {
+   "first_seen": "2026-11-27",
+   "platform": "iplaysoft",
+   "post_id": "",
+   "source": "a08",
+   "url": "https://www.iplaysoft.com/p/bilibili-vip"
+  },
+  "iplaysoft:https://www.iplaysoft.com/p/dedirock": {
+   "first_seen": "2026-11-27",
+   "platform": "iplaysoft",
+   "post_id": "",
+   "source": "a08",
+   "url": "https://www.iplaysoft.com/p/dedirock"
+  },
+  "iplaysoft:https://www.iplaysoft.com/p/icloud": {
+   "first_seen": "2026-11-27",
+   "platform": "iplaysoft",
+   "post_id": "",
+   "source": "a08",
+   "url": "https://www.iplaysoft.com/p/icloud"
+  },
+  "iplaysoft:https://www.iplaysoft.com/p/koofr": {
+   "first_seen": "2026-11-27",
+   "platform": "iplaysoft",
+   "post_id": "",
+   "source": "a08",
+   "url": "https://www.iplaysoft.com/p/koofr"
+  },
+  "iplaysoft:https://www.iplaysoft.com/p/quark-svip": {
+   "first_seen": "2026-11-27",
+   "platform": "iplaysoft",
+   "post_id": "",
+   "source": "a08",
+   "url": "https://www.iplaysoft.com/p/quark-svip"
+  },
+  "iplaysoft:https://www.iplaysoft.com/p/racknerd": {
+   "first_seen": "2026-11-27",
+   "platform": "iplaysoft",
+   "post_id": "",
+   "source": "a08",
+   "url": "https://www.iplaysoft.com/p/racknerd"
+  },
+  "iplaysoft:https://www.iplaysoft.com/p/txsp-vip": {
+   "first_seen": "2026-11-27",
+   "platform": "iplaysoft",
+   "post_id": "",
+   "source": "a08",
+   "url": "https://www.iplaysoft.com/p/txsp-vip"
+  },
+  "iplaysoft:https://www.iplaysoft.com/pd27.html": {
+   "first_seen": "2026-11-27",
+   "platform": "iplaysoft",
+   "post_id": "",
+   "source": "a08",
+   "url": "https://www.iplaysoft.com/pd27.html"
+  },
+  "iplaysoft:https://www.iplaysoft.com/totk-recomp.html": {
+   "first_seen": "2026-11-27",
+   "platform": "iplaysoft",
+   "post_id": "",
+   "source": "a08",
+   "url": "https://www.iplaysoft.com/totk-recomp.html"
+  },
+  "iplaysoft:https://www.iplaysoft.com/weiruanshurufa.html": {
+   "first_seen": "2026-11-27",
+   "platform": "iplaysoft",
+   "post_id": "",
+   "source": "a08",
+   "url": "https://www.iplaysoft.com/weiruanshurufa.html"
+  },
+  "iplaysoft:https://www.iplaysoft.com/win11-wallpaper-2027.html": {
+   "first_seen": "2026-11-27",
+   "platform": "iplaysoft",
+   "post_id": "",
+   "source": "a08",
+   "url": "https://www.iplaysoft.com/win11-wallpaper-2027.html"
+  },
+  "iplaysoft:https://www.iplaysoft.com/workbuddy.html": {
+   "first_seen": "2026-11-27",
+   "platform": "iplaysoft",
+   "post_id": "",
+   "source": "a08",
+   "url": "https://www.iplaysoft.com/workbuddy.html"
+  },
+  "iplaysoft:https://www.iplaysoft.com/zelda-ocarina-of-time.html": {
+   "first_seen": "2026-11-27",
+   "platform": "iplaysoft",
+   "post_id": "",
+   "source": "a08",
+   "url": "https://www.iplaysoft.com/zelda-ocarina-of-time.html"
+  },
   "linux.do:3254878": {
    "first_seen": "2026-11-27",
    "platform": "linux.do",
@@ -497,6 +693,111 @@
    "source": "a02",
    "url": "https://linux.do/t/topic/3259281"
   },
+  "nodeseek:https://www.nodeseek.com/post-1086417-1": {
+   "first_seen": "2026-11-27",
+   "platform": "nodeseek",
+   "post_id": "",
+   "source": "a09",
+   "url": "https://www.nodeseek.com/post-1086417-1"
+  },
+  "nodeseek:https://www.nodeseek.com/post-1086418-1": {
+   "first_seen": "2026-11-27",
+   "platform": "nodeseek",
+   "post_id": "",
+   "source": "a09",
+   "url": "https://www.nodeseek.com/post-1086418-1"
+  },
+  "nodeseek:https://www.nodeseek.com/post-1086419-1": {
+   "first_seen": "2026-11-27",
+   "platform": "nodeseek",
+   "post_id": "",
+   "source": "a09",
+   "url": "https://www.nodeseek.com/post-1086419-1"
+  },
+  "nodeseek:https://www.nodeseek.com/post-1086420-1": {
+   "first_seen": "2026-11-27",
+   "platform": "nodeseek",
+   "post_id": "",
+   "source": "a09",
+   "url": "https://www.nodeseek.com/post-1086420-1"
+  },
+  "nodeseek:https://www.nodeseek.com/post-1086422-1": {
+   "first_seen": "2026-11-27",
+   "platform": "nodeseek",
+   "post_id": "",
+   "source": "a09",
+   "url": "https://www.nodeseek.com/post-1086422-1"
+  },
+  "nodeseek:https://www.nodeseek.com/post-1086424-1": {
+   "first_seen": "2026-11-27",
+   "platform": "nodeseek",
+   "post_id": "",
+   "source": "a09",
+   "url": "https://www.nodeseek.com/post-1086424-1"
+  },
+  "nodeseek:https://www.nodeseek.com/post-1086425-1": {
+   "first_seen": "2026-11-27",
+   "platform": "nodeseek",
+   "post_id": "",
+   "source": "a09",
+   "url": "https://www.nodeseek.com/post-1086425-1"
+  },
+  "nodeseek:https://www.nodeseek.com/post-1086426-1": {
+   "first_seen": "2026-11-27",
+   "platform": "nodeseek",
+   "post_id": "",
+   "source": "a09",
+   "url": "https://www.nodeseek.com/post-1086426-1"
+  },
+  "nodeseek:https://www.nodeseek.com/post-1086429-1": {
+   "first_seen": "2026-11-27",
+   "platform": "nodeseek",
+   "post_id": "",
+   "source": "a09",
+   "url": "https://www.nodeseek.com/post-1086429-1"
+  },
+  "nodeseek:https://www.nodeseek.com/post-1086431-1": {
+   "first_seen": "2026-11-27",
+   "platform": "nodeseek",
+   "post_id": "",
+   "source": "a09",
+   "url": "https://www.nodeseek.com/post-1086431-1"
+  },
+  "nodeseek:https://www.nodeseek.com/post-1086433-1": {
+   "first_seen": "2026-11-27",
+   "platform": "nodeseek",
+   "post_id": "",
+   "source": "a09",
+   "url": "https://www.nodeseek.com/post-1086433-1"
+  },
+  "nodeseek:https://www.nodeseek.com/post-1086434-1": {
+   "first_seen": "2026-11-27",
+   "platform": "nodeseek",
+   "post_id": "",
+   "source": "a09",
+   "url": "https://www.nodeseek.com/post-1086434-1"
+  },
+  "nodeseek:https://www.nodeseek.com/post-1086435-1": {
+   "first_seen": "2026-11-27",
+   "platform": "nodeseek",
+   "post_id": "",
+   "source": "a09",
+   "url": "https://www.nodeseek.com/post-1086435-1"
+  },
+  "nodeseek:https://www.nodeseek.com/post-1086437-1": {
+   "first_seen": "2026-11-27",
+   "platform": "nodeseek",
+   "post_id": "",
+   "source": "a09",
+   "url": "https://www.nodeseek.com/post-1086437-1"
+  },
+  "nodeseek:https://www.nodeseek.com/post-1086438-1": {
+   "first_seen": "2026-11-27",
+   "platform": "nodeseek",
+   "post_id": "",
+   "source": "a09",
+   "url": "https://www.nodeseek.com/post-1086438-1"
+  },
   "smzdm:186732501": {
    "first_seen": "2026-11-27",
    "platform": "smzdm",
@@ -692,8 +993,148 @@
    "post_id": "186896885",
    "source": "a03",
    "url": "https://www.smzdm.com/p/186896885"
+  },
+  "sspai:116773": {
+   "first_seen": "2026-11-27",
+   "platform": "sspai",
+   "post_id": "116773",
+   "source": "a04",
+   "url": "https://sspai.com/post/116773"
+  },
+  "sspai:117510": {
+   "first_seen": "2026-11-27",
+   "platform": "sspai",
+   "post_id": "117510",
+   "source": "a04",
+   "url": "https://sspai.com/post/117510"
+  },
+  "sspai:118791": {
+   "first_seen": "2026-11-27",
+   "platform": "sspai",
+   "post_id": "118791",
+   "source": "a04",
+   "url": "https://sspai.com/post/118791"
+  },
+  "sspai:119264": {
+   "first_seen": "2026-11-27",
+   "platform": "sspai",
+   "post_id": "119264",
+   "source": "a04",
+   "url": "https://sspai.com/post/119264"
+  },
+  "sspai:119310": {
+   "first_seen": "2026-11-27",
+   "platform": "sspai",
+   "post_id": "119310",
+   "source": "a04",
+   "url": "https://sspai.com/post/119310"
+  },
+  "sspai:119560": {
+   "first_seen": "2026-11-27",
+   "platform": "sspai",
+   "post_id": "119560",
+   "source": "a04",
+   "url": "https://sspai.com/post/119560"
+  },
+  "sspai:119563": {
+   "first_seen": "2026-11-27",
+   "platform": "sspai",
+   "post_id": "119563",
+   "source": "a04",
+   "url": "https://sspai.com/post/119563"
+  },
+  "sspai:119601": {
+   "first_seen": "2026-11-27",
+   "platform": "sspai",
+   "post_id": "119601",
+   "source": "a04",
+   "url": "https://sspai.com/post/119601"
+  },
+  "sspai:119632": {
+   "first_seen": "2026-11-27",
+   "platform": "sspai",
+   "post_id": "119632",
+   "source": "a04",
+   "url": "https://sspai.com/post/119632"
+  },
+  "sspai:119658": {
+   "first_seen": "2026-11-27",
+   "platform": "sspai",
+   "post_id": "119658",
+   "source": "a04",
+   "url": "https://sspai.com/post/119658"
+  },
+  "xiaozhong:https://www.appinn.com/1password-security-breach-2026": {
+   "first_seen": "2026-11-27",
+   "platform": "xiaozhong",
+   "post_id": "",
+   "source": "a07",
+   "url": "https://www.appinn.com/1password-security-breach-2026"
+  },
+  "xiaozhong:https://www.appinn.com/linux-nfs2root": {
+   "first_seen": "2026-11-27",
+   "platform": "xiaozhong",
+   "post_id": "",
+   "source": "a07",
+   "url": "https://www.appinn.com/linux-nfs2root"
+  },
+  "xiaozhong:https://www.appinn.com/modern-web-guidance": {
+   "first_seen": "2026-11-27",
+   "platform": "xiaozhong",
+   "post_id": "",
+   "source": "a07",
+   "url": "https://www.appinn.com/modern-web-guidance"
+  },
+  "xiaozhong:https://www.appinn.com/nodewarden-update-1": {
+   "first_seen": "2026-11-27",
+   "platform": "xiaozhong",
+   "post_id": "",
+   "source": "a07",
+   "url": "https://www.appinn.com/nodewarden-update-1"
+  },
+  "xiaozhong:https://www.appinn.com/open-source-ime-boom-and-stability": {
+   "first_seen": "2026-11-27",
+   "platform": "xiaozhong",
+   "post_id": "",
+   "source": "a07",
+   "url": "https://www.appinn.com/open-source-ime-boom-and-stability"
+  },
+  "xiaozhong:https://www.appinn.com/playported": {
+   "first_seen": "2026-11-27",
+   "platform": "xiaozhong",
+   "post_id": "",
+   "source": "a07",
+   "url": "https://www.appinn.com/playported"
+  },
+  "xiaozhong:https://www.appinn.com/snapfind": {
+   "first_seen": "2026-11-27",
+   "platform": "xiaozhong",
+   "post_id": "",
+   "source": "a07",
+   "url": "https://www.appinn.com/snapfind"
+  },
+  "xiaozhong:https://www.appinn.com/vera20k": {
+   "first_seen": "2026-11-27",
+   "platform": "xiaozhong",
+   "post_id": "",
+   "source": "a07",
+   "url": "https://www.appinn.com/vera20k"
+  },
+  "xiaozhong:https://www.appinn.com/xnulinux": {
+   "first_seen": "2026-11-27",
+   "platform": "xiaozhong",
+   "post_id": "",
+   "source": "a07",
+   "url": "https://www.appinn.com/xnulinux"
+  },
+  "xiaozhong:https://www.appinn.com/yzwpdfview": {
+   "first_seen": "2026-11-27",
+   "platform": "xiaozhong",
+   "post_id": "",
+   "source": "a07",
+   "url": "https://www.appinn.com/yzwpdfview"
   }
  },
- "updated": "2026-11-27 22:23",
+ "updated": "2026-11-27 22:29",
  "version": 1
 }

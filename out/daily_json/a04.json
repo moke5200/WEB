@@ -1,0 +1,127 @@
+{
+ "id": "a04",
+ "name": "少数派",
+ "fetched_at": "2026-11-27 22:29",
+ "items": [
+  {
+   "title": "本周看什么 | 最近值得一看的 8 部作品",
+   "url": "https://sspai.com/post/119658",
+   "summary": "☕️TL;DR近期佳作推荐：[电影]泥面人、[电影]峡湾、[电影]童话继姊妹、[英剧]警之光第四季、[加拿大]槲寄生谋杀案第三季、[国产]今天是太阳雨、[纪录片]一切如你所见、[真人秀]魔鬼的计谋：死 ...<a href=\"https://sspai.com/post/119658\" target=\"_blank\">查看全文</a>",
+   "published": "2026-11-27 16:32",
+   "author": "",
+   "source": "a04",
+   "tags": [
+    "资讯"
+   ],
+   "media": []
+  },
+  {
+   "title": "「黑五」值得买：不容错过的 App 和服务优惠",
+   "url": "https://sspai.com/post/119601",
+   "summary": "先预祝大家买得愉快、用得舒心。<a href=\"https://sspai.com/post/119601\" target=\"_blank\">查看全文</a>",
+   "published": "2026-11-27 11:48",
+   "author": "",
+   "source": "a04",
+   "tags": [
+    "资讯"
+   ],
+   "media": []
+  },
+  {
+   "title": "派早报：1Password 确认内部系统遭入侵等",
+   "url": "https://sspai.com/post/119632",
+   "summary": "索尼 WH-1000XM4C 无线降噪耳机国行正式发售，微软公布 Windows Server 2028 功能清理计划等。<a href=\"https://sspai.com/post/119632\" target=\"_blank\">查看全文</a>",
+   "published": "2026-11-27 08:27",
+   "author": "",
+   "source": "a04",
+   "tags": [
+    "资讯"
+   ],
+   "media": []
+  },
+  {
+   "title": "App+1｜Agora：开源、易用、好用，给 Android 用户的 LLM 聊天工具",
+   "url": "https://sspai.com/post/116773",
+   "summary": "如果你在通过 API 调用你喜欢的大模型，希望它们能像 Kimi 等商业 AI 客户端那样用着顺手，那 Agora 就是为你而来的。相信我，Agora 不会让你失望。<a href=\"https://sspai.com/post/116773\" target=\"_blank\">查看全文</a>",
+   "published": "2026-11-26 17:30",
+   "author": "",
+   "source": "a04",
+   "tags": [
+    "资讯"
+   ],
+   "media": []
+  },
+  {
+   "title": "论文作图不求人，用 ChatGPT 和 Keynote 免费搞定机理图",
+   "url": "https://sspai.com/post/119563",
+   "summary": "在 AI 工具玲琅满目的今天，用各种方法「写」出一篇论文已经不算难事。但有一个环节依然很让人头疼——论文里的机理图。<a href=\"https://sspai.com/post/119563\" target=\"_blank\">查看全文</a>",
+   "published": "2026-11-26 15:00",
+   "author": "",
+   "source": "a04",
+   "tags": [
+    "资讯"
+   ],
+   "media": []
+  },
+  {
+   "title": "我用AI做了一张两千年的中国历史地图",
+   "url": "https://sspai.com/post/117510",
+   "summary": "希望这张地图，能陪更多人走一遍故纸堆里的万里江山。<a href=\"https://sspai.com/post/117510\" target=\"_blank\">查看全文</a>",
+   "published": "2026-11-26 11:13",
+   "author": "",
+   "source": "a04",
+   "tags": [
+    "资讯"
+   ],
+   "media": []
+  },
+  {
+   "title": "派早报：蔚来举办 2026 创新科技日、Tidal 将拒绝 AI 音乐等",
+   "url": "https://sspai.com/post/119560",
+   "summary": "阿里千问 Go 开放免费代打电话服务、Sand.ai 发布视频生成模型 MAGI-2 等。<a href=\"https://sspai.com/post/119560\" target=\"_blank\">查看全文</a>",
+   "published": "2026-11-26 08:08",
+   "author": "",
+   "source": "a04",
+   "tags": [
+    "资讯"
+   ],
+   "media": []
+  },
+  {
+   "title": "翻开 2027， 值得入手的新年日历推荐",
+   "url": "https://sspai.com/post/119264",
+   "summary": "按照中国的农历纪年法，2027年是羊年，《说文解字》说「羊，祥也」。《诗经・小雅・无羊》云「尔羊来思，其角濈濈」，写羊群缓缓归野，安然相聚，恰合丁未岁的平和气象。一只吉羊，一册日历，便是收纳这一年日常 ...<a href=\"https://sspai.com/post/119264\" target=\"_blank\">查看全文</a>",
+   "published": "2026-11-25 17:48",
+   "author": "",
+   "source": "a04",
+   "tags": [
+    "资讯"
+   ],
+   "media": []
+  },
+  {
+   "title": "App+1｜Yab：开源、AI 友好的双内核浏览器，给舍不得 Arc 的你",
+   "url": "https://sspai.com/post/119310",
+   "summary": "Arc 花了很大力气重新设计「人该如何使用浏览器」，YAB 在继承这份交互遗产的同时，又顺手为 AI 打开了另一扇门。<a href=\"https://sspai.com/post/119310\" target=\"_blank\">查看全文</a>",
+   "published": "2026-11-25 14:59",
+   "author": "",
+   "source": "a04",
+   "tags": [
+    "资讯"
+   ],
+   "media": []
+  },
+  {
+   "title": "怀旧手记｜Palm Pre：内藏「划时代」系统的手机",
+   "url": "https://sspai.com/post/118791",
+   "summary": "Matrix首页推荐Matrix是少数派的写作社区，我们主张分享真实的产品体验，有实用价值的经验与思考。我们会不定期挑选Matrix最优质的文章，展示来自用户的最真实的体验和观点。文章代表作者个人观点 ...<a href=\"https://sspai.com/post/118791\" target=\"_blank\">查看全文</a>",
+   "published": "2026-11-25 11:07",
+   "author": "",
+   "source": "a04",
+   "tags": [
+    "资讯"
+   ],
+   "media": []
+  }
+ ]
+}

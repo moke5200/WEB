@@ -1,0 +1,127 @@
+{
+ "id": "a07",
+ "name": "小众软件",
+ "fetched_at": "2026-11-27 22:29",
+ "items": [
+  {
+   "title": "NodeWarden – 不用服务器，在 Cloudflare 上免费自建密码管理器【续】",
+   "url": "https://www.appinn.com/nodewarden-update-1/",
+   "summary": "今年 2 月，青小蛙介绍过一款非常有意思的开源密码管理器 NodeWarden，它可以直接部署在 Cloudflare Workers 上，无需服务器，就能拥有一个兼容 Bitwarden 的私人密码",
+   "published": "2026-11-27 17:12",
+   "author": "",
+   "source": "a07",
+   "tags": [
+    "软件"
+   ],
+   "media": []
+  },
+  {
+   "title": "SnapFind – 只做截图文字识别的开源工具，本地离线 OCR",
+   "url": "https://www.appinn.com/snapfind/",
+   "summary": "SnapFind 是一款功能极简的开源 Windows 工具，只做一件事：从屏幕上提取文字。无需联网，无需部署大模型，按下快捷键、框选屏幕区域，即可完成 OCR 文字识别。@Appinn 来自发现频道",
+   "published": "2026-11-27 16:04",
+   "author": "",
+   "source": "a07",
+   "tags": [
+    "软件"
+   ],
+   "media": []
+  },
+  {
+   "title": "Linux NFS 曝出 9.8 分漏洞 NFS2ROOT，开了 NFS 共享的 NAS 用户注意",
+   "url": "https://www.appinn.com/linux-nfs2root/",
+   "summary": "Linux NFS 服务端曝出严重漏洞 NFS2ROOT（CVE-2026-99362）。开启 NFSv4.1 或 NFSv4.2 共享的 NAS 和自建服务器，应检查更新并限制访问。",
+   "published": "2026-11-26 22:23",
+   "author": "",
+   "source": "a07",
+   "tags": [
+    "软件"
+   ],
+   "media": []
+  },
+  {
+   "title": "别让 AI 用过时的技术写网页，Chrome 官方推出 Skills：Modern Web Guidance",
+   "url": "https://www.appinn.com/modern-web-guidance/",
+   "summary": "如何让 AI 写网页的时候，不使用过时的技术？ 不知道你有没有遇到过：AI 帮你写网页，用的却是几年前的技术。明明浏览器已经原生支持的功能，它还要引入一堆第三方依赖，不仅增加了代码量，还可能带来额外的",
+   "published": "2026-11-26 17:07",
+   "author": "",
+   "source": "a07",
+   "tags": [
+    "软件"
+   ],
+   "media": []
+  },
+  {
+   "title": "VERA20K -《红色警戒 2》用 Rust 重写了！支持 Windows、Mac、Linux，目标 2 万单位大战",
+   "url": "https://www.appinn.com/vera20k/",
+   "summary": "一款诞生于 2000 年的游戏，居然在 26 年后迎来了全新的游戏引擎。 今天，青小蛙从查无此人同学处了解到的这个新项目： 开发者用 Rust 语言重新实现了《红色警戒 2：尤里的复仇》的游戏引擎，让",
+   "published": "2026-11-26 15:16",
+   "author": "",
+   "source": "a07",
+   "tags": [
+    "软件"
+   ],
+   "media": []
+  },
+  {
+   "title": "PlayPorted – 近 2500 个游戏移植项目，都在这个网站上",
+   "url": "https://www.appinn.com/playported/",
+   "summary": "最近一段时间，青小蛙介绍了不少游戏的 PC 原生移植项目，包括《塞尔达传说：王国之泪》、《塞尔达传说：时之笛重制版》《马力欧卡丁车》《红警、命令与征服》等等。@Appinn 这些原本只能在游戏主机（也",
+   "published": "2026-11-26 12:21",
+   "author": "",
+   "source": "a07",
+   "tags": [
+    "软件"
+   ],
+   "media": []
+  },
+  {
+   "title": "密码管理器 1Password 遭黑客入侵，部分用户数据泄露，用户主密码、密码库均安全。",
+   "url": "https://www.appinn.com/1password-security-breach-2026/",
+   "summary": "1Password 确认被黑客入侵： 泄漏：姓名、邮箱、用户ID、部分邀请和恢复令牌、用户创建几最后登录时间。安全：密码库安全、主密码安全、账户私钥安全、恢复私钥安全 11 月 25 日，知名密码管理",
+   "published": "2026-11-26 10:09",
+   "author": "",
+   "source": "a07",
+   "tags": [
+    "软件"
+   ],
+   "media": []
+  },
+  {
+   "title": "开源输入法的大爆发与稳定性（5款输入法对比）",
+   "url": "https://www.appinn.com/open-source-ime-boom-and-stability/",
+   "summary": "本文来自论坛 CCR 同学，原标题《【无用评测】开源输入法大爆发与稳定性》 原链接：https://meta.appinn.net/t/topic/96465 背景 近期有不少输入法应用扎堆出现，本着",
+   "published": "2026-11-25 17:39",
+   "author": "",
+   "source": "a07",
+   "tags": [
+    "软件"
+   ],
+   "media": []
+  },
+  {
+   "title": "YzwPDFView 大雁PDF：89KB 的单文件 PDF 快速查看小工具",
+   "url": "https://www.appinn.com/yzwpdfview/",
+   "summary": "YzwPDFView（大雁PDF查看小工具）是一款 Windows 下的纯 PDF 阅读工具，简单直接，支持快捷键，只有 89KB 大小，单可执行文件。@Appinn 来自发现频道，开发者自荐：htt",
+   "published": "2026-11-25 16:24",
+   "author": "",
+   "source": "a07",
+   "tags": [
+    "软件"
+   ],
+   "media": []
+  },
+  {
+   "title": "xnulinux – 不用虚拟机，在 Linux 中直接运行完整 macOS",
+   "url": "https://www.appinn.com/xnulinux/",
+   "summary": "大乱斗时代有点乱，这是一个可以在 Linux 中运行完整 macOS 系统的开源项目。开发者实现了在 Mac 的 Linux 虚拟机中，通过 xnulinux 再运行一个 macOS 的套娃式离谱操作",
+   "published": "2026-11-25 14:59",
+   "author": "",
+   "source": "a07",
+   "tags": [
+    "软件"
+   ],
+   "media": []
+  }
+ ]
+}
