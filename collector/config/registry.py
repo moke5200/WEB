@@ -67,7 +67,7 @@ SOURCES = [
 
     dict(id="a10", file="a10_v2ex.py", name="V2EX 推广",
          category="独立开发", freq="1d", runs_on="cloud", needs_login=False,
-         cross_source_dedup=False, raw_lang="zh", output="json", enabled=False),
+         cross_source_dedup=False, raw_lang="zh", output="json", enabled=True),
 
     dict(id="a11", file="a11_aihot.py", name="aihot.news",
          category="AI 额度", freq="12h", runs_on="cloud", needs_login=False,
@@ -110,12 +110,12 @@ SOURCES = [
 
     dict(id="a26", file="a26_youtube_rss.py", name="YouTube 精选博主 RSS",
          category="视频", freq="1d", runs_on="cloud", needs_login=False,
-         cross_source_dedup=False, raw_lang="en", output="json", enabled=False,
+         cross_source_dedup=False, raw_lang="en", output="json", enabled=True,
          note="免 Key，抓 videos.xml"),
 
     dict(id="b29", file="b29_ruike.py", name="瑞客论坛",
-         category="论坛", freq="1d", runs_on="cloud", needs_login=True,
-         cross_source_dedup=False, raw_lang="zh", output="json", enabled=False,
+         category="论坛", freq="1d", runs_on="local", needs_login=True,
+         cross_source_dedup=False, raw_lang="zh", output="json", enabled=True,
          note="需 RUIKE_COOKIE secret"),
 
     dict(id="b35", file="b35_x_useful.py", name="X 主号（有用组）",
