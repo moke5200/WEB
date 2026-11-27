@@ -31,7 +31,7 @@ SOURCES = [
     # ---------- 待迁移（先留位） ----------
     dict(id="a02", file="a02_linuxdo_welfare.py", name="linux.do 福利版",
          category="福利", freq="3h", runs_on="cloud", needs_login=False,
-         cross_source_dedup=False, raw_lang="zh", output="json", enabled=False,
+         cross_source_dedup=False, raw_lang="zh", output="json", enabled=True,
          note="只采集不进 001.md；真好的强相关主动推，其余普通列表"),
 
     dict(id="a03", file="a03_smzdm.py", name="什么值得买",
