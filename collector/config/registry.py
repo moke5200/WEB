@@ -67,7 +67,7 @@ SOURCES = [
 
     dict(id="a10", file="a10_v2ex.py", name="V2EX 推广",
          category="独立开发", freq="1d", runs_on="cloud", needs_login=False,
-         cross_source_dedup=False, raw_lang="zh", output="json", enabled=True),
+         cross_source_dedup=False, raw_lang="zh", output="json", enabled=False),
 
     dict(id="a11", file="a11_aihot.py", name="aihot.news",
          category="AI 额度", freq="12h", runs_on="cloud", needs_login=False,
@@ -93,7 +93,7 @@ SOURCES = [
 
     dict(id="a19", file="a19_bili_subtitle.py", name="B站字幕工具模块",
          category="工具", freq="on-demand", runs_on="cloud", needs_login=False,
-         cross_source_dedup=False, raw_lang="zh", output="json", enabled=True,
+         cross_source_dedup=False, raw_lang="zh", output="json", enabled=False,
          note="底层模块，供 a20 和私人 Skill 调用"),
 
     dict(id="a20", file="a20_bili_up.py", name="B站指定 UP 主投稿",
