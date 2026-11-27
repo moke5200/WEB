@@ -1,30 +1,34 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""a20 · B站指定 UP 主投稿（需 Cookie）
+"""a20 · B站指定 UP 主投稿（需 Cookie + WBI 签名）
 
-盯野哥指定的一批 UP 主新发视频。
-流程：UP 名 → 搜索 API 解析 UID（缓存）→ 投稿 API 取最新视频。
-内容处理：本源只记视频条目（标题/链接/时间）。
-字幕转写由 a19 底层模块 + 06 号私人 Skill 另做，不在本源重复。
+发现新视频 = 转写任务的上游（对应「DSH用 B站转写水位线.md」里每个UP扫到哪条）。
+本源只做「发现」，不取字幕、不转写（那是独立任务 bili_subtitle.py 的事）。
+
+UID 来源：优先读水位线文件里的 space.bilibili.com/<uid>（现成 24 个，避开搜索API风控）。
 """
 import datetime
 import http.cookiejar
-import json
+import io
 import os
-import urllib.parse
-import urllib.request
+import re
 
 from sources.base import Source
+from core.wbi import Wbi
 
 CK = r"E:\Google Drive\Agent 规则\Cookies 账号信息\www.bilibili.com_cookies.txt"
-CACHE = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
-                     "state", "bili_uids.json")
-UPS = ["3Blue1Brown", "AI超元域", "双尾彗星", "固液", "国仁全球大学堂",
-       "小王Albert", "席亚洲", "所长林超", "数字生命卡兹克", "施展世界",
-       "波士顿圆脸", "程序员鱼皮", "翟东升老师", "观视频工作室",
-       "金灿荣教授", "麒元视界"]
-UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-      "(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36")
+WATERLINE = r"E:\Google Drive\Agent 收集\B站\DSH用 B站转写水位线.md"
+
+
+def load_ups():
+    """从水位线文件读 (UP名, uid) 列表。"""
+    ups = []
+    if not os.path.exists(WATERLINE):
+        return ups
+    txt = io.open(WATERLINE, encoding="utf-8").read()
+    for m in re.finditer(r'\|\s*\d+\s*\|\s*([^|]+?)\s*\|\s*https://space\.bilibili\.com/(\d+)', txt):
+        ups.append((m.group(1).strip(), m.group(2)))
+    return ups
 
 
 class BiliUp(Source):
@@ -37,64 +41,47 @@ class BiliUp(Source):
     raw_lang = "zh"
     platform = "bilibili"
 
-    def _opener(self):
+    def fetch(self, cfg=None, seen=None):
+        ups = load_ups()
+        if not ups:
+            return [], ["水位线文件没读到 UP 列表"]
         path = os.environ.get("BILI_COOKIE_FILE", CK)
         jar = http.cookiejar.MozillaCookieJar(path)
         jar.load(ignore_discard=True, ignore_expires=True)
-        op = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(jar))
-        op.addheaders = [("User-Agent", UA), ("Referer", "https://www.bilibili.com/")]
-        return op
+        wbi = Wbi(jar, gap=6)          # 串行慢速，野哥要求不并发
+        ok, uname = wbi.login_ok()
+        if not ok:
+            return [], ["B站登录态失效"]
+        print("    [a20] 登录 OK: %s | %d 个UP" % (uname, len(ups)), flush=True)
 
-    def _uid(self, op, name):
-        cache = {}
-        if os.path.exists(CACHE):
-            try:
-                cache = json.load(open(CACHE, encoding="utf-8"))
-            except Exception:
-                pass
-        if name in cache:
-            return cache[name]
-        url = ("https://api.bilibili.com/x/web-interface/search/type?search_type=bili_user&keyword="
-               + urllib.parse.quote(name))
-        with op.open(url, timeout=30) as r:
-            d = json.loads(r.read().decode("utf-8", "replace"))
-        res = (d.get("data") or {}).get("result") or []
-        uid = str(res[0].get("mid")) if res else ""
-        if uid:
-            cache[name] = uid
-            os.makedirs(os.path.dirname(CACHE), exist_ok=True)
-            json.dump(cache, open(CACHE, "w", encoding="utf-8"),
-                      ensure_ascii=False, indent=1)
-        return uid
-
-    def fetch(self, cfg=None, seen=None):
-        op = self._opener()
         items, failed = [], []
-        for name in UPS:
+        for name, uid in ups:
             try:
-                uid = self._uid(op, name)
-                if not uid:
-                    failed.append("解析UID失败:" + name)
+                url = wbi.sign_url("/x/space/wbi/arc/search",
+                                   {"mid": uid, "ps": 10, "pn": 1})
+                d = wbi.get_json(url)
+                if d.get("code") != 0:
+                    failed.append("%s:code%s" % (name, d.get("code")))
                     continue
-                url = ("https://api.bilibili.com/x/space/wbi/arc/search?mid=%s&ps=10&pn=1" % uid)
-                with op.open(url, timeout=30) as r:
-                    d = json.loads(r.read().decode("utf-8", "replace"))
                 vlist = (((d.get("data") or {}).get("list") or {}).get("vlist") or [])
                 for v in vlist:
                     bvid = v.get("bvid") or ""
                     if self.is_seen(seen, post_id=bvid, url=None):
                         continue
+                    created = v.get("created") or 0
+                    pub = (datetime.datetime.fromtimestamp(
+                        created, datetime.timezone(datetime.timedelta(hours=8))
+                    ).strftime("%Y-%m-%d %H:%M") if created else "")
                     items.append(self.item(
-                        title=v.get("title") or "", url="https://www.bilibili.com/video/%s" % bvid,
-                        published=datetime.datetime.fromtimestamp(
-                            v.get("created", 0), datetime.timezone(datetime.timedelta(hours=8))
-                        ).strftime("%Y-%m-%d %H:%M") if v.get("created") else "",
-                        author=name,
+                        title=v.get("title") or "",
+                        url="https://www.bilibili.com/video/%s" % bvid,
+                        published=pub, author=name,
                         summary="B站新视频 · %s" % name,
                         tags=["视频", name],
                         extra={"post_id": bvid, "platform": "bilibili", "up": name},
                     ))
             except Exception as e:
-                failed.append("%s:%s" % (name, str(e)[:50]))
-        print("    [a20] %d 个UP → 收 %d 条新视频" % (len(UPS), len(items)), flush=True)
+                failed.append("%s:%s" % (name, str(e)[:40]))
+        print("    [a20] %d 个UP → 收 %d 条新视频（失败 %d）"
+              % (len(ups), len(items), len(failed)), flush=True)
         return items, failed
