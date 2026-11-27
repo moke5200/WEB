@@ -36,7 +36,7 @@ SOURCES = [
 
     dict(id="a03", file="a03_smzdm.py", name="什么值得买",
          category="好价", freq="30m", runs_on="cloud", needs_login=False,
-         cross_source_dedup=False, raw_lang="zh", output="json", enabled=False,
+         cross_source_dedup=False, raw_lang="zh", output="json", enabled=True,
          note="不带 Cookie，从列表页 Nuxt 数据抠"),
 
     dict(id="a04", file="a04_sspai.py", name="少数派",
