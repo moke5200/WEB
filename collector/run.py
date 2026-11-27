@@ -97,7 +97,9 @@ def run_one(cfg, dry_run=False, lg=None):
         # 输出
         if cfg.get("output") == "001.md":
             n = output.prepend_to_default_001(fresh, note="linux.do 云资源")
-            print("[%s] 写入 001.md %d 条 → %s" % (sid, n, settings.OUT_001), flush=True)
+            target = settings.OUT_001 if settings.WRITE_LOCAL_DISK \
+                else os.path.join(settings.OUT_DIR, "001.md")
+            print("[%s] 写入 001.md %d 条 → %s" % (sid, n, target), flush=True)
         # 无论哪种，都留一份 json 供每日页组装
         output.dump_json(os.path.join(settings.DAILY_JSON_DIR, "%s.json" % sid),
                          {"id": sid, "name": src.name,
