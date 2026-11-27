@@ -50,7 +50,7 @@ SOURCES = [
 
     dict(id="a06", file="a06_github_trending.py", name="GitHub Trending",
          category="开源", freq="1d", runs_on="cloud", needs_login=False,
-         cross_source_dedup=False, raw_lang="zh", output="json", enabled=False),
+         cross_source_dedup=False, raw_lang="en", output="json", enabled=True),
 
     dict(id="a07", file="a07_xiaozhong.py", name="小众软件",
          category="软件", freq="1d", runs_on="cloud", needs_login=False,
@@ -67,7 +67,7 @@ SOURCES = [
 
     dict(id="a10", file="a10_v2ex.py", name="V2EX 推广",
          category="独立开发", freq="1d", runs_on="cloud", needs_login=False,
-         cross_source_dedup=False, raw_lang="zh", output="json", enabled=False),
+         cross_source_dedup=False, raw_lang="zh", output="json", enabled=True),
 
     dict(id="a11", file="a11_aihot.py", name="aihot.news",
          category="AI 额度", freq="12h", runs_on="cloud", needs_login=False,
@@ -75,25 +75,25 @@ SOURCES = [
 
     dict(id="a12", file="a12_auc.py", name="AgentUseCases",
          category="Agent 案例", freq="12h", runs_on="cloud", needs_login=False,
-         cross_source_dedup=False, raw_lang="en", output="json", enabled=False),
+         cross_source_dedup=False, raw_lang="en", output="json", enabled=True),
 
     dict(id="a15", file="a15_hackernews.py", name="HackerNews",
          category="英文资讯", freq="1d", runs_on="cloud", needs_login=False,
-         cross_source_dedup=False, raw_lang="en", output="json", enabled=False,
+         cross_source_dedup=False, raw_lang="en", output="json", enabled=True,
          note="先过滤纯名人捧场/情绪灌水"),
 
-    dict(id="a16", file="a16_simon_willison.py", name="Simon Willison",
+    dict(id="a16", file="a16_simon.py", name="Simon Willison",
          category="英文资讯", freq="1d", runs_on="cloud", needs_login=False,
-         cross_source_dedup=False, raw_lang="en", output="json", enabled=False),
+         cross_source_dedup=False, raw_lang="en", output="json", enabled=True),
 
     dict(id="a18", file="a18_epic.py", name="Epic 喜加一",
          category="免费游戏", freq="weekly-fri", runs_on="cloud", needs_login=False,
-         cross_source_dedup=False, raw_lang="zh", output="json", enabled=False,
+         cross_source_dedup=False, raw_lang="zh", output="json", enabled=True,
          note="每周五一次；每款附 B 站搜索链接"),
 
     dict(id="a19", file="a19_bili_subtitle.py", name="B站字幕工具模块",
          category="工具", freq="on-demand", runs_on="cloud", needs_login=False,
-         cross_source_dedup=False, raw_lang="zh", output="json", enabled=False,
+         cross_source_dedup=False, raw_lang="zh", output="json", enabled=True,
          note="底层模块，供 a20 和私人 Skill 调用"),
 
     dict(id="a20", file="a20_bili_up.py", name="B站指定 UP 主投稿",
