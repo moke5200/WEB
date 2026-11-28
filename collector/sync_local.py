@@ -106,13 +106,22 @@ def item_to_md(it):
     if meta:
         lines += [' · '.join(meta), '']
     if it.get('url'):
-        lines += ['链接：' + it['url'], '']
+        lines += ['链接：[%s](%s)' % (it['url'], it['url']), '']
     for m in it.get('media') or []:
         if isinstance(m, dict):
-            lines.append('图片：%s' % m.get('url', ''))
+            kind = str(m.get('type') or m.get('kind') or '').strip()
+            u = m.get('url', '')
+            if kind == 'photo':
+                lines.append('![图片](%s)' % u)
+            else:
+                lines.append('%s：%s' % (kind or '图片', u))
         elif isinstance(m, (list, tuple)) and len(m) >= 2:
-            lines.append('%s：%s' % (m[0], m[1]))
-    if any(str(x).startswith('图片：') for x in lines):
+            kind, u = str(m[0]), m[1]
+            if kind == 'photo':
+                lines.append('![图片](%s)' % u)
+            else:
+                lines.append('%s：%s' % (kind, u))
+    if any(str(x).startswith(('图片：', '![')) for x in lines):
         lines.append('')
     if tags:
         lines += ['标签：' + '、'.join(tags), '']
