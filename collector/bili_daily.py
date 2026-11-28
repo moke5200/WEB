@@ -32,6 +32,7 @@ from core.wbi import Wbi
 from core.ledger import Ledger
 
 CK = r"E:\Google Drive\Agent 规则\Cookies 账号信息\www.bilibili.com_cookies.txt"
+INSTR = r"E:\Google Drive\Agent 规则\07-定时任务\00-DSH-多源信息收集指令.md"
 WATERLINE = r"E:\Google Drive\Agent 收集\B站\DSH用 B站转写水位线.md"
 OUTROOT = r"E:\Google Drive\Agent 收集\B站\B站 视频文稿"
 AUDIO_Q = os.path.join(HERE, "state", "audio_queue")
@@ -39,13 +40,44 @@ PY = sys.executable
 
 
 def load_ups():
-    ups = []
-    if not os.path.exists(WATERLINE):
-        return ups
-    txt = io.open(WATERLINE, encoding="utf-8").read()
-    for m in re.finditer(r'\|\s*\d+\s*\|\s*([^|]+?)\s*\|\s*https://space\.bilibili\.com/(\d+)', txt):
-        ups.append((m.group(1).strip(), m.group(2)))
-    return ups
+    """从整合指令「UP主名单」表读（29 个，含 11-28 新加的瓜子项目社/网赚库）。
+    他们的 UID 在表里；没写的从水位线表补。"""
+    ups, seen = [], set()
+    # 1) 新指令：| # | UP主 | UID | 备注 |
+    if os.path.exists(INSTR):
+        txt = io.open(INSTR, encoding='utf-8').read()
+        sec = txt.split('### UP主名单', 1)[-1].split('### 待转写链接清单', 1)[0] \
+            if '### UP主名单' in txt else ''
+        for m in re.finditer(r'\|\s*\d+\s*\|\s*([^|]+?)\s*\|\s*(\d+)?\s*\|', sec):
+            name, uid = m.group(1).strip(), (m.group(2) or '').strip()
+            if name and name not in seen:
+                seen.add(name); ups.append((name, uid))
+    # 1.5) 新指令的「UP主清单」表（27 个带主页 URL）
+    if os.path.exists(INSTR):
+        txt = io.open(INSTR, encoding='utf-8').read()
+        sec = txt.split('### UP主清单', 1)[-1].split('---', 1)[0] if '### UP主清单' in txt else ''
+        for m in re.finditer(r'\|\s*\d+\s*\|\s*([^|]+?)\s*\|\s*https://space\.bilibili\.com/(\d+)', sec):
+            name, uid = m.group(1).strip(), m.group(2)
+            if name not in seen:
+                seen.add(name); ups.append((name, uid))
+            else:
+                idx = [u[0] for u in ups].index(name)
+                if not ups[idx][1]:
+                    ups[idx] = (name, uid)
+    # 2) 水位线：| # | UP主 | 主页URL | ...
+    if os.path.exists(WATERLINE):
+        txt = io.open(WATERLINE, encoding='utf-8').read()
+        for m in re.finditer(r'\|\s*\d+\s*\|\s*([^|]+?)\s*\|\s*https://space\.bilibili\.com/(\d+)', txt):
+            name, uid = m.group(1).strip(), m.group(2)
+            if name in seen:
+                # 补 UID（新指令表里很多人 UID 空着）
+                idx = [u[0] for u in ups].index(name)
+                if not ups[idx][1]:
+                    ups[idx] = (name, uid)
+            else:
+                seen.add(name); ups.append((name, uid))
+    # 别名归一（指令里简称 vs 水位线全称）——按 UID 补齐后保留
+    return [(n, u) for n, u in ups if u]
 
 
 def safe_name(s, n=80):
@@ -115,6 +147,9 @@ def download_audio(bvid, meta):
 
 def main():
     dry = '--dry-run' in sys.argv
+    full_scan = '--full-scan' in sys.argv   # 新UP回填：翻页直到 2026-06-01
+    import datetime as _dt
+    CUTOFF_TS = int(_dt.datetime(2026, 6, 1, tzinfo=_dt.timezone.utc).timestamp())
     max_n = 10
     if '--max' in sys.argv:
         try:
@@ -123,6 +158,10 @@ def main():
             pass
 
     ups = load_ups()
+    if '--ups' in sys.argv:
+        only = sys.argv[sys.argv.index('--ups') + 1].split(',')
+        ups = [(n, u) for n, u in ups if n in only]
+        print('只处理指定UP：%s' % ', '.join(n for n, _ in ups), flush=True)
     os.makedirs(AUDIO_Q, exist_ok=True)
     jar = http.cookiejar.MozillaCookieJar(CK)
     jar.load(ignore_discard=True, ignore_expires=True)
@@ -142,20 +181,37 @@ def main():
             wl[m.group(1).strip()] = m.group(2).strip()
 
     processed = 0
+    newest_bv = {}      # name -> (bv, date) 本轮扫到的最新
     for name, uid in ups:
         if processed >= max_n:
             break
         try:
-            url = wbi.sign_url("/x/space/wbi/arc/search", {"mid": uid, "ps": 10, "pn": 1})
-            d = wbi.get_json(url)
-            vlist = (((d.get("data") or {}).get("list") or {}).get("vlist") or [])
-            # 从最新往下，遇到水位线就停
+            vlist = []
+            # full_scan：翻页直到 6/1（新UP回填）；否则只取第 1 页
+            max_pages = 30 if full_scan else 1
+            for pn in range(1, max_pages + 1):
+                url = wbi.sign_url("/x/space/wbi/arc/search",
+                                   {"mid": uid, "ps": 30, "pn": pn})
+                d = wbi.get_json(url)
+                page = (((d.get("data") or {}).get("list") or {}).get("vlist") or [])
+                if not page:
+                    break
+                vlist.extend(page)
+                if not full_scan:
+                    break
+                # 翻到 6/1 之前就停
+                if page[-1].get("created", 0) < CUTOFF_TS:
+                    break
+            # 从最新往下，遇到水位线就停（full_scan 时用 6/1 截止）
             for v in vlist:
                 if processed >= max_n:
                     break
                 bvid = v.get("bvid") or ""
                 if not bvid:
                     continue
+                created = v.get("created") or 0
+                if full_scan and created and created < CUTOFF_TS:
+                    break
                 if bvid == wl.get(name):
                     break
                 if lg.is_seen("bilibili", bvid, None):
@@ -182,11 +238,43 @@ def main():
                 processed += 1
         except Exception as e:
             print("    [bili] %s 处理失败: %s" % (name, str(e)[:100]), flush=True)
+        # 记本轮该 UP 扫到的最新 BV（第一条即最新，无论是否已处理过）
+        if vlist:
+            top = vlist[0]
+            tb = top.get("bvid") or ""
+            tc = top.get("created") or 0
+            if tb and tc:
+                newest_bv[name] = (tb, datetime.datetime.fromtimestamp(
+                    tc, datetime.timezone(datetime.timedelta(hours=8))).strftime('%Y-%m-%d'))
+                if dry:
+                    print("    [dry] 水位线 %s → %s (%s)" % (name, tb, newest_bv[name][1]), flush=True)
 
     if not dry:
         lg.save()
-    # 更新水位线（每个UP扫到的最新BV）
+        # 更新水位线：每个 UP 记本轮扫到的最新 BV 和日期
+        if newest_bv:
+            update_waterline(newest_bv)
     print("本轮处理 %d 个视频" % processed, flush=True)
+
+
+def update_waterline(newest_bv):
+    """把本轮每个 UP 扫到的最新 BV 写回水位线（保留 UID 和未扫到的行）。"""
+    if not os.path.exists(WATERLINE):
+        return
+    t = io.open(WATERLINE, encoding='utf-8').read()
+    lines = t.splitlines()
+    out = []
+    for ln in lines:
+        m = re.match(r'\|\s*(\d+)\s*\|\s*([^|]+?)\s*\|\s*(https://space\.bilibili\.com/\d+)\s*\|'
+                     r'\s*([^|]*?)\s*\|\s*([^|]*?)\s*\|', ln)
+        if m:
+            idx, name, home, bv, dt = m.groups()
+            if name.strip() in newest_bv:
+                nbv, ndt = newest_bv[name.strip()]
+                ln = '| %s | %s | %s | %s | %s |' % (idx, name.strip(), home, nbv, ndt)
+        out.append(ln)
+    io.open(WATERLINE, 'w', encoding='utf-8').write('\n'.join(out) + '\n')
+    print("  水位线已更新 %d 个 UP" % len(newest_bv), flush=True)
 
 
 if __name__ == '__main__':
