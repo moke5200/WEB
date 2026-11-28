@@ -104,9 +104,9 @@ SOURCES = [
          category="资讯", freq="6h", runs_on="cloud", needs_login=False,
          cross_source_dedup=False, raw_lang="zh", output="json", enabled=True),
 
-    dict(id="a24", file="a24_ai_quota.py", name="AI 平台免费额度",
+    dict(id="a24", file="a24_ai_quota.py", name="AI 平台免费额度（长期）",
          category="AI 额度", freq="1d", runs_on="cloud", needs_login=False,
-         cross_source_dedup=False, raw_lang="zh", output="json", enabled=False),
+         cross_source_dedup=False, raw_lang="zh", output="json", enabled=True),
 
     dict(id="a26", file="a26_youtube_rss.py", name="YouTube 精选博主 RSS",
          category="视频", freq="1d", runs_on="cloud", needs_login=False,
@@ -120,12 +120,12 @@ SOURCES = [
 
     dict(id="b35", file="b35_x_useful.py", name="X 主号（有用组）",
          category="X", freq="12h", runs_on="local", needs_login=True,
-         cross_source_dedup=False, raw_lang="zh", output="json", enabled=False,
+         cross_source_dedup=False, raw_lang="zh", output="json", enabled=True,
          note="本机跑，复用现有 _x_to_md_v3.py"),
 
     dict(id="b37", file="b37_xhs_douyin.py", name="小红书/抖音热榜",
          category="热榜", freq="1d", runs_on="local", needs_login=True,
-         cross_source_dedup=False, raw_lang="zh", output="json", enabled=False),
+         cross_source_dedup=False, raw_lang="zh", output="json", enabled=True),
 ]
 
 
