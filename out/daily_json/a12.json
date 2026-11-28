@@ -1,330 +1,137 @@
 {
  "id": "a12",
  "name": "AgentUseCases",
- "fetched_at": "2026-11-28 06:38",
+ "fetched_at": "2026-11-28 22:21",
  "items": [
   {
-   "title": "Self-host open-source apps by having an agent do the setup",
-   "url": "https://agentusecases.ai/use-case/self-host-open-source-apps-by-having-an-agent-do-the-setup",
-   "summary": "Agent 案例：The author has an agent SSH into a local server and install self-hosted apps (e.g. baby tracking, finance tracking), then set up a Cloudflare tunnel.",
+   "title": "通过 MCP 服务器在后台运行 Windows 应用程序",
+   "url": "https://agentusecases.ai/use-case/operate-windows-apps-in-the-background-via-an-mcp-server",
+   "summary": "代理案例：用 Claude Code 完成。发布者为 Claude Code 构建了一个 MCP 服务器，该服务器在后台运行 Windows 应用程序，处理一些 Oracle 和远程桌面案例，但不是",
+   "published": "Sat, 28 Nov 2026",
+   "author": "",
+   "source": "a12",
+   "tags": [
+    "Agent 案例"
+   ],
+   "media": []
+  },
+  {
+   "title": "一夜之间将 GitHub 问题处理为拉取请求",
+   "url": "https://agentusecases.ai/use-case/process-github-issues-into-pull-requests-overnight",
+   "summary": "代理案例：用OpenClaw完成。 cron 作业会触发 OpenClaw 代理选择一个未启动的 GitHub 问题，实施并测试更改，打开 PR，并将问题重新标记为已完成。",
    "published": "Fri, 27 Nov 2026",
    "author": "",
    "source": "a12",
    "tags": [
-    "Agent 案例",
-    "未翻译"
+    "Agent 案例"
    ],
    "media": []
   },
   {
-   "title": "Book an appointment using ChatGPT Agent mode",
-   "url": "https://agentusecases.ai/use-case/book-an-appointment-using-chatgpt-agent-mode",
-   "summary": "Agent 案例：Done with ChatGPT Agent. The agent checked Google Calendar for free time and sent an appointment email, but was about 10x slower than manual, the session expired, and the ",
+   "title": "睡觉时运行编码代理和实验过夜",
+   "url": "https://agentusecases.ai/use-case/run-coding-agents-and-experiments-overnight-while-asleep",
+   "summary": "代理案例：用OpenClaw完成。 OpenClaw 从中午 12:30 驱动编码代理到早上 7 点，另一个用户的夜间 cron 会生成实验子代理，他每天早上都会查看其结果",
    "published": "Fri, 27 Nov 2026",
    "author": "",
    "source": "a12",
    "tags": [
-    "Agent 案例",
-    "未翻译"
+    "Agent 案例"
    ],
    "media": []
   },
   {
-   "title": "Automate repetitive web research into tables",
-   "url": "https://agentusecases.ai/use-case/automate-repetitive-web-research-into-tables",
-   "summary": "Agent 案例：Done with Claude Code. The poster uses Claude Code with Browser Use and Chrome so a browser agent navigates, extracts and structures web data, returning results in a table",
+   "title": "在 Mac mini 上运行缓慢的后台报告和研究",
+   "url": "https://agentusecases.ai/use-case/run-slow-background-reports-and-research-on-a-mac-mini",
+   "summary": "代理案例：与 OpenClaw、Claude Cowork 合作完成。 Mac mini 上的 OpenClaw 与 Cowork 一起在后台处理销售报告、库存检查和大约 30 分钟的研究任务",
    "published": "Fri, 27 Nov 2026",
    "author": "",
    "source": "a12",
    "tags": [
-    "Agent 案例",
-    "未翻译"
+    "Agent 案例"
    ],
    "media": []
   },
   {
-   "title": "Build a competitor intelligence tool for evidence search",
-   "url": "https://agentusecases.ai/use-case/build-a-competitor-intelligence-tool-for-evidence-search",
-   "summary": "Agent 案例：The author tested an agent on competitor research and built a tool to automate evidence search and assessment, noting mistakes in source weighting, deduplication and unsup",
+   "title": "以最优价格列出待售损坏的 iPad",
+   "url": "https://agentusecases.ai/use-case/list-a-broken-ipad-for-sale-with-optimal-pricing",
+   "summary": "代理案例：使用ChatGPT代理完成。用户让 ChatGPT 代理根据两张照片和运输详细信息为屏幕破裂的 iPad 创建列表，并研究类似列表的价格",
    "published": "Fri, 27 Nov 2026",
    "author": "",
    "source": "a12",
    "tags": [
-    "Agent 案例",
-    "未翻译"
+    "Agent 案例"
    ],
    "media": []
   },
   {
-   "title": "Answer Canadian statistics questions from official data sources",
-   "url": "https://agentusecases.ai/use-case/answer-canadian-statistics-questions-from-official-data-sour",
-   "summary": "Agent 案例：MapleStats connects an AI to 186 official Canadian data sources so it can return accurate figures like unemployment rates and rents; the author reports 8% to 92% accuracy ",
+   "title": "运行包含每日待办事项和提醒的任务系统",
+   "url": "https://agentusecases.ai/use-case/run-a-task-system-with-daily-to-dos-and-reminders",
+   "summary": "代理案例：由 Claude Cowork 完成。作者构建了一个由 CLAUDE.md 驱动的 Cowork 任务系统，可以在文件夹之间移动任务，生成优先的每日待办事项列表，并发送 rem",
    "published": "Fri, 27 Nov 2026",
    "author": "",
    "source": "a12",
    "tags": [
-    "Agent 案例",
-    "未翻译"
+    "Agent 案例"
    ],
    "media": []
   },
   {
-   "title": "Scale ML innovations across ads ranking models with AI agents",
-   "url": "https://agentusecases.ai/use-case/scale-ml-innovations-across-ads-ranking-models-with-ai-agent",
-   "summary": "Agent 案例：Meta engineering describes using AI agents to help scale ML innovations across its ads ranking models; the post gives only the headline.",
+   "title": "让代理打开 Lichess 并开始游戏",
+   "url": "https://agentusecases.ai/use-case/have-an-agent-open-lichess-and-start-a-game",
+   "summary": "代理案例：与操作员完成。用户告诉操作员去Lichess玩游戏；它打开了网站，开始了闪电战游戏并迈出了第一步。",
    "published": "Fri, 27 Nov 2026",
    "author": "",
    "source": "a12",
    "tags": [
-    "Agent 案例",
-    "未翻译"
+    "Agent 案例"
    ],
    "media": []
   },
   {
-   "title": "Scan job listings and compile contact lists with Operator",
-   "url": "https://agentusecases.ai/use-case/scan-job-listings-and-compile-contact-lists-with-operator",
-   "summary": "Agent 案例：Done with Operator. Early Operator users had it scan job listings against a resume, compile details on 50 financial YouTubers with LinkedIn and emails, and test local dev ",
+   "title": "获取早晨电话简报和电子邮件后续提醒",
+   "url": "https://agentusecases.ai/use-case/get-a-morning-phone-call-briefing-and-email-follow-up-remind",
+   "summary": "代理案例：用OpenClaw完成。 OpenClaw 代理会在上午 8 点检查天气、日历和新闻，并致电用户提供摘要，并查看电子邮件以获取具体回复或确认。",
    "published": "Fri, 27 Nov 2026",
    "author": "",
    "source": "a12",
    "tags": [
-    "Agent 案例",
-    "未翻译"
+    "Agent 案例"
    ],
    "media": []
   },
   {
-   "title": "Set up news alerts with a browser agent",
-   "url": "https://agentusecases.ai/use-case/set-up-news-alerts-with-a-browser-agent",
-   "summary": "Agent 案例：Done with Operator. Testers had Operator set up news alerts and save a summary; it followed a logical path but was slow and Google blocked login, so they leaned toward can",
+   "title": "将电子邮件分类为紧急程度的早晨摘要",
+   "url": "https://agentusecases.ai/use-case/triage-email-into-an-urgency-ranked-morning-summary",
+   "summary": "代理案例：用OpenClaw完成。 OpenClaw 代理通过 Telegram 发送按紧急程度组织的早间摘要，并标记当天的回复；用户指出它仍然会犯错误并且需要",
    "published": "Fri, 27 Nov 2026",
    "author": "",
    "source": "a12",
    "tags": [
-    "Agent 案例",
-    "未翻译"
+    "Agent 案例"
    ],
    "media": []
   },
   {
-   "title": "Work across Gmail and Google Drive in a shared chat",
-   "url": "https://agentusecases.ai/use-case/work-across-gmail-and-google-drive-in-a-shared-chat",
-   "summary": "Agent 案例：Done with Meta Muse. A user connected Muse to Google Drive and Gmail in a shared chat so it works across those services in ongoing conversations.",
+   "title": "测试浏览器代理的业务任务",
+   "url": "https://agentusecases.ai/use-case/test-a-browser-agent-on-business-tasks",
+   "summary": "代理案例：与 Claude 在 Chrome 中完成，Claude。一个团队在业务场景中尝试了 Claude 的浏览器代理；内容创建在 3 分钟内完成，而电子表格结构",
    "published": "Fri, 27 Nov 2026",
    "author": "",
    "source": "a12",
    "tags": [
-    "Agent 案例",
-    "未翻译"
+    "Agent 案例"
    ],
    "media": []
   },
   {
-   "title": "Buy groceries through a Walmart+ account",
-   "url": "https://agentusecases.ai/use-case/buy-groceries-through-a-walmart-account",
-   "summary": "Agent 案例：Done with Meta Muse. A user gave Muse access to their Walmart+ account to buy groceries and tested it against manual shopping.",
+   "title": "让 Claude Code 在您登录的 Chrome 中浏览",
+   "url": "https://agentusecases.ai/use-case/let-claude-code-browse-in-your-signed-in-chrome",
+   "summary": "代理案例：用 Claude Code 完成。发布者构建了一个开源 macOS 工具，以便 Claude Code 可以直接操作其登录的 Chrome，而无需接管其键盘。",
    "published": "Fri, 27 Nov 2026",
    "author": "",
    "source": "a12",
    "tags": [
-    "Agent 案例",
-    "未翻译"
-   ],
-   "media": []
-  },
-  {
-   "title": "Update a website automatically",
-   "url": "https://agentusecases.ai/use-case/update-a-website-automatically",
-   "summary": "Agent 案例：Done with Meta Muse. A user says Muse automatically updates their site on their behalf.",
-   "published": "Fri, 27 Nov 2026",
-   "author": "",
-   "source": "a12",
-   "tags": [
-    "Agent 案例",
-    "未翻译"
-   ],
-   "media": []
-  },
-  {
-   "title": "Clean up a Facebook timeline (ended in suspension)",
-   "url": "https://agentusecases.ai/use-case/clean-up-a-facebook-timeline-ended-in-suspension",
-   "summary": "Agent 案例：Done with Meta Muse. A user had Muse clean up their Facebook timeline and believes this contributed to an account suspension.",
-   "published": "Fri, 27 Nov 2026",
-   "author": "",
-   "source": "a12",
-   "tags": [
-    "Agent 案例",
-    "未翻译"
-   ],
-   "media": []
-  },
-  {
-   "title": "Run data research projects with a coding agent",
-   "url": "https://agentusecases.ai/use-case/run-data-research-projects-with-a-coding-agent",
-   "summary": "Agent 案例：Done with Claude Code. An author used Claude Code on data projects including Canadian daycare research, grading it B- for imperfect reliability and weak research documenta",
-   "published": "Thu, 26 Nov 2026",
-   "author": "",
-   "source": "a12",
-   "tags": [
-    "Agent 案例",
-    "未翻译"
-   ],
-   "media": []
-  },
-  {
-   "title": "Build morning routine and vacuum automations",
-   "url": "https://agentusecases.ai/use-case/build-morning-routine-and-vacuum-automations",
-   "summary": "Agent 案例：Done with Claude. A commenter had Claude help build a button-triggered morning routine for their daughter and a robot vacuum dispatch when the litter box cycles.",
-   "published": "Thu, 26 Nov 2026",
-   "author": "",
-   "source": "a12",
-   "tags": [
-    "Agent 案例",
-    "未翻译"
-   ],
-   "media": []
-  },
-  {
-   "title": "Pull nutrition and fitness data into one dashboard",
-   "url": "https://agentusecases.ai/use-case/pull-nutrition-and-fitness-data-into-one-dashboard",
-   "summary": "Agent 案例：Done with Claude in Chrome. A poster set up a tracker via Claude in Chrome that gathers Cronometer and Fitbit or Google Health data in one place.",
-   "published": "Thu, 26 Nov 2026",
-   "author": "",
-   "source": "a12",
-   "tags": [
-    "Agent 案例",
-    "未翻译"
-   ],
-   "media": []
-  },
-  {
-   "title": "Find, enrich and push sales prospects into HubSpot",
-   "url": "https://agentusecases.ai/use-case/find-enrich-and-push-sales-prospects-into-hubspot",
-   "summary": "Agent 案例：Done with Claude. A commenter uses Claude connected to Clay and HubSpot to find organizations and contacts, enrich records, and push them into HubSpot.",
-   "published": "Thu, 26 Nov 2026",
-   "author": "",
-   "source": "a12",
-   "tags": [
-    "Agent 案例",
-    "未翻译"
-   ],
-   "media": []
-  },
-  {
-   "title": "Automate PR reviews and changelogs with GitHub Actions",
-   "url": "https://agentusecases.ai/use-case/automate-pr-reviews-and-changelogs-with-github-actions",
-   "summary": "Agent 案例：Done with Claude Code. Author runs Claude Code autonomously in GitHub Actions in production to review PRs, analyze test failures, generate changelogs and turn issue specs ",
-   "published": "Thu, 26 Nov 2026",
-   "author": "",
-   "source": "a12",
-   "tags": [
-    "Agent 案例",
-    "未翻译"
-   ],
-   "media": []
-  },
-  {
-   "title": "Add unit tests to a forgotten Node.js backend",
-   "url": "https://agentusecases.ai/use-case/add-unit-tests-to-a-forgotten-node-js-backend",
-   "summary": "Agent 案例：Done with Claude Code. Claude Code read AGENTS.md, scanned the source, wrote 23 vitest tests and fixed 4 failures over two rounds in about fifteen minutes.",
-   "published": "Thu, 26 Nov 2026",
-   "author": "",
-   "source": "a12",
-   "tags": [
-    "Agent 案例",
-    "未翻译"
-   ],
-   "media": []
-  },
-  {
-   "title": "Let an agent run a business autonomously from zero",
-   "url": "https://agentusecases.ai/use-case/let-an-agent-run-a-business-autonomously-from-zero",
-   "summary": "Agent 案例：Done with Claude Code. Author set up Claude Code with memory and a decision log to pick moves each session; over 31 sessions across five markets it earned $0.",
-   "published": "Thu, 26 Nov 2026",
-   "author": "",
-   "source": "a12",
-   "tags": [
-    "Agent 案例",
-    "未翻译"
-   ],
-   "media": []
-  },
-  {
-   "title": "Build and run an affiliate marketing site with sub-agents",
-   "url": "https://agentusecases.ai/use-case/build-and-run-an-affiliate-marketing-site-with-sub-agents",
-   "summary": "Agent 案例：Done with Grok Bot. Author used an agent with specialised sub-agents to build and operate a 729-page affiliate site, reporting $1,422 revenue in 30 days, reviewing public ",
-   "published": "Thu, 26 Nov 2026",
-   "author": "",
-   "source": "a12",
-   "tags": [
-    "Agent 案例",
-    "未翻译"
-   ],
-   "media": []
-  },
-  {
-   "title": "Have an autonomous agent try to earn its first dollar",
-   "url": "https://agentusecases.ai/use-case/have-an-autonomous-agent-try-to-earn-its-first-dollar",
-   "summary": "Agent 案例：An autonomous agent built products and a research reproduction but kept getting accounts banned, earning $0 after twelve days.",
-   "published": "Thu, 26 Nov 2026",
-   "author": "",
-   "source": "a12",
-   "tags": [
-    "Agent 案例",
-    "未翻译"
-   ],
-   "media": []
-  },
-  {
-   "title": "Run content marketing and TikTok posting with Claude",
-   "url": "https://agentusecases.ai/use-case/run-content-marketing-and-tiktok-posting-with-claude",
-   "summary": "Agent 案例：Done with Claude. A commenter has Claude find social conversations, research SEO topics, write articles, generate short videos, and post TikToks every six hours hands-free",
-   "published": "Thu, 26 Nov 2026",
-   "author": "",
-   "source": "a12",
-   "tags": [
-    "Agent 案例",
-    "未翻译"
-   ],
-   "media": []
-  },
-  {
-   "title": "Prepare bulk social posts for Buffer or Metricool",
-   "url": "https://agentusecases.ai/use-case/prepare-bulk-social-posts-for-buffer-or-metricool",
-   "summary": "Agent 案例：Done with Claude. A commenter has Claude write captions and a CSV for bulk scheduling in Buffer or Metricool, since it can't post to Instagram or TikTok directly.",
-   "published": "Thu, 26 Nov 2026",
-   "author": "",
-   "source": "a12",
-   "tags": [
-    "Agent 案例",
-    "未翻译"
-   ],
-   "media": []
-  },
-  {
-   "title": "QA your app and check failed deployments from your phone",
-   "url": "https://agentusecases.ai/use-case/qa-your-app-and-check-failed-deployments-from-your-phone",
-   "summary": "Agent 案例：Done with Grok Bot. A developer used Grok Bot to test their own app remotely and check failed deployments, and earlier to chase a A$17.49 refund via a website's live chat.",
-   "published": "Thu, 26 Nov 2026",
-   "author": "",
-   "source": "a12",
-   "tags": [
-    "Agent 案例",
-    "未翻译"
-   ],
-   "media": []
-  },
-  {
-   "title": "Handle LinkedIn backlog and life admin tasks with a bot",
-   "url": "https://agentusecases.ai/use-case/handle-linkedin-backlog-and-life-admin-tasks-with-a-bot",
-   "summary": "Agent 案例：Done with Grok Bot. Mollie Mueller used Grok Bot to sort LinkedIn messages after maternity leave, restore her banner, email a vendor for a quote, renew parking permits and",
-   "published": "Thu, 26 Nov 2026",
-   "author": "",
-   "source": "a12",
-   "tags": [
-    "Agent 案例",
-    "未翻译"
+    "Agent 案例"
    ],
    "media": []
   }
