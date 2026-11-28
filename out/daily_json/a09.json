@@ -1,13 +1,85 @@
 {
  "id": "a09",
  "name": "NodeSeek",
- "fetched_at": "2026-11-28 06:38",
+ "fetched_at": "2026-11-28 12:53",
  "items": [
   {
-   "title": "出zouter hk 1T大盘",
-   "url": "https://www.nodeseek.com/post-1087093-1",
+   "title": "gemini pro给我停了",
+   "url": "https://www.nodeseek.com/post-1087778-1",
+   "summary": "hasended...哪位大佬有家庭组，拉我一下吧",
+   "published": "Sat, 28 Nov 2026",
+   "author": "",
+   "source": "a09",
+   "tags": [
+    "羊毛"
+   ],
+   "media": []
+  },
+  {
+   "title": "有人出ovh 48T吗",
+   "url": "https://www.nodeseek.com/post-1087777-1",
+   "summary": "溢价1000收",
+   "published": "Sat, 28 Nov 2026",
+   "author": "",
+   "source": "a09",
+   "tags": [
+    "羊毛"
+   ],
+   "media": []
+  },
+  {
+   "title": "人找车 gemini 20x 独享",
+   "url": "https://www.nodeseek.com/post-1087776-1",
+   "summary": "土区我刷不出来sku，有没有能刷出来的，独享车就我们两个人用",
+   "published": "Sat, 28 Nov 2026",
+   "author": "",
+   "source": "a09",
+   "tags": [
+    "羊毛"
+   ],
+   "media": []
+  },
+  {
+   "title": "Cloudcone的送中问题已经不重要了",
+   "url": "https://www.nodeseek.com/post-1087775-1",
+   "summary": "因为他家ipv4到google回程路由全部140到220ms不等，所以只能强制geosite:google->UseIPv6v4，所以爱送不送吧，反正也没法用。不知道送中勇士们是怎么忍受400+延迟的，表示佩服。",
+   "published": "Sat, 28 Nov 2026",
+   "author": "",
+   "source": "a09",
+   "tags": [
+    "羊毛"
+   ],
+   "media": []
+  },
+  {
+   "title": "25出 raksmart CN2 3.99 + 4837 1.99 未付款账单",
+   "url": "https://www.nodeseek.com/post-1087774-1",
+   "summary": "昨天抢的账单还没付款开通。ns邮箱出账号联通这个听说很炸，最好和cn2组内网用。账号还有几个国际BGP的账单，不要付错",
+   "published": "Sat, 28 Nov 2026",
+   "author": "",
+   "source": "a09",
+   "tags": [
+    "羊毛"
+   ],
+   "media": []
+  },
+  {
+   "title": "牛马云可以工单开25端口吗，想自建邮局玩一玩",
+   "url": "https://www.nodeseek.com/post-1087773-1",
+   "summary": "rt，我看到有一些地方的25端口是开的，但是我昨天买的25端口是不开的，请问这玩意能工单开吗？买了个牛马云，总得玩一玩",
+   "published": "Sat, 28 Nov 2026",
+   "author": "",
+   "source": "a09",
+   "tags": [
+    "羊毛"
+   ],
+   "media": []
+  },
+  {
+   "title": "【TQ】Dartnode 2c4g 100G LAX",
+   "url": "https://www.nodeseek.com/post-1087772-1",
    "summary": "",
-   "published": "Fri, 27 Nov 2026",
+   "published": "Sat, 28 Nov 2026",
    "author": "",
    "source": "a09",
    "tags": [
@@ -16,10 +88,10 @@
    "media": []
   },
   {
-   "title": "「NQ」2C/6G/60GB 黑五starrydns jp 大阪 50🔪/yr",
-   "url": "https://www.nodeseek.com/post-1087092-1",
-   "summary": "有个小插曲，开机给我少配了一个核心，马上提工单给我补了，必须称赞，这家工单基本上秒回。NQ这个硬盘测试好像只测了系统盘，还有一个60g数据盘💻基本信息（少一核心）++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++",
-   "published": "Fri, 27 Nov 2026",
+   "title": "大妈发的是什么意思",
+   "url": "https://www.nodeseek.com/post-1087771-1",
+   "summary": "要调整了，情况真的是随时变",
+   "published": "Sat, 28 Nov 2026",
    "author": "",
    "source": "a09",
    "tags": [
@@ -28,10 +100,94 @@
    "media": []
   },
   {
-   "title": "手慢了，rarecloud 75欧余额，",
-   "url": "https://www.nodeseek.com/post-1087091-1",
+   "title": "人找车 Gemini pro反重力独享",
+   "url": "https://www.nodeseek.com/post-1087770-1",
+   "summary": "40/月有人拼吗有日区/美区号",
+   "published": "Sat, 28 Nov 2026",
+   "author": "",
+   "source": "a09",
+   "tags": [
+    "羊毛"
+   ],
+   "media": []
+  },
+  {
+   "title": "出 V.PS SG Performance 369.5 欧元年付",
+   "url": "https://www.nodeseek.com/post-1087768-1",
+   "summary": "V.PSSGPerformance369.5欧元年付2C/2G/30GB/1000G@1Gbps到期日2027-04-18剩余价值：142.74欧元，账户里还有50欧元余额，当前汇率总计1406.76人民币按剩余价值人民币1410出，中介费买家出",
+   "published": "Sat, 28 Nov 2026",
+   "author": "",
+   "source": "a09",
+   "tags": [
+    "羊毛"
+   ],
+   "media": []
+  },
+  {
+   "title": "【收】土区 Ultra 20x + Apple 账号， 620 块",
+   "url": "https://www.nodeseek.com/post-1087766-1",
+   "summary": "彦祖有不用的，割爱一个。",
+   "published": "Sat, 28 Nov 2026",
+   "author": "",
+   "source": "a09",
+   "tags": [
+    "羊毛"
+   ],
+   "media": []
+  },
+  {
+   "title": "溢价收 Lightlayer SJC 29.9刀",
+   "url": "https://www.nodeseek.com/post-1087765-1",
+   "summary": "收了好多天了，一直没收到，价格好商量",
+   "published": "Sat, 28 Nov 2026",
+   "author": "",
+   "source": "a09",
+   "tags": [
+    "羊毛"
+   ],
+   "media": []
+  },
+  {
+   "title": "【收🐔】收一台DartNode 黑五VPS-5 4核8GB 年付29.99刀 要美西",
+   "url": "https://www.nodeseek.com/post-1087764-1",
+   "summary": "原油转联系签名价格包你满意",
+   "published": "Sat, 28 Nov 2026",
+   "author": "",
+   "source": "a09",
+   "tags": [
+    "羊毛"
+   ],
+   "media": []
+  },
+  {
+   "title": "涨价的不是硬件吗？为什么普通线路鸡感觉没涨多少，优化线路涨了一波又一波？",
+   "url": "https://www.nodeseek.com/post-1087762-1",
+   "summary": "而且优化线路也不用很好的硬件吧？硬件因为ai涨了能理解，线路和ip是因为啥涨价的？",
+   "published": "Sat, 28 Nov 2026",
+   "author": "",
+   "source": "a09",
+   "tags": [
+    "羊毛"
+   ],
+   "media": []
+  },
+  {
+   "title": "Virmach日本机是不是该丢了",
+   "url": "https://www.nodeseek.com/post-1087761-1",
+   "summary": "手里两台Virmach日本机，xtom的线路但是我联通用着着实拉跨，一直吃灰。其中一个马上到期了，真是食之无味，弃之可惜。",
+   "published": "Sat, 28 Nov 2026",
+   "author": "",
+   "source": "a09",
+   "tags": [
+    "羊毛"
+   ],
+   "media": []
+  },
+  {
+   "title": "最近一直有人在推广自己的破甲api但实际上纯骗",
+   "url": "https://www.nodeseek.com/post-1087760-1",
    "summary": "",
-   "published": "Fri, 27 Nov 2026",
+   "published": "Sat, 28 Nov 2026",
    "author": "",
    "source": "a09",
    "tags": [
@@ -40,166 +196,10 @@
    "media": []
   },
   {
-   "title": "买QQPW美国家宽现在不排队了嘛",
-   "url": "https://www.nodeseek.com/post-1087090-1",
-   "summary": "刚下单VDS不到半天就收到机器了，有点儿没反应过来，发个贴问问大家最近都是当天收到机器嘛？我以为需要起码等2-3个月……",
-   "published": "Fri, 27 Nov 2026",
-   "author": "",
-   "source": "a09",
-   "tags": [
-    "羊毛"
-   ],
-   "media": []
-  },
-  {
-   "title": "收美国解锁机",
-   "url": "https://www.nodeseek.com/post-1087087-1",
-   "summary": "今年黑五就想买个解锁机，要求ip干净，12刀左右年续，主要是解锁流媒体，要绿的，线路不要求中国优化",
-   "published": "Fri, 27 Nov 2026",
-   "author": "",
-   "source": "a09",
-   "tags": [
-    "羊毛"
-   ],
-   "media": []
-  },
-  {
-   "title": "Antigravity更新后模型没有high/medium/low选项了?",
-   "url": "https://www.nodeseek.com/post-1087086-1",
-   "summary": "刚更新，发现EffortLevel选项已经找不到了这是准备直接用Carbon/Neon/Hydrogen来区分么",
-   "published": "Fri, 27 Nov 2026",
-   "author": "",
-   "source": "a09",
-   "tags": [
-    "羊毛"
-   ],
-   "media": []
-  },
-  {
-   "title": "诶 rn不是说今年没闪购嘛",
-   "url": "https://www.nodeseek.com/post-1087085-1",
-   "summary": "",
-   "published": "Fri, 27 Nov 2026",
-   "author": "",
-   "source": "a09",
-   "tags": [
-    "羊毛"
-   ],
-   "media": []
-  },
-  {
-   "title": "blossomhost 买了不到10天 断了起码4次",
-   "url": "https://www.nodeseek.com/post-1087084-1",
-   "summary": "不知道是不是服务器太拉了还是什么原因",
-   "published": "Fri, 27 Nov 2026",
-   "author": "",
-   "source": "a09",
-   "tags": [
-    "羊毛"
-   ],
-   "media": []
-  },
-  {
-   "title": "该说不说starrydns的退款真爽快",
-   "url": "https://www.nodeseek.com/post-1087083-1",
-   "summary": "",
-   "published": "Fri, 27 Nov 2026",
-   "author": "",
-   "source": "a09",
-   "tags": [
-    "羊毛"
-   ],
-   "media": []
-  },
-  {
-   "title": "菲律宾Globe PH eSIM 网页强开信用卡支付方式",
-   "url": "https://www.nodeseek.com/post-1087082-1",
-   "summary": "GlobePH99PHP=10.5CNY买eSIM网页就能买，不用去APP购买链接:https://shop.globe.com.ph/esim正常网页和APP都只有Gcash支付，用油猴脚本拉起隐藏的信用卡支付方式就行，不吃卡头，支付完秒拿到eSIMLPA//==UserScript==//@nameGlobee",
-   "published": "Fri, 27 Nov 2026",
-   "author": "",
-   "source": "a09",
-   "tags": [
-    "羊毛"
-   ],
-   "media": []
-  },
-  {
-   "title": "我这个claude 我用中文， 他用英文回复我",
-   "url": "https://www.nodeseek.com/post-1087081-1",
-   "summary": "",
-   "published": "Fri, 27 Nov 2026",
-   "author": "",
-   "source": "a09",
-   "tags": [
-    "羊毛"
-   ],
-   "media": []
-  },
-  {
-   "title": "今年黑五没意思",
-   "url": "https://www.nodeseek.com/post-1087080-1",
-   "summary": "",
-   "published": "Fri, 27 Nov 2026",
-   "author": "",
-   "source": "a09",
-   "tags": [
-    "羊毛"
-   ],
-   "media": []
-  },
-  {
-   "title": "哈哈哈 抢到一台Bage 11.99刀一年的 黑五特惠 HKL",
-   "url": "https://www.nodeseek.com/post-1087079-1",
-   "summary": "不错",
-   "published": "Fri, 27 Nov 2026",
-   "author": "",
-   "source": "a09",
-   "tags": [
-    "羊毛"
-   ],
-   "media": []
-  },
-  {
-   "title": "一万块预算能论坛D瘫痪1小时吗",
-   "url": "https://www.nodeseek.com/post-1087077-1",
-   "summary": "技术交流，无不良引导",
-   "published": "Fri, 27 Nov 2026",
-   "author": "",
-   "source": "a09",
-   "tags": [
-    "羊毛"
-   ],
-   "media": []
-  },
-  {
-   "title": "没人觉得黑五这个starrydns很神圣吗",
-   "url": "https://www.nodeseek.com/post-1087076-1",
-   "summary": "五刀月付1200分的gb5的2camd6g内存60g硬盘一个月3t的软银",
-   "published": "Fri, 27 Nov 2026",
-   "author": "",
-   "source": "a09",
-   "tags": [
-    "羊毛"
-   ],
-   "media": []
-  },
-  {
-   "title": "洛杉矶 8美元6c16g 320gnvme 怎么样？",
-   "url": "https://www.nodeseek.com/post-1087075-1",
-   "summary": "面板看起来很粗糙，感觉像oneman做的",
-   "published": "Fri, 27 Nov 2026",
-   "author": "",
-   "source": "a09",
-   "tags": [
-    "羊毛"
-   ],
-   "media": []
-  },
-  {
-   "title": "Dartnode独服，三年$299",
-   "url": "https://www.nodeseek.com/post-1087074-1",
-   "summary": "",
-   "published": "Fri, 27 Nov 2026",
+   "title": "猫桥接，软路由做主路由可以输宽带的账号密码吗？",
+   "url": "https://www.nodeseek.com/post-1087759-1",
+   "summary": "rt",
+   "published": "Sat, 28 Nov 2026",
    "author": "",
    "source": "a09",
    "tags": [

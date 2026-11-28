@@ -1,58 +1,38 @@
 ============================================================
-本轮跑 15 个源：a01, a02, a03, a04, a06, a08, a09, a10, a11, a12, a15, a16, a20, a21, a26
+本轮跑 7 个源：a01, a02, a03, a04, a08, a09, a21
 ============================================================
-台账 seen_items.json：已有 162 条（更新于 2026-11-27 22:29）
+台账 seen_items.json：已有 353 条（更新于 2026-11-28 06:39）
 [a01] linux.do 云资源版 开始
-    [a01] 列表 page1 失败 http=-1 via=jina
-    [a01] 列表 page2 失败 http=-1 via=jina
-[a01] 写入 001.md 0 条 → /home/runner/work/WEB/WEB/out/001.md
-[a01] 完成：抓 0 / 新 0 / 台账重复 0
+    [a01] page1 取 25 条，新增 25（via jina）
+    [a01] page2 取 22 条，新增 22（via jina）
+    [a01] 台账命中跳过 14 条，剩 33 条待抓
+    [a01] 收 30 条
+[a01] 写入 001.md 30 条 → /home/runner/work/WEB/WEB/out/001.md
+[a01] 完成：抓 30 / 新 30 / 台账重复 0
 [a02] linux.do 福利版 开始
-    [a02] 列表 page1 失败 http=-1 via=jina
-[a02] 完成：抓 0 / 新 0 / 台账重复 0
+    [a02] page1 取 25 条，新增 25（via jina）
+    [a02] 台账命中跳过 1 条
+    [a02] 收 24 条（强相关 17 / 普通 7）
+[a02] 完成：抓 24 / 新 24 / 台账重复 0
 [a03] 什么值得买 开始
     [a03] 精选好价 p1 商品 0
     [a03] 精选好价 p2 商品 20
     [a03] 发现频道 p1 商品 19
-    [a03] 发现频道 p2 商品 12
-    [a03] 抓 51 → 收 33（强相关 0 / 普通 33，整类排除 18）
-[a03] 完成：抓 33 / 新 33 / 台账重复 0
+    [a03] 发现频道 p2 商品 16
+    [a03] 抓 54 → 收 44（强相关 0 / 普通 44，整类排除 10）
+[a03] 完成：抓 44 / 新 44 / 台账重复 0
 [a04] 少数派 开始
     [a04] RSS 取 10 条（via direct）
-    [a04] 收 0 条（过滤 0）
-[a04] 完成：抓 0 / 新 0 / 台账重复 0
-[a06] GitHub Trending 开始
-    [a06] RSS 取 16 条（via direct）
-    [a06] 收 16 条（过滤 0）
-[a06] 完成：抓 16 / 新 16 / 台账重复 0
+    [a04] 收 2 条（过滤 0）
+[a04] 完成：抓 2 / 新 2 / 台账重复 0
 [a08] 异次元 开始
     [a08] RSS 取 30 条（via direct）
-    [a08] 收 1 条（过滤 0）
-[a08] 完成：抓 1 / 新 1 / 台账重复 0
+    [a08] 收 0 条（过滤 0）
+[a08] 完成：抓 0 / 新 0 / 台账重复 0
 [a09] NodeSeek 开始
     [a09] RSS 取 20 条（via direct）
     [a09] 收 17 条（过滤 3）
 [a09] 完成：抓 17 / 新 17 / 台账重复 0
-[a10] V2EX 推广 开始
-    [a10] V2EX 取 41 条 → 收 15 条（过滤 26）
-[a10] 完成：抓 15 / 新 15 / 台账重复 0
-[a11] aihot.news 开始
-    [a11] RSS 取 50 条（via direct）
-    [a11] 收 25 条（过滤 0）
-[a11] 完成：抓 25 / 新 25 / 台账重复 0
-[a12] AgentUseCases 开始
-    [a12] RSS 取 60 条（via direct）
-    [a12] 收 25 条（过滤 0）
-[a12] 完成：抓 25 / 新 25 / 台账重复 0
-[a15] HackerNews 开始
-    [a15] HN 取 27 条 → 收 27 条
-[a15] 完成：抓 27 / 新 27 / 台账重复 0
-[a16] Simon Willison 开始
-    [a16] RSS 取 30 条（via direct）
-    [a16] 收 25 条（过滤 0）
-[a16] 完成：抓 25 / 新 25 / 台账重复 0
-[a20] B站指定 UP 主投稿 开始
-[a20] 完成：抓 0 / 新 0 / 台账重复 0
 [a21] 知乎热榜 开始
 [a21] 异常：[Errno 2] No such file or directory: 'E:\\Google Drive\\Agent 规则\\Cookies 账号信息\\www.zhihu.com_cookies.txt'
 Traceback (most recent call last):
@@ -65,33 +45,19 @@ Traceback (most recent call last):
     with open(filename) as f:
          ^^^^^^^^^^^^^^
 FileNotFoundError: [Errno 2] No such file or directory: 'E:\\Google Drive\\Agent 规则\\Cookies 账号信息\\www.zhihu.com_cookies.txt'
-[a26] YouTube 精选博主 RSS 开始
-    [a26] @luananye 取 7 条视频
-[a26] 完成：抓 7 / 新 7 / 台账重复 0
-    [台账] 写入 seen_items.json：353 条
+    [台账] 写入 seen_items.json：473 条
 
 ============================================================
 汇总
 ============================================================
-OK  a01   linux.do 云资源版            抓   0 新   0 重复   0
-        ! 列表为空或抓取失败
-OK  a02   linux.do 福利版             抓   0 新   0 重复   0
-        ! 列表 page1 http=-1
-OK  a03   什么值得买                    抓  33 新  33 重复   0
-OK  a04   少数派                      抓   0 新   0 重复   0
-OK  a06   GitHub Trending          抓  16 新  16 重复   0
-OK  a08   异次元                      抓   1 新   1 重复   0
+OK  a01   linux.do 云资源版            抓  30 新  30 重复   0
+OK  a02   linux.do 福利版             抓  24 新  24 重复   0
+OK  a03   什么值得买                    抓  44 新  44 重复   0
+OK  a04   少数派                      抓   2 新   2 重复   0
+OK  a08   异次元                      抓   0 新   0 重复   0
 OK  a09   NodeSeek                 抓  17 新  17 重复   0
-OK  a10   V2EX 推广                  抓  15 新  15 重复   0
-OK  a11   aihot.news               抓  25 新  25 重复   0
-OK  a12   AgentUseCases            抓  25 新  25 重复   0
-OK  a15   HackerNews               抓  27 新  27 重复   0
-OK  a16   Simon Willison           抓  25 新  25 重复   0
-OK  a20   B站指定 UP 主投稿              抓   0 新   0 重复   0
-        ! 水位线文件没读到 UP 列表
 FAIL a21   知乎热榜                     抓   0 新   0 重复   0
         ! FileNotFoundError: [Errno 2] No such file or directory: 'E:\\Google Drive\\Agent 规则\\Cookies 账号信息\\www.zhihu.com_cookies.txt'
-OK  a26   YouTube 精选博主 RSS         抓   7 新   7 重复   0
 
-Jina 请求数：6
-台账：353 条 → /home/runner/work/WEB/WEB/state/seen_items.json
+Jina 请求数：36
+台账：473 条 → /home/runner/work/WEB/WEB/state/seen_items.json

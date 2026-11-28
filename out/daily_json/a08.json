@@ -1,19 +1,6 @@
 {
  "id": "a08",
  "name": "异次元",
- "fetched_at": "2026-11-28 06:38",
- "items": [
-  {
-   "title": "PVE 9.3 (Proxmox VE) 虚拟机系统 - 开源免费！同时安装运行多个不同操作系统",
-   "url": "https://www.iplaysoft.com/pve.html",
-   "summary": "玩 软路由 、 NAS 、 迷你主机 等的朋友，如果希望能在一台机器上安装运行多个不同操作系统 (俗称 All in One)，一定都喜欢折腾「虚拟化系统」，其中最主流的就有 ESXi、PVE、Unraid 三者。 PVE (全称 Proxmox Virtual Environment) 是一个既可运行 虚拟机 也能运行 Docker 容器的虚拟化环境平台。",
-   "published": "2026-11-28 04:10",
-   "author": "",
-   "source": "a08",
-   "tags": [
-    "软件"
-   ],
-   "media": []
-  }
- ]
+ "fetched_at": "2026-11-28 12:53",
+ "items": []
 }

@@ -1344,12 +1344,411 @@
    "source": "a01",
    "url": "https://linux.do/t/topic/3259103"
   },
+  "linux.do:3259228": {
+   "first_seen": "2026-11-28",
+   "platform": "linux.do",
+   "post_id": "3259228",
+   "source": "a01",
+   "url": "https://linux.do/t/topic/3259228"
+  },
+  "linux.do:3259253": {
+   "first_seen": "2026-11-28",
+   "platform": "linux.do",
+   "post_id": "3259253",
+   "source": "a01",
+   "url": "https://linux.do/t/topic/3259253"
+  },
+  "linux.do:3259256": {
+   "first_seen": "2026-11-28",
+   "platform": "linux.do",
+   "post_id": "3259256",
+   "source": "a01",
+   "url": "https://linux.do/t/topic/3259256"
+  },
+  "linux.do:3259269": {
+   "first_seen": "2026-11-28",
+   "platform": "linux.do",
+   "post_id": "3259269",
+   "source": "a01",
+   "url": "https://linux.do/t/topic/3259269"
+  },
   "linux.do:3259281": {
    "first_seen": "2026-11-27",
    "platform": "linux.do",
    "post_id": "3259281",
    "source": "a02",
    "url": "https://linux.do/t/topic/3259281"
+  },
+  "linux.do:3259305": {
+   "first_seen": "2026-11-28",
+   "platform": "linux.do",
+   "post_id": "3259305",
+   "source": "a01",
+   "url": "https://linux.do/t/topic/3259305"
+  },
+  "linux.do:3259344": {
+   "first_seen": "2026-11-28",
+   "platform": "linux.do",
+   "post_id": "3259344",
+   "source": "a01",
+   "url": "https://linux.do/t/topic/3259344"
+  },
+  "linux.do:3259383": {
+   "first_seen": "2026-11-28",
+   "platform": "linux.do",
+   "post_id": "3259383",
+   "source": "a01",
+   "url": "https://linux.do/t/topic/3259383"
+  },
+  "linux.do:3259419": {
+   "first_seen": "2026-11-28",
+   "platform": "linux.do",
+   "post_id": "3259419",
+   "source": "a01",
+   "url": "https://linux.do/t/topic/3259419"
+  },
+  "linux.do:3259518": {
+   "first_seen": "2026-11-28",
+   "platform": "linux.do",
+   "post_id": "3259518",
+   "source": "a02",
+   "url": "https://linux.do/t/topic/3259518"
+  },
+  "linux.do:3259572": {
+   "first_seen": "2026-11-28",
+   "platform": "linux.do",
+   "post_id": "3259572",
+   "source": "a02",
+   "url": "https://linux.do/t/topic/3259572"
+  },
+  "linux.do:3259632": {
+   "first_seen": "2026-11-28",
+   "platform": "linux.do",
+   "post_id": "3259632",
+   "source": "a02",
+   "url": "https://linux.do/t/topic/3259632"
+  },
+  "linux.do:3259688": {
+   "first_seen": "2026-11-28",
+   "platform": "linux.do",
+   "post_id": "3259688",
+   "source": "a02",
+   "url": "https://linux.do/t/topic/3259688"
+  },
+  "linux.do:3259724": {
+   "first_seen": "2026-11-28",
+   "platform": "linux.do",
+   "post_id": "3259724",
+   "source": "a02",
+   "url": "https://linux.do/t/topic/3259724"
+  },
+  "linux.do:3259726": {
+   "first_seen": "2026-11-28",
+   "platform": "linux.do",
+   "post_id": "3259726",
+   "source": "a02",
+   "url": "https://linux.do/t/topic/3259726"
+  },
+  "linux.do:3259745": {
+   "first_seen": "2026-11-28",
+   "platform": "linux.do",
+   "post_id": "3259745",
+   "source": "a02",
+   "url": "https://linux.do/t/topic/3259745"
+  },
+  "linux.do:3259873": {
+   "first_seen": "2026-11-28",
+   "platform": "linux.do",
+   "post_id": "3259873",
+   "source": "a02",
+   "url": "https://linux.do/t/topic/3259873"
+  },
+  "linux.do:3259934": {
+   "first_seen": "2026-11-28",
+   "platform": "linux.do",
+   "post_id": "3259934",
+   "source": "a02",
+   "url": "https://linux.do/t/topic/3259934"
+  },
+  "linux.do:3259991": {
+   "first_seen": "2026-11-28",
+   "platform": "linux.do",
+   "post_id": "3259991",
+   "source": "a02",
+   "url": "https://linux.do/t/topic/3259991"
+  },
+  "linux.do:3260035": {
+   "first_seen": "2026-11-28",
+   "platform": "linux.do",
+   "post_id": "3260035",
+   "source": "a02",
+   "url": "https://linux.do/t/topic/3260035"
+  },
+  "linux.do:3260288": {
+   "first_seen": "2026-11-28",
+   "platform": "linux.do",
+   "post_id": "3260288",
+   "source": "a02",
+   "url": "https://linux.do/t/topic/3260288"
+  },
+  "linux.do:3260567": {
+   "first_seen": "2026-11-28",
+   "platform": "linux.do",
+   "post_id": "3260567",
+   "source": "a02",
+   "url": "https://linux.do/t/topic/3260567"
+  },
+  "linux.do:3260698": {
+   "first_seen": "2026-11-28",
+   "platform": "linux.do",
+   "post_id": "3260698",
+   "source": "a02",
+   "url": "https://linux.do/t/topic/3260698"
+  },
+  "linux.do:3260902": {
+   "first_seen": "2026-11-28",
+   "platform": "linux.do",
+   "post_id": "3260902",
+   "source": "a02",
+   "url": "https://linux.do/t/topic/3260902"
+  },
+  "linux.do:3261069": {
+   "first_seen": "2026-11-28",
+   "platform": "linux.do",
+   "post_id": "3261069",
+   "source": "a02",
+   "url": "https://linux.do/t/topic/3261069"
+  },
+  "linux.do:3261122": {
+   "first_seen": "2026-11-28",
+   "platform": "linux.do",
+   "post_id": "3261122",
+   "source": "a02",
+   "url": "https://linux.do/t/topic/3261122"
+  },
+  "linux.do:3261409": {
+   "first_seen": "2026-11-28",
+   "platform": "linux.do",
+   "post_id": "3261409",
+   "source": "a01",
+   "url": "https://linux.do/t/topic/3261409"
+  },
+  "linux.do:3261422": {
+   "first_seen": "2026-11-28",
+   "platform": "linux.do",
+   "post_id": "3261422",
+   "source": "a02",
+   "url": "https://linux.do/t/topic/3261422"
+  },
+  "linux.do:3261431": {
+   "first_seen": "2026-11-28",
+   "platform": "linux.do",
+   "post_id": "3261431",
+   "source": "a01",
+   "url": "https://linux.do/t/topic/3261431"
+  },
+  "linux.do:3261438": {
+   "first_seen": "2026-11-28",
+   "platform": "linux.do",
+   "post_id": "3261438",
+   "source": "a01",
+   "url": "https://linux.do/t/topic/3261438"
+  },
+  "linux.do:3261446": {
+   "first_seen": "2026-11-28",
+   "platform": "linux.do",
+   "post_id": "3261446",
+   "source": "a01",
+   "url": "https://linux.do/t/topic/3261446"
+  },
+  "linux.do:3261448": {
+   "first_seen": "2026-11-28",
+   "platform": "linux.do",
+   "post_id": "3261448",
+   "source": "a01",
+   "url": "https://linux.do/t/topic/3261448"
+  },
+  "linux.do:3261453": {
+   "first_seen": "2026-11-28",
+   "platform": "linux.do",
+   "post_id": "3261453",
+   "source": "a01",
+   "url": "https://linux.do/t/topic/3261453"
+  },
+  "linux.do:3261454": {
+   "first_seen": "2026-11-28",
+   "platform": "linux.do",
+   "post_id": "3261454",
+   "source": "a01",
+   "url": "https://linux.do/t/topic/3261454"
+  },
+  "linux.do:3261499": {
+   "first_seen": "2026-11-28",
+   "platform": "linux.do",
+   "post_id": "3261499",
+   "source": "a01",
+   "url": "https://linux.do/t/topic/3261499"
+  },
+  "linux.do:3261516": {
+   "first_seen": "2026-11-28",
+   "platform": "linux.do",
+   "post_id": "3261516",
+   "source": "a02",
+   "url": "https://linux.do/t/topic/3261516"
+  },
+  "linux.do:3261519": {
+   "first_seen": "2026-11-28",
+   "platform": "linux.do",
+   "post_id": "3261519",
+   "source": "a01",
+   "url": "https://linux.do/t/topic/3261519"
+  },
+  "linux.do:3261522": {
+   "first_seen": "2026-11-28",
+   "platform": "linux.do",
+   "post_id": "3261522",
+   "source": "a02",
+   "url": "https://linux.do/t/topic/3261522"
+  },
+  "linux.do:3261547": {
+   "first_seen": "2026-11-28",
+   "platform": "linux.do",
+   "post_id": "3261547",
+   "source": "a01",
+   "url": "https://linux.do/t/topic/3261547"
+  },
+  "linux.do:3261576": {
+   "first_seen": "2026-11-28",
+   "platform": "linux.do",
+   "post_id": "3261576",
+   "source": "a01",
+   "url": "https://linux.do/t/topic/3261576"
+  },
+  "linux.do:3261579": {
+   "first_seen": "2026-11-28",
+   "platform": "linux.do",
+   "post_id": "3261579",
+   "source": "a01",
+   "url": "https://linux.do/t/topic/3261579"
+  },
+  "linux.do:3261583": {
+   "first_seen": "2026-11-28",
+   "platform": "linux.do",
+   "post_id": "3261583",
+   "source": "a01",
+   "url": "https://linux.do/t/topic/3261583"
+  },
+  "linux.do:3261598": {
+   "first_seen": "2026-11-28",
+   "platform": "linux.do",
+   "post_id": "3261598",
+   "source": "a01",
+   "url": "https://linux.do/t/topic/3261598"
+  },
+  "linux.do:3261603": {
+   "first_seen": "2026-11-28",
+   "platform": "linux.do",
+   "post_id": "3261603",
+   "source": "a01",
+   "url": "https://linux.do/t/topic/3261603"
+  },
+  "linux.do:3261612": {
+   "first_seen": "2026-11-28",
+   "platform": "linux.do",
+   "post_id": "3261612",
+   "source": "a02",
+   "url": "https://linux.do/t/topic/3261612"
+  },
+  "linux.do:3261633": {
+   "first_seen": "2026-11-28",
+   "platform": "linux.do",
+   "post_id": "3261633",
+   "source": "a02",
+   "url": "https://linux.do/t/topic/3261633"
+  },
+  "linux.do:3261647": {
+   "first_seen": "2026-11-28",
+   "platform": "linux.do",
+   "post_id": "3261647",
+   "source": "a01",
+   "url": "https://linux.do/t/topic/3261647"
+  },
+  "linux.do:3261652": {
+   "first_seen": "2026-11-28",
+   "platform": "linux.do",
+   "post_id": "3261652",
+   "source": "a01",
+   "url": "https://linux.do/t/topic/3261652"
+  },
+  "linux.do:3261681": {
+   "first_seen": "2026-11-28",
+   "platform": "linux.do",
+   "post_id": "3261681",
+   "source": "a02",
+   "url": "https://linux.do/t/topic/3261681"
+  },
+  "linux.do:3261703": {
+   "first_seen": "2026-11-28",
+   "platform": "linux.do",
+   "post_id": "3261703",
+   "source": "a01",
+   "url": "https://linux.do/t/topic/3261703"
+  },
+  "linux.do:3261716": {
+   "first_seen": "2026-11-28",
+   "platform": "linux.do",
+   "post_id": "3261716",
+   "source": "a01",
+   "url": "https://linux.do/t/topic/3261716"
+  },
+  "linux.do:3261764": {
+   "first_seen": "2026-11-28",
+   "platform": "linux.do",
+   "post_id": "3261764",
+   "source": "a02",
+   "url": "https://linux.do/t/topic/3261764"
+  },
+  "linux.do:3261776": {
+   "first_seen": "2026-11-28",
+   "platform": "linux.do",
+   "post_id": "3261776",
+   "source": "a01",
+   "url": "https://linux.do/t/topic/3261776"
+  },
+  "linux.do:3261781": {
+   "first_seen": "2026-11-28",
+   "platform": "linux.do",
+   "post_id": "3261781",
+   "source": "a01",
+   "url": "https://linux.do/t/topic/3261781"
+  },
+  "linux.do:3261786": {
+   "first_seen": "2026-11-28",
+   "platform": "linux.do",
+   "post_id": "3261786",
+   "source": "a01",
+   "url": "https://linux.do/t/topic/3261786"
+  },
+  "linux.do:3261795": {
+   "first_seen": "2026-11-28",
+   "platform": "linux.do",
+   "post_id": "3261795",
+   "source": "a01",
+   "url": "https://linux.do/t/topic/3261795"
+  },
+  "linux.do:3261801": {
+   "first_seen": "2026-11-28",
+   "platform": "linux.do",
+   "post_id": "3261801",
+   "source": "a01",
+   "url": "https://linux.do/t/topic/3261801"
+  },
+  "linux.do:3261863": {
+   "first_seen": "2026-11-28",
+   "platform": "linux.do",
+   "post_id": "3261863",
+   "source": "a01",
+   "url": "https://linux.do/t/topic/3261863"
   },
   "nodeseek:https://www.nodeseek.com/post-1086417-1": {
    "first_seen": "2026-11-27",
@@ -1574,6 +1973,125 @@
    "post_id": "",
    "source": "a09",
    "url": "https://www.nodeseek.com/post-1087093-1"
+  },
+  "nodeseek:https://www.nodeseek.com/post-1087759-1": {
+   "first_seen": "2026-11-28",
+   "platform": "nodeseek",
+   "post_id": "",
+   "source": "a09",
+   "url": "https://www.nodeseek.com/post-1087759-1"
+  },
+  "nodeseek:https://www.nodeseek.com/post-1087760-1": {
+   "first_seen": "2026-11-28",
+   "platform": "nodeseek",
+   "post_id": "",
+   "source": "a09",
+   "url": "https://www.nodeseek.com/post-1087760-1"
+  },
+  "nodeseek:https://www.nodeseek.com/post-1087761-1": {
+   "first_seen": "2026-11-28",
+   "platform": "nodeseek",
+   "post_id": "",
+   "source": "a09",
+   "url": "https://www.nodeseek.com/post-1087761-1"
+  },
+  "nodeseek:https://www.nodeseek.com/post-1087762-1": {
+   "first_seen": "2026-11-28",
+   "platform": "nodeseek",
+   "post_id": "",
+   "source": "a09",
+   "url": "https://www.nodeseek.com/post-1087762-1"
+  },
+  "nodeseek:https://www.nodeseek.com/post-1087764-1": {
+   "first_seen": "2026-11-28",
+   "platform": "nodeseek",
+   "post_id": "",
+   "source": "a09",
+   "url": "https://www.nodeseek.com/post-1087764-1"
+  },
+  "nodeseek:https://www.nodeseek.com/post-1087765-1": {
+   "first_seen": "2026-11-28",
+   "platform": "nodeseek",
+   "post_id": "",
+   "source": "a09",
+   "url": "https://www.nodeseek.com/post-1087765-1"
+  },
+  "nodeseek:https://www.nodeseek.com/post-1087766-1": {
+   "first_seen": "2026-11-28",
+   "platform": "nodeseek",
+   "post_id": "",
+   "source": "a09",
+   "url": "https://www.nodeseek.com/post-1087766-1"
+  },
+  "nodeseek:https://www.nodeseek.com/post-1087768-1": {
+   "first_seen": "2026-11-28",
+   "platform": "nodeseek",
+   "post_id": "",
+   "source": "a09",
+   "url": "https://www.nodeseek.com/post-1087768-1"
+  },
+  "nodeseek:https://www.nodeseek.com/post-1087770-1": {
+   "first_seen": "2026-11-28",
+   "platform": "nodeseek",
+   "post_id": "",
+   "source": "a09",
+   "url": "https://www.nodeseek.com/post-1087770-1"
+  },
+  "nodeseek:https://www.nodeseek.com/post-1087771-1": {
+   "first_seen": "2026-11-28",
+   "platform": "nodeseek",
+   "post_id": "",
+   "source": "a09",
+   "url": "https://www.nodeseek.com/post-1087771-1"
+  },
+  "nodeseek:https://www.nodeseek.com/post-1087772-1": {
+   "first_seen": "2026-11-28",
+   "platform": "nodeseek",
+   "post_id": "",
+   "source": "a09",
+   "url": "https://www.nodeseek.com/post-1087772-1"
+  },
+  "nodeseek:https://www.nodeseek.com/post-1087773-1": {
+   "first_seen": "2026-11-28",
+   "platform": "nodeseek",
+   "post_id": "",
+   "source": "a09",
+   "url": "https://www.nodeseek.com/post-1087773-1"
+  },
+  "nodeseek:https://www.nodeseek.com/post-1087774-1": {
+   "first_seen": "2026-11-28",
+   "platform": "nodeseek",
+   "post_id": "",
+   "source": "a09",
+   "url": "https://www.nodeseek.com/post-1087774-1"
+  },
+  "nodeseek:https://www.nodeseek.com/post-1087775-1": {
+   "first_seen": "2026-11-28",
+   "platform": "nodeseek",
+   "post_id": "",
+   "source": "a09",
+   "url": "https://www.nodeseek.com/post-1087775-1"
+  },
+  "nodeseek:https://www.nodeseek.com/post-1087776-1": {
+   "first_seen": "2026-11-28",
+   "platform": "nodeseek",
+   "post_id": "",
+   "source": "a09",
+   "url": "https://www.nodeseek.com/post-1087776-1"
+  },
+  "nodeseek:https://www.nodeseek.com/post-1087777-1": {
+   "first_seen": "2026-11-28",
+   "platform": "nodeseek",
+   "post_id": "",
+   "source": "a09",
+   "url": "https://www.nodeseek.com/post-1087777-1"
+  },
+  "nodeseek:https://www.nodeseek.com/post-1087778-1": {
+   "first_seen": "2026-11-28",
+   "platform": "nodeseek",
+   "post_id": "",
+   "source": "a09",
+   "url": "https://www.nodeseek.com/post-1087778-1"
   },
   "simonw:https://simonwillison.net/2026/Nov/17/external-sandboxes-for-coding-agents": {
    "first_seen": "2026-11-28",
@@ -2177,6 +2695,314 @@
    "source": "a03",
    "url": "https://www.smzdm.com/p/186909671"
   },
+  "smzdm:186919364": {
+   "first_seen": "2026-11-28",
+   "platform": "smzdm",
+   "post_id": "186919364",
+   "source": "a03",
+   "url": "https://www.smzdm.com/p/186919364"
+  },
+  "smzdm:186920248": {
+   "first_seen": "2026-11-28",
+   "platform": "smzdm",
+   "post_id": "186920248",
+   "source": "a03",
+   "url": "https://www.smzdm.com/p/186920248"
+  },
+  "smzdm:186923283": {
+   "first_seen": "2026-11-28",
+   "platform": "smzdm",
+   "post_id": "186923283",
+   "source": "a03",
+   "url": "https://www.smzdm.com/p/186923283"
+  },
+  "smzdm:186927778": {
+   "first_seen": "2026-11-28",
+   "platform": "smzdm",
+   "post_id": "186927778",
+   "source": "a03",
+   "url": "https://www.smzdm.com/p/186927778"
+  },
+  "smzdm:186927792": {
+   "first_seen": "2026-11-28",
+   "platform": "smzdm",
+   "post_id": "186927792",
+   "source": "a03",
+   "url": "https://www.smzdm.com/p/186927792"
+  },
+  "smzdm:186927793": {
+   "first_seen": "2026-11-28",
+   "platform": "smzdm",
+   "post_id": "186927793",
+   "source": "a03",
+   "url": "https://www.smzdm.com/p/186927793"
+  },
+  "smzdm:186927795": {
+   "first_seen": "2026-11-28",
+   "platform": "smzdm",
+   "post_id": "186927795",
+   "source": "a03",
+   "url": "https://www.smzdm.com/p/186927795"
+  },
+  "smzdm:186927797": {
+   "first_seen": "2026-11-28",
+   "platform": "smzdm",
+   "post_id": "186927797",
+   "source": "a03",
+   "url": "https://www.smzdm.com/p/186927797"
+  },
+  "smzdm:186927799": {
+   "first_seen": "2026-11-28",
+   "platform": "smzdm",
+   "post_id": "186927799",
+   "source": "a03",
+   "url": "https://www.smzdm.com/p/186927799"
+  },
+  "smzdm:186927806": {
+   "first_seen": "2026-11-28",
+   "platform": "smzdm",
+   "post_id": "186927806",
+   "source": "a03",
+   "url": "https://www.smzdm.com/p/186927806"
+  },
+  "smzdm:186927823": {
+   "first_seen": "2026-11-28",
+   "platform": "smzdm",
+   "post_id": "186927823",
+   "source": "a03",
+   "url": "https://www.smzdm.com/p/186927823"
+  },
+  "smzdm:186927858": {
+   "first_seen": "2026-11-28",
+   "platform": "smzdm",
+   "post_id": "186927858",
+   "source": "a03",
+   "url": "https://www.smzdm.com/p/186927858"
+  },
+  "smzdm:186927860": {
+   "first_seen": "2026-11-28",
+   "platform": "smzdm",
+   "post_id": "186927860",
+   "source": "a03",
+   "url": "https://www.smzdm.com/p/186927860"
+  },
+  "smzdm:186927874": {
+   "first_seen": "2026-11-28",
+   "platform": "smzdm",
+   "post_id": "186927874",
+   "source": "a03",
+   "url": "https://www.smzdm.com/p/186927874"
+  },
+  "smzdm:186927875": {
+   "first_seen": "2026-11-28",
+   "platform": "smzdm",
+   "post_id": "186927875",
+   "source": "a03",
+   "url": "https://www.smzdm.com/p/186927875"
+  },
+  "smzdm:186927880": {
+   "first_seen": "2026-11-28",
+   "platform": "smzdm",
+   "post_id": "186927880",
+   "source": "a03",
+   "url": "https://www.smzdm.com/p/186927880"
+  },
+  "smzdm:186927904": {
+   "first_seen": "2026-11-28",
+   "platform": "smzdm",
+   "post_id": "186927904",
+   "source": "a03",
+   "url": "https://www.smzdm.com/p/186927904"
+  },
+  "smzdm:186927913": {
+   "first_seen": "2026-11-28",
+   "platform": "smzdm",
+   "post_id": "186927913",
+   "source": "a03",
+   "url": "https://www.smzdm.com/p/186927913"
+  },
+  "smzdm:186929857": {
+   "first_seen": "2026-11-28",
+   "platform": "smzdm",
+   "post_id": "186929857",
+   "source": "a03",
+   "url": "https://www.smzdm.com/p/186929857"
+  },
+  "smzdm:186930570": {
+   "first_seen": "2026-11-28",
+   "platform": "smzdm",
+   "post_id": "186930570",
+   "source": "a03",
+   "url": "https://www.smzdm.com/p/186930570"
+  },
+  "smzdm:186930571": {
+   "first_seen": "2026-11-28",
+   "platform": "smzdm",
+   "post_id": "186930571",
+   "source": "a03",
+   "url": "https://www.smzdm.com/p/186930571"
+  },
+  "smzdm:186930573": {
+   "first_seen": "2026-11-28",
+   "platform": "smzdm",
+   "post_id": "186930573",
+   "source": "a03",
+   "url": "https://www.smzdm.com/p/186930573"
+  },
+  "smzdm:186930575": {
+   "first_seen": "2026-11-28",
+   "platform": "smzdm",
+   "post_id": "186930575",
+   "source": "a03",
+   "url": "https://www.smzdm.com/p/186930575"
+  },
+  "smzdm:186930579": {
+   "first_seen": "2026-11-28",
+   "platform": "smzdm",
+   "post_id": "186930579",
+   "source": "a03",
+   "url": "https://www.smzdm.com/p/186930579"
+  },
+  "smzdm:186930581": {
+   "first_seen": "2026-11-28",
+   "platform": "smzdm",
+   "post_id": "186930581",
+   "source": "a03",
+   "url": "https://www.smzdm.com/p/186930581"
+  },
+  "smzdm:186930584": {
+   "first_seen": "2026-11-28",
+   "platform": "smzdm",
+   "post_id": "186930584",
+   "source": "a03",
+   "url": "https://www.smzdm.com/p/186930584"
+  },
+  "smzdm:186930589": {
+   "first_seen": "2026-11-28",
+   "platform": "smzdm",
+   "post_id": "186930589",
+   "source": "a03",
+   "url": "https://www.smzdm.com/p/186930589"
+  },
+  "smzdm:186930593": {
+   "first_seen": "2026-11-28",
+   "platform": "smzdm",
+   "post_id": "186930593",
+   "source": "a03",
+   "url": "https://www.smzdm.com/p/186930593"
+  },
+  "smzdm:186930595": {
+   "first_seen": "2026-11-28",
+   "platform": "smzdm",
+   "post_id": "186930595",
+   "source": "a03",
+   "url": "https://www.smzdm.com/p/186930595"
+  },
+  "smzdm:186930596": {
+   "first_seen": "2026-11-28",
+   "platform": "smzdm",
+   "post_id": "186930596",
+   "source": "a03",
+   "url": "https://www.smzdm.com/p/186930596"
+  },
+  "smzdm:186930598": {
+   "first_seen": "2026-11-28",
+   "platform": "smzdm",
+   "post_id": "186930598",
+   "source": "a03",
+   "url": "https://www.smzdm.com/p/186930598"
+  },
+  "smzdm:186930599": {
+   "first_seen": "2026-11-28",
+   "platform": "smzdm",
+   "post_id": "186930599",
+   "source": "a03",
+   "url": "https://www.smzdm.com/p/186930599"
+  },
+  "smzdm:186930600": {
+   "first_seen": "2026-11-28",
+   "platform": "smzdm",
+   "post_id": "186930600",
+   "source": "a03",
+   "url": "https://www.smzdm.com/p/186930600"
+  },
+  "smzdm:186930601": {
+   "first_seen": "2026-11-28",
+   "platform": "smzdm",
+   "post_id": "186930601",
+   "source": "a03",
+   "url": "https://www.smzdm.com/p/186930601"
+  },
+  "smzdm:186930602": {
+   "first_seen": "2026-11-28",
+   "platform": "smzdm",
+   "post_id": "186930602",
+   "source": "a03",
+   "url": "https://www.smzdm.com/p/186930602"
+  },
+  "smzdm:186930603": {
+   "first_seen": "2026-11-28",
+   "platform": "smzdm",
+   "post_id": "186930603",
+   "source": "a03",
+   "url": "https://www.smzdm.com/p/186930603"
+  },
+  "smzdm:186930604": {
+   "first_seen": "2026-11-28",
+   "platform": "smzdm",
+   "post_id": "186930604",
+   "source": "a03",
+   "url": "https://www.smzdm.com/p/186930604"
+  },
+  "smzdm:186930606": {
+   "first_seen": "2026-11-28",
+   "platform": "smzdm",
+   "post_id": "186930606",
+   "source": "a03",
+   "url": "https://www.smzdm.com/p/186930606"
+  },
+  "smzdm:186930608": {
+   "first_seen": "2026-11-28",
+   "platform": "smzdm",
+   "post_id": "186930608",
+   "source": "a03",
+   "url": "https://www.smzdm.com/p/186930608"
+  },
+  "smzdm:186930609": {
+   "first_seen": "2026-11-28",
+   "platform": "smzdm",
+   "post_id": "186930609",
+   "source": "a03",
+   "url": "https://www.smzdm.com/p/186930609"
+  },
+  "smzdm:186930613": {
+   "first_seen": "2026-11-28",
+   "platform": "smzdm",
+   "post_id": "186930613",
+   "source": "a03",
+   "url": "https://www.smzdm.com/p/186930613"
+  },
+  "smzdm:186930614": {
+   "first_seen": "2026-11-28",
+   "platform": "smzdm",
+   "post_id": "186930614",
+   "source": "a03",
+   "url": "https://www.smzdm.com/p/186930614"
+  },
+  "smzdm:186930615": {
+   "first_seen": "2026-11-28",
+   "platform": "smzdm",
+   "post_id": "186930615",
+   "source": "a03",
+   "url": "https://www.smzdm.com/p/186930615"
+  },
+  "smzdm:186930616": {
+   "first_seen": "2026-11-28",
+   "platform": "smzdm",
+   "post_id": "186930616",
+   "source": "a03",
+   "url": "https://www.smzdm.com/p/186930616"
+  },
   "sspai:116773": {
    "first_seen": "2026-11-27",
    "platform": "sspai",
@@ -2240,12 +3066,26 @@
    "source": "a04",
    "url": "https://sspai.com/post/119632"
   },
+  "sspai:119651": {
+   "first_seen": "2026-11-28",
+   "platform": "sspai",
+   "post_id": "119651",
+   "source": "a04",
+   "url": "https://sspai.com/post/119651"
+  },
   "sspai:119658": {
    "first_seen": "2026-11-27",
    "platform": "sspai",
    "post_id": "119658",
    "source": "a04",
    "url": "https://sspai.com/post/119658"
+  },
+  "sspai:119686": {
+   "first_seen": "2026-11-28",
+   "platform": "sspai",
+   "post_id": "119686",
+   "source": "a04",
+   "url": "https://sspai.com/post/119686"
   },
   "v2ex:1260436": {
    "first_seen": "2026-11-28",
@@ -2472,6 +3312,6 @@
    "url": "https://www.youtube.com/watch?v=pQWyf4SnohI"
   }
  },
- "updated": "2026-11-28 06:39",
+ "updated": "2026-11-28 12:53",
  "version": 1
 }
