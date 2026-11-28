@@ -60,7 +60,8 @@ def save_subtitle_md(owner, title, bvid, lines):
     base = fp[:-3]; i = 1
     while os.path.exists(fp):
         i += 1; fp = "%s_%02d.md" % (base, i)
-    head = "# %s\n\n- BV：%s\n- UP：%s\n- 来源：B站 AI 字幕\n- 转存：%s\n\n---\n\n" % (
+    head = ("# %s\n\n- 原视频：https://www.bilibili.com/video/%s/\n"
+            "- UP主：%s\n- 来源：B站 AI 字幕\n- 转存：%s\n\n---\n\n") % (
         title, bvid, owner, datetime.datetime.now().strftime("%Y-%m-%d %H:%M"))
     io.open(fp, 'w', encoding='utf-8').write(head + "\n".join(lines) + "\n")
     return fp
